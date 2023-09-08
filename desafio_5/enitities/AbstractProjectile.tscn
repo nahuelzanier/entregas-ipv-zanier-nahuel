@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enitities/AbstractProjectile.gd" type="Script" id=1]
+[ext_resource path="res://assets/player_projectile.png" type="Texture" id=2]
+
+[node name="Projectile" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+speed = 200.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
