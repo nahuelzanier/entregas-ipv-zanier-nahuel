@@ -5,3 +5,5 @@ var map
 
 func create_entities():
 	pass
+
+func trigger_level_locations(entity): pass

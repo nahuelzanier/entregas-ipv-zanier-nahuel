@@ -1,6 +1,6 @@
 extends Node
 
-var active_map
+var active_level
 
 func _ready():
 	CurrentMap.level_node = self

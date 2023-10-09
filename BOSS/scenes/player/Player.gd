@@ -14,6 +14,7 @@ onready var direction = Vector2.ZERO
 func _ready():
 	$PositionTimer.start()
 	$TerrainTimer.start()
+	$LocationTimer.start()
 	update_tile()
 
 func _physics_process(delta):
@@ -26,7 +27,6 @@ func _physics_process(delta):
 
 func _on_PositionTimer_timeout():
 	direction = Vector2.ZERO
-
 	if Input.is_action_pressed("move_up"):
 		direction.y = -1
 	if Input.is_action_pressed("move_down"):
@@ -74,7 +74,7 @@ func pop_block():
 	return tag
 
 func update_tile():
-	var iso_pos = Global._pos_to_iso(position + Vector2(0,5))
+	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
 	var on_tile = CurrentMap.map[iso_pos.y][iso_pos.x]
 	current_tile = on_tile
 
@@ -84,3 +84,6 @@ func move_away_from_each_other():
 func _on_TerrainTimer_timeout():
 	update_tile()
 	current_tile.player_is_on(self)
+
+func _on_LocationTimer_timeout():
+	CurrentMap.trigger_level_locations(self)

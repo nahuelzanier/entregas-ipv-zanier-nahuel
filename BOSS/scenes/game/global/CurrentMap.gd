@@ -22,9 +22,10 @@ func generate_map(level):
 	load_level(level)
 	map_generator.generate_map()
 	level.create_entities()
-	level_node.active_map = level
+	level_node.active_level = level
 
-
+func trigger_level_locations(entity):
+	level_node.active_level.trigger_level_locations(entity)
 
 #OPTIONAL STUFF
 func update_map(array):
