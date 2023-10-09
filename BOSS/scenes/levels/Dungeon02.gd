@@ -25,3 +25,10 @@ func create_entities():
 		for x in c_map[y].size():
 			if c_map[y][x].type_tag == Tags.g_wall:
 				c_map[y][x].create_detail()
+
+func trigger_level_locations(iso_position):
+	match iso_position:
+		Vector2(10,12):
+			CurrentMap.generate_map($"../Dungeon01", Vector2(10,7))
+		Vector2(11,12):
+			CurrentMap.generate_map($"../Dungeon01", Vector2(11,7))

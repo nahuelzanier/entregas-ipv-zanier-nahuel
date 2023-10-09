@@ -86,4 +86,4 @@ func _on_TerrainTimer_timeout():
 	current_tile.player_is_on(self)
 
 func _on_LocationTimer_timeout():
-	CurrentMap.trigger_level_locations(self)
+	CurrentMap.trigger_level_locations(Global._pos_to_iso(position + Vector2(0,6)))

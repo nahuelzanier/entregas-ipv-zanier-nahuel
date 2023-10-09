@@ -1,7 +1,6 @@
 extends Node2D
 
-onready var floor_map = $"../../Map/Floor"
-onready var entities = $"../../Map/Entities"
+onready var rendered = $"../../Rendered"
 onready var packed_scenes = $PackedScenes
 onready var creator = $MapArrayCreator
 
@@ -13,7 +12,7 @@ func generate_map(detail = false):
 		for x in range(CurrentMap.size_x()):
 			var new_floor = packed_scenes.generate_floor_tile(CurrentMap.map[y][x], x, y)
 			CurrentMap.map[y][x] = new_floor
-			floor_map.add_child(new_floor)
+			rendered.floor_map.add_child(new_floor)
 	for y in range(CurrentMap.size_y()):
 		for x in range(CurrentMap.size_x()):
 			CurrentMap.map[y][x].on_born()
@@ -25,7 +24,7 @@ func generate_map(detail = false):
 
 func generate_entity(entity, x, y):
 	var new_entity = packed_scenes.generate_entity(entity, x, y)
-	entities.add_child(new_entity)
+	rendered.entities.add_child(new_entity)
 
 #func generate_test():
 #	generate_floor_map(current_map)

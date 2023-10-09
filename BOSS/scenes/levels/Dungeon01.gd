@@ -1,7 +1,7 @@
 extends "res://scenes/levels/_AbstractLevel.gd"
 
 func _ready():
-	player_spawn = Vector2(5,10)
+	player_spawn = Vector2(5,11)
 	map = [
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','col','wlx','wlx','wlx','wlx','wlx','wlx','col','xxx','xxx','xxx','xxx','col','wlx','col','xxx'],
@@ -26,7 +26,9 @@ func create_entities():
 			if c_map[y][x].type_tag == Tags.g_wall:
 				c_map[y][x].create_detail()
 
-func trigger_level_locations(entity):
-	match Global._pos_to_iso(entity.position):
+func trigger_level_locations(iso_position):
+	match iso_position:
 		Vector2(10,6):
-			CurrentMap.generate_map($"../Dungeon02")
+			CurrentMap.generate_map($"../Dungeon02", Vector2(10,11))
+		Vector2(11,6):
+			CurrentMap.generate_map($"../Dungeon02", Vector2(11,11))

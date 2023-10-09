@@ -5,6 +5,8 @@ extends Node
 var map_manager
 var map_generator
 var level_node
+var rendered
+
 var player_spawn
 onready var map = []
 
@@ -14,20 +16,20 @@ func size_x():
 func size_y():
 	return map.size()
 
-func load_level(level):
-	player_spawn = level.player_spawn
-	update_map(level.map)
-
-func generate_map(level):
-	load_level(level)
+func generate_map(level, spawn_point):
+	rendered.reset_rendered_elements()
+	load_level(level, spawn_point)
 	map_generator.generate_map()
 	level.create_entities()
 	level_node.active_level = level
 
-func trigger_level_locations(entity):
-	level_node.active_level.trigger_level_locations(entity)
+func trigger_level_locations(iso_position):
+	level_node.active_level.trigger_level_locations(iso_position)
 
-#OPTIONAL STUFF
+func load_level(level, spawn_point):
+	player_spawn = spawn_point
+	update_map(level.map)
+
 func update_map(array):
 	var arr = []
 	for y in range(array.size()):
@@ -37,8 +39,9 @@ func update_map(array):
 		arr.append(arr_y)
 	map = arr
 
-func set_player_spawn(x, y):
-	map[y][x] = Tags.et_player
+#OPTIONAL STUFF
+#func set_player_spawn_(x, y):
+#	map[y][x] = Tags.et_player
 
 func add_map_at(ins_map, x, y):
 	if x+ins_map[0].size() > size_x():
