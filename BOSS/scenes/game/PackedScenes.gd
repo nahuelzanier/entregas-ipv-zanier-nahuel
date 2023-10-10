@@ -5,6 +5,8 @@ export (PackedScene) var wallBase_x
 export (PackedScene) var floorDefault
 export (PackedScene) var floorEmpty
 export (PackedScene) var floor_empty_no_access
+export (PackedScene) var floor_empty_access
+export (PackedScene) var floor_empty_blocked
 export (PackedScene) var waterFloor
 export (PackedScene) var fountainFloor
 export (PackedScene) var crumbleFloor
@@ -17,7 +19,10 @@ export (PackedScene) var checker_red
 export (PackedScene) var bottomless
 export (PackedScene) var tile_door_left
 export (PackedScene) var tile_door_right
+export (PackedScene) var tile_door_north
+export (PackedScene) var tile_door_south
 export (PackedScene) var floor_dungeon
+export (PackedScene) var floor_stone
 #ENTITIES
 export (PackedScene) var emptyEntity
 export (PackedScene) var palmtree
@@ -31,6 +36,8 @@ export (PackedScene) var checker_piece_black
 export (PackedScene) var checker_piece_red
 export (PackedScene) var door_left
 export (PackedScene) var door_right
+export (PackedScene) var door_north
+export (PackedScene) var door_south
 export (PackedScene) var wispBase
 export (PackedScene) var wispWater
 export (PackedScene) var wisp_lava
@@ -58,6 +65,8 @@ func _ready():
 	tile_dict[Tags.fl_default] = floorDefault
 	tile_dict[Tags.fl_empty] = floorEmpty
 	tile_dict[Tags.fl_empty_no_access] = floor_empty_no_access
+	tile_dict[Tags.fl_empty_access] = floor_empty_access
+	tile_dict[Tags.fl_empty_blocked] = floor_empty_blocked
 	tile_dict[Tags.fl_water] = waterFloor
 	tile_dict[Tags.fl_fountain] = fountainFloor
 	tile_dict[Tags.fl_crumble] = crumbleFloor
@@ -70,7 +79,10 @@ func _ready():
 	tile_dict[Tags.fl_bottomless] = bottomless
 	tile_dict[Tags.fl_door_left] = tile_door_left
 	tile_dict[Tags.fl_door_right] = tile_door_right
+	tile_dict[Tags.fl_door_north] = tile_door_north
+	tile_dict[Tags.fl_door_south] = tile_door_south
 	tile_dict[Tags.fl_dungeon] = floor_dungeon
+	tile_dict[Tags.fl_stone] = floor_stone
 	entities_dict[Tags.et_empty] = emptyEntity
 	entities_dict[Tags.et_palmtree] = palmtree
 	entities_dict[Tags.et_wall_y] = wall_y
@@ -83,6 +95,8 @@ func _ready():
 	entities_dict[Tags.et_chkr_red] = checker_piece_red
 	entities_dict[Tags.et_door_left] = door_left
 	entities_dict[Tags.et_door_right] = door_right
+	entities_dict[Tags.et_door_north] = door_north
+	entities_dict[Tags.et_door_south] = door_south
 	entities_dict[Tags.et_wisp] = wispBase
 	entities_dict[Tags.et_water_wisp] = wispWater
 	entities_dict[Tags.et_lava_wisp] = wisp_lava

@@ -1,6 +1,9 @@
 extends "res://scenes/entities/EntityAbstract.gd"
 
 func _ready():
-	type_tag = Tags.g_wall
-	tag = Tags.et_wall_x
+	type_tag = Tags.g_entity
+	tag = Tags.et_door_north
 	block = Tags.bl_empty
+
+func get_lifted(player):
+	pass

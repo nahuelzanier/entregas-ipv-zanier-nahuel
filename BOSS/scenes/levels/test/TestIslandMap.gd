@@ -55,5 +55,7 @@ func create_entities():
 			if c_map[y][x].type_tag != Tags.g_wall:
 				if randi()%40 == 0:
 					CurrentMap.map_manager.create_entity(Tags.et_wisp, x, y)
+				else:
+					c_map[y][x].create_detail()
 			else:
 				c_map[y][x].create_detail()

@@ -12,6 +12,9 @@ func _process(delta):
 	if entities.size() > 1:
 		scramble_entities()
 
+func has_entities():
+	return entities.size() > 0
+
 func scramble_entities():
 	for entity in entities:
 		entity.move_away_from_each_other()
@@ -36,6 +39,9 @@ func destroy_self():
 	self.queue_free()
 
 func create_detail():
+	pass
+
+func switch_sprites():
 	pass
 
 #TILES

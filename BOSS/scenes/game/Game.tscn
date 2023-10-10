@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -45,7 +45,7 @@
 [ext_resource path="res://scenes/entities/RockSinking.tscn" type="PackedScene" id=43]
 [ext_resource path="res://scenes/floor/FloorBottomless.tscn" type="PackedScene" id=44]
 [ext_resource path="res://scenes/game/Level.gd" type="Script" id=45]
-[ext_resource path="res://scenes/levels/Dungeon01.tscn" type="PackedScene" id=46]
+[ext_resource path="res://scenes/levels/Dungeon01/Room01.tscn" type="PackedScene" id=46]
 [ext_resource path="res://scenes/floor/FloorDoorLeft.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/floor/FloorDoorRight.tscn" type="PackedScene" id=48]
 [ext_resource path="res://scenes/entities/DoorRight.tscn" type="PackedScene" id=49]
@@ -53,10 +53,17 @@
 [ext_resource path="res://scenes/game/Rendered.gd" type="Script" id=51]
 [ext_resource path="res://scenes/floor/FloorDungeon.tscn" type="PackedScene" id=52]
 [ext_resource path="res://scenes/blocks/BlockDungeon.tscn" type="PackedScene" id=53]
-[ext_resource path="res://scenes/levels/test/TestIslandMap.tscn" type="PackedScene" id=54]
-[ext_resource path="res://scenes/levels/Dungeon02.tscn" type="PackedScene" id=55]
+[ext_resource path="res://scenes/levels/Dungeon01/Room03.tscn" type="PackedScene" id=54]
+[ext_resource path="res://scenes/levels/Dungeon01/Room02.tscn" type="PackedScene" id=55]
 [ext_resource path="res://scenes/game/Floor.tscn" type="PackedScene" id=56]
 [ext_resource path="res://scenes/game/Entities.tscn" type="PackedScene" id=57]
+[ext_resource path="res://scenes/floor/FloorEmptyAccesible.tscn" type="PackedScene" id=58]
+[ext_resource path="res://scenes/floor/FloorStone.tscn" type="PackedScene" id=59]
+[ext_resource path="res://scenes/floor/FloorDoorNorth.tscn" type="PackedScene" id=60]
+[ext_resource path="res://scenes/floor/FloorDoorSouth.tscn" type="PackedScene" id=61]
+[ext_resource path="res://scenes/entities/DoorNorth.tscn" type="PackedScene" id=62]
+[ext_resource path="res://scenes/entities/DoorSouth.tscn" type="PackedScene" id=63]
+[ext_resource path="res://scenes/floor/FloorEmptyBlocked.tscn" type="PackedScene" id=64]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -67,11 +74,13 @@ __meta__ = {
 [node name="Level" type="Node" parent="."]
 script = ExtResource( 45 )
 
-[node name="Dungeon01" parent="Level" instance=ExtResource( 46 )]
+[node name="Dungeon01" type="Node" parent="Level"]
 
-[node name="Dungeon02" parent="Level" instance=ExtResource( 55 )]
+[node name="Room01" parent="Level/Dungeon01" instance=ExtResource( 46 )]
 
-[node name="IslandMap" parent="Level" instance=ExtResource( 54 )]
+[node name="Room02" parent="Level/Dungeon01" instance=ExtResource( 55 )]
+
+[node name="Room03" parent="Level/Dungeon01" instance=ExtResource( 54 )]
 
 [node name="MapManager" type="Node2D" parent="."]
 script = ExtResource( 8 )
@@ -89,6 +98,8 @@ wallBase_x = ExtResource( 10 )
 floorDefault = ExtResource( 3 )
 floorEmpty = ExtResource( 5 )
 floor_empty_no_access = ExtResource( 30 )
+floor_empty_access = ExtResource( 58 )
+floor_empty_blocked = ExtResource( 64 )
 waterFloor = ExtResource( 11 )
 fountainFloor = ExtResource( 13 )
 crumbleFloor = ExtResource( 14 )
@@ -101,7 +112,10 @@ checker_red = ExtResource( 35 )
 bottomless = ExtResource( 44 )
 tile_door_left = ExtResource( 47 )
 tile_door_right = ExtResource( 48 )
+tile_door_north = ExtResource( 60 )
+tile_door_south = ExtResource( 61 )
 floor_dungeon = ExtResource( 52 )
+floor_stone = ExtResource( 59 )
 emptyEntity = ExtResource( 23 )
 palmtree = ExtResource( 24 )
 wall_y = ExtResource( 29 )
@@ -114,6 +128,8 @@ checker_piece_black = ExtResource( 39 )
 checker_piece_red = ExtResource( 40 )
 door_left = ExtResource( 50 )
 door_right = ExtResource( 49 )
+door_north = ExtResource( 62 )
+door_south = ExtResource( 63 )
 wispBase = ExtResource( 7 )
 wispWater = ExtResource( 12 )
 wisp_lava = ExtResource( 21 )

@@ -20,7 +20,7 @@ func generate_map(detail = false):
 		for y in range(CurrentMap.size_y()):
 			for x in range(CurrentMap.size_x()):
 				CurrentMap.map[y][x].create_detail()
-	generate_entity(Tags.et_player, CurrentMap.player_spawn.x, CurrentMap.player_spawn.y)
+	#generate_entity(Tags.et_player, CurrentMap.player_spawn.x, CurrentMap.player_spawn.y)
 
 func generate_entity(entity, x, y):
 	var new_entity = packed_scenes.generate_entity(entity, x, y)

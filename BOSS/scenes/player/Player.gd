@@ -10,11 +10,11 @@ onready var highlight_timer = $HighlightTimer
 onready var state = $StatesPlayer
 var current_tile
 onready var direction = Vector2.ZERO
+onready var tag = Tags.et_player
 
 func _ready():
 	$PositionTimer.start()
 	$TerrainTimer.start()
-	$LocationTimer.start()
 	update_tile()
 
 func _physics_process(delta):
@@ -85,5 +85,3 @@ func _on_TerrainTimer_timeout():
 	update_tile()
 	current_tile.player_is_on(self)
 
-func _on_LocationTimer_timeout():
-	CurrentMap.trigger_level_locations(Global._pos_to_iso(position + Vector2(0,6)))

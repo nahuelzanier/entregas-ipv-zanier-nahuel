@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 Global="*res://scenes/game/global/Global.gd"
 CurrentMap="*res://scenes/game/global/CurrentMap.gd"
 Tags="*res://scenes/game/global/Tags.gd"
+PlayerSingleton="*res://scenes/game/global/PlayerSingleton.gd"
 
 [display]
 

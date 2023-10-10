@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/wall basic color.png" type="Texture" id=1]
+[ext_resource path="res://scenes/floor/FloorStone.gd" type="Script" id=2]
+
+[node name="FloorStone" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 11 )
+texture = ExtResource( 1 )

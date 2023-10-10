@@ -17,11 +17,16 @@ func size_y():
 	return map.size()
 
 func generate_map(level, spawn_point):
+	record_entities()
+	PlayerSingleton.remove_player()
 	rendered.reset_rendered_elements()
 	load_level(level, spawn_point)
 	map_generator.generate_map()
+	level.create_static_entities()
 	level.create_entities()
 	level_node.active_level = level
+	PlayerSingleton.place_player(player_spawn)
+	print(PlayerSingleton.player)
 
 func trigger_level_locations(iso_position):
 	level_node.active_level.trigger_level_locations(iso_position)
@@ -38,6 +43,16 @@ func update_map(array):
 			arr_y.append(array[y][x])
 		arr.append(arr_y)
 	map = arr
+
+func record_entities():
+	var entity_id = 0
+	for y in range(map.size()):
+		for x in range(map[y].size()):
+			var tile = map[y][x]
+			if tile.has_entities() && tile.entities[0].type_tag != Tags.g_wall:
+				level_node.active_level.entities[entity_id] = [tile.entities[0].tag, x, y]
+				entity_id += 1
+				
 
 #OPTIONAL STUFF
 #func set_player_spawn_(x, y):
