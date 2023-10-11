@@ -18,9 +18,10 @@ position = Vector2( 0, 6 )
 shape = SubResource( 1 )
 
 [node name="MoveTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.67
 
 [node name="TerrainTimer" type="Timer" parent="."]
+wait_time = 1.32
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]

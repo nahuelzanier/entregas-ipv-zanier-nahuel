@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -64,8 +64,12 @@
 [ext_resource path="res://scenes/entities/DoorNorth.tscn" type="PackedScene" id=62]
 [ext_resource path="res://scenes/entities/DoorSouth.tscn" type="PackedScene" id=63]
 [ext_resource path="res://scenes/floor/FloorEmptyBlocked.tscn" type="PackedScene" id=64]
+[ext_resource path="res://scenes/floor/FloorSalt.tscn" type="PackedScene" id=65]
+[ext_resource path="res://scenes/blocks/BlockSalt.tscn" type="PackedScene" id=66]
+[ext_resource path="res://scenes/levels/Dungeon01/Room04.tscn" type="PackedScene" id=67]
+[ext_resource path="res://scenes/entities/SaltPillar.tscn" type="PackedScene" id=68]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": "d"
@@ -82,16 +86,18 @@ script = ExtResource( 45 )
 
 [node name="Room03" parent="Level/Dungeon01" instance=ExtResource( 54 )]
 
-[node name="MapManager" type="Node2D" parent="."]
+[node name="Room04" parent="Level/Dungeon01" instance=ExtResource( 67 )]
+
+[node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )
 
-[node name="MapGenerator" type="Node2D" parent="MapManager"]
+[node name="MapGenerator" type="Node" parent="MapManager"]
 script = ExtResource( 1 )
 
-[node name="MapArrayCreator" type="Node2D" parent="MapManager/MapGenerator"]
+[node name="MapArrayCreator" type="Node" parent="MapManager/MapGenerator"]
 script = ExtResource( 34 )
 
-[node name="PackedScenes" type="Node2D" parent="MapManager/MapGenerator"]
+[node name="PackedScenes" type="Node" parent="MapManager/MapGenerator"]
 script = ExtResource( 6 )
 wallBase_y = ExtResource( 9 )
 wallBase_x = ExtResource( 10 )
@@ -116,6 +122,7 @@ tile_door_north = ExtResource( 60 )
 tile_door_south = ExtResource( 61 )
 floor_dungeon = ExtResource( 52 )
 floor_stone = ExtResource( 59 )
+floor_salt = ExtResource( 65 )
 emptyEntity = ExtResource( 23 )
 palmtree = ExtResource( 24 )
 wall_y = ExtResource( 29 )
@@ -130,6 +137,7 @@ door_left = ExtResource( 50 )
 door_right = ExtResource( 49 )
 door_north = ExtResource( 62 )
 door_south = ExtResource( 63 )
+salt_pillar = ExtResource( 68 )
 wispBase = ExtResource( 7 )
 wispWater = ExtResource( 12 )
 wisp_lava = ExtResource( 21 )
@@ -145,6 +153,7 @@ block_chkrd = ExtResource( 38 )
 block_chk_piece_black = ExtResource( 41 )
 block_chk_piece_red = ExtResource( 42 )
 block_dungeon = ExtResource( 53 )
+block_salt = ExtResource( 66 )
 
 [node name="Rendered" type="Node2D" parent="."]
 script = ExtResource( 51 )

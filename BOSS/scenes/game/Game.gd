@@ -1,5 +1,5 @@
-extends Node2D
+extends Node
 
 func _ready():
-	var map = $Level/Dungeon01/Room01
+	var map = $Level/Dungeon01/Room02
 	CurrentMap.generate_map(map, map.player_spawn)

@@ -11,8 +11,8 @@ func _ready():
 		['xxx','wly','stn','h2o','h2o','h2o','h2o','stn','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','wly','stn','h2o','h2o','h2o','h2o','stn','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','wly','stn','stn','stn','stn','stn','stn','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
-		['xxx','wly','dng','dng','dng','dng','dng','dng','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
-		['xxx','wly','dng','dng','dng','dng','dng','dng','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
+		['xxx','wly','sal','sal','dng','dng','dng','dng','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
+		['xxx','wly','sal','dng','dng','dng','dng','dng','wly','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','wly','dng','col','dng','dng','col','dng','wly','xxx','xxx','xxx','xxx','col','wlx','col','xxx'],
 		['xxx','wly','dng','dng','dng','dng','dng','dng','wly','xxx','xxx','xxx','xxx','wly','dng','wly','xxb'],
 		['xxx','wly','emp','emp','dng','emp','dng','emp','wly','xxx','xxx','xxx','xxx','wly','stn','drn','xxa'],
@@ -28,6 +28,8 @@ func _ready():
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx']
 	]
 	entities[0] = [Tags.et_water_wisp, 4, 4]
+	entities[1] = [Tags.et_water_wisp, 5, 4]
+	entities[2] = [Tags.et_water_wisp, 4, 5]
 
 func create_static_entities():
 	var c_map = CurrentMap.map

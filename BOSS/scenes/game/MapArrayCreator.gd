@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 func rectangle(x_size, y_size, tag):
 	var array = []

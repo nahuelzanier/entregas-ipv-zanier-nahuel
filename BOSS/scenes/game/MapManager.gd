@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 onready var rendered = $"../Rendered"
 onready var packed_scenes = $MapGenerator/PackedScenes

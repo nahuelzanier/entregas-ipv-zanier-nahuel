@@ -30,3 +30,5 @@ func get_lifted(player):
 func unlift_wisp(player): pass
 
 func become_possessed(wisp): pass
+
+func water_wisp_effect(): pass
