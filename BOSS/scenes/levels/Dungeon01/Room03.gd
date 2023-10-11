@@ -38,9 +38,9 @@ func create_static_entities():
 
 func trigger_level_locations(iso_position):
 		match iso_position:
-			Vector2(16,13):
+			Vector2(16,12):
 				CurrentMap.call_deferred("generate_map", $"../Room02", Vector2(1,3.5))
-			Vector2(16,14):
+			Vector2(16,13):
 				CurrentMap.call_deferred("generate_map", $"../Room02", Vector2(1,3.5))
 			_:
 				pass

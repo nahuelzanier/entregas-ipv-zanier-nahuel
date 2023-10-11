@@ -26,7 +26,6 @@ func generate_map(level, spawn_point):
 	level.create_entities()
 	level_node.active_level = level
 	PlayerSingleton.place_player(player_spawn)
-	print(PlayerSingleton.player)
 
 func trigger_level_locations(iso_position):
 	level_node.active_level.trigger_level_locations(iso_position)
@@ -52,12 +51,11 @@ func record_entities():
 			if tile.has_entities() && tile.entities[0].type_tag != Tags.g_wall:
 				level_node.active_level.entities[entity_id] = [tile.entities[0].tag, x, y]
 				entity_id += 1
-				
+
+
+
 
 #OPTIONAL STUFF
-#func set_player_spawn_(x, y):
-#	map[y][x] = Tags.et_player
-
 func add_map_at(ins_map, x, y):
 	if x+ins_map[0].size() > size_x():
 		for sub_array in map:
