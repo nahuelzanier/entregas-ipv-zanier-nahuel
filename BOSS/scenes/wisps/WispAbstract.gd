@@ -14,7 +14,15 @@ func move(iso_x, iso_y):
 	Global.move_to_coordinates(self, x_pos, y_pos)
 	update_tile()
 	current_tile.entities.append(self)
-	
+
+func move_whirlpool(direction):
+	var coords = Global._pos_to_iso(position)
+	update_tile()
+	current_tile.entities.erase(self)
+	Global.move_to_coordinates(self, coords.x + direction.x, coords.y + direction.y)
+	update_tile()
+	current_tile.entities.append(self)
+
 func update_tile():
 	var iso_pos = Global._pos_to_iso(position)
 	var on_tile = CurrentMap.map[iso_pos.y][iso_pos.x]
@@ -40,3 +48,8 @@ func unlift_wisp(player): pass
 func become_possessed(wisp):pass
 
 func water_wisp_effect():pass
+func button_active_effect(button): pass
+func button_inactive_effect(button): pass
+
+func whirlpool(direction):
+	move_whirlpool(direction)

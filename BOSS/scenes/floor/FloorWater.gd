@@ -59,3 +59,7 @@ func sinks_rock():
 #PLAYER
 func player_is_on(player):
 	player.speed = player.default_speed/4
+
+func button_active_effect(button): 
+	if entities.size() > 0:
+		entities[0].button_active_effect(button)

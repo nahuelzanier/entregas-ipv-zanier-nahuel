@@ -1,5 +1,6 @@
 extends Node
 
+var map_tag_name
 var player_spawn = Vector2(2,7)
 onready var entities = {}
 var map
@@ -12,4 +13,4 @@ func create_entities():
 		CurrentMap.map_manager.create_entity(entities[k][0], entities[k][1], entities[k][2])
 	entities = {}
 
-func trigger_level_locations(iso_position): pass
+func trigger_level_locations(iso_position, tag): pass

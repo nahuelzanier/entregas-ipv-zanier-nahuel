@@ -1,6 +1,7 @@
 extends "res://scenes/levels/_AbstractLevel.gd"
 
 func _ready():
+	map_tag_name = "dungeon01_room01"
 	player_spawn = Vector2(4.5,12)
 	map = [
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
@@ -29,11 +30,11 @@ func create_static_entities():
 	c_map[6][10].switch_sprites()
 	c_map[6][11].switch_sprites()
 
-func trigger_level_locations(iso_position):
-	match iso_position:
-		Vector2(10,5):
+func trigger_level_locations(iso_position, tag):
+	match [iso_position, self.map_tag_name]:
+		[Vector2(10,5), tag]:
 			CurrentMap.call_deferred("generate_map", $"../Room02", Vector2(10.5,12))
-		Vector2(11,5):
+		[Vector2(11,5), tag]:
 			CurrentMap.call_deferred("generate_map", $"../Room02", Vector2(10.5,12))
 		_:
 			pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/floor/FloorWallBaseX.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/floor/FloorWater.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/wisps/WaterWisp.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/floor/FloorWallFountain.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/floor/FloorWaterFountain.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/floor/FloorCrumble.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/entities/Rock.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/floor/FloorBeach.tscn" type="PackedScene" id=16]
@@ -68,6 +68,17 @@
 [ext_resource path="res://scenes/blocks/BlockSalt.tscn" type="PackedScene" id=66]
 [ext_resource path="res://scenes/levels/Dungeon01/Room04.tscn" type="PackedScene" id=67]
 [ext_resource path="res://scenes/entities/SaltPillar.tscn" type="PackedScene" id=68]
+[ext_resource path="res://scenes/entities/TrapDoor.tscn" type="PackedScene" id=69]
+[ext_resource path="res://scenes/floor/FloorTrapDoor.tscn" type="PackedScene" id=70]
+[ext_resource path="res://scenes/blocks/BlockButton.tscn" type="PackedScene" id=71]
+[ext_resource path="res://scenes/floor/FloorButton.tscn" type="PackedScene" id=72]
+[ext_resource path="res://scenes/levels/Dungeon01/Room05.tscn" type="PackedScene" id=73]
+[ext_resource path="res://scenes/levels/Island01/Island01.tscn" type="PackedScene" id=74]
+[ext_resource path="res://scenes/floor/FloorDeepWater.tscn" type="PackedScene" id=75]
+[ext_resource path="res://scenes/floor/FloorWhirlpoolNE.tscn" type="PackedScene" id=76]
+[ext_resource path="res://scenes/floor/FloorWhirlpoolSW.tscn" type="PackedScene" id=77]
+[ext_resource path="res://scenes/floor/FloorWhirlpoolSE.tscn" type="PackedScene" id=78]
+[ext_resource path="res://scenes/floor/FloorWhirlpoolNW.tscn" type="PackedScene" id=79]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
@@ -88,6 +99,12 @@ script = ExtResource( 45 )
 
 [node name="Room04" parent="Level/Dungeon01" instance=ExtResource( 67 )]
 
+[node name="Room05" parent="Level/Dungeon01" instance=ExtResource( 73 )]
+
+[node name="Island01" type="Node" parent="Level"]
+
+[node name="Island01" parent="Level/Island01" instance=ExtResource( 74 )]
+
 [node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )
 
@@ -107,6 +124,7 @@ floor_empty_no_access = ExtResource( 30 )
 floor_empty_access = ExtResource( 58 )
 floor_empty_blocked = ExtResource( 64 )
 waterFloor = ExtResource( 11 )
+deep_water = ExtResource( 75 )
 fountainFloor = ExtResource( 13 )
 crumbleFloor = ExtResource( 14 )
 lavaFloor = ExtResource( 20 )
@@ -123,6 +141,12 @@ tile_door_south = ExtResource( 61 )
 floor_dungeon = ExtResource( 52 )
 floor_stone = ExtResource( 59 )
 floor_salt = ExtResource( 65 )
+floor_trap_door = ExtResource( 70 )
+floor_button = ExtResource( 72 )
+whirlpool_ne = ExtResource( 76 )
+whirlpool_nw = ExtResource( 79 )
+whirlpool_sw = ExtResource( 77 )
+whirlpool_se = ExtResource( 78 )
 emptyEntity = ExtResource( 23 )
 palmtree = ExtResource( 24 )
 wall_y = ExtResource( 29 )
@@ -138,6 +162,7 @@ door_right = ExtResource( 49 )
 door_north = ExtResource( 62 )
 door_south = ExtResource( 63 )
 salt_pillar = ExtResource( 68 )
+trap_door = ExtResource( 69 )
 wispBase = ExtResource( 7 )
 wispWater = ExtResource( 12 )
 wisp_lava = ExtResource( 21 )
@@ -154,6 +179,7 @@ block_chk_piece_black = ExtResource( 41 )
 block_chk_piece_red = ExtResource( 42 )
 block_dungeon = ExtResource( 53 )
 block_salt = ExtResource( 66 )
+block_button = ExtResource( 71 )
 
 [node name="Rendered" type="Node2D" parent="."]
 script = ExtResource( 51 )

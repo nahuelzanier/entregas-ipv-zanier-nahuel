@@ -39,6 +39,7 @@ func get_lifted(player):
 		destroy_self()
 	else:
 		current_tile.get_lifted(player)
+		update_tile()
 
 func turn_into_water_wisp():
 	CurrentMap.map_manager.replace_entity(self, Tags.et_water_wisp)

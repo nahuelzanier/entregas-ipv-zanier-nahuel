@@ -31,3 +31,7 @@ func born_beach_tile(tile):
 	CurrentMap.map_manager.replace(Tags.fl_beach, iso_x, iso_y)
 	if crumbling_tile:
 		CurrentMap.map[iso_y][iso_x].crumbling_tile_active()
+
+func button_active_effect(button): 
+	if entities.size() > 0:
+		entities[0].button_active_effect(button)

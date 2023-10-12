@@ -8,6 +8,7 @@ export (PackedScene) var floor_empty_no_access
 export (PackedScene) var floor_empty_access
 export (PackedScene) var floor_empty_blocked
 export (PackedScene) var waterFloor
+export (PackedScene) var deep_water
 export (PackedScene) var fountainFloor
 export (PackedScene) var crumbleFloor
 export (PackedScene) var lavaFloor
@@ -24,6 +25,12 @@ export (PackedScene) var tile_door_south
 export (PackedScene) var floor_dungeon
 export (PackedScene) var floor_stone
 export (PackedScene) var floor_salt
+export (PackedScene) var floor_trap_door
+export (PackedScene) var floor_button
+export (PackedScene) var whirlpool_ne
+export (PackedScene) var whirlpool_nw
+export (PackedScene) var whirlpool_sw
+export (PackedScene) var whirlpool_se
 #ENTITIES
 export (PackedScene) var emptyEntity
 export (PackedScene) var palmtree
@@ -40,11 +47,13 @@ export (PackedScene) var door_right
 export (PackedScene) var door_north
 export (PackedScene) var door_south
 export (PackedScene) var salt_pillar
+export (PackedScene) var trap_door
 export (PackedScene) var wispBase
 export (PackedScene) var wispWater
 export (PackedScene) var wisp_lava
 export (PackedScene) var wisp_quake
 export (PackedScene) var wisp_sand
+
 #BLOCKS
 export (PackedScene) var block_empty
 export (PackedScene) var block_palmtree
@@ -57,6 +66,7 @@ export (PackedScene) var block_chk_piece_black
 export (PackedScene) var block_chk_piece_red
 export (PackedScene) var block_dungeon
 export (PackedScene) var block_salt
+export (PackedScene) var block_button
 
 var tile_dict = {}
 var entities_dict = {}
@@ -71,6 +81,7 @@ func _ready():
 	tile_dict[Tags.fl_empty_access] = floor_empty_access
 	tile_dict[Tags.fl_empty_blocked] = floor_empty_blocked
 	tile_dict[Tags.fl_water] = waterFloor
+	tile_dict[Tags.fl_deep_water] = deep_water
 	tile_dict[Tags.fl_fountain] = fountainFloor
 	tile_dict[Tags.fl_crumble] = crumbleFloor
 	tile_dict[Tags.fl_lava] = lavaFloor
@@ -87,6 +98,12 @@ func _ready():
 	tile_dict[Tags.fl_dungeon] = floor_dungeon
 	tile_dict[Tags.fl_stone] = floor_stone
 	tile_dict[Tags.fl_salt] = floor_salt
+	tile_dict[Tags.fl_trap_door] = floor_trap_door
+	tile_dict[Tags.fl_button] = floor_button
+	tile_dict[Tags.fl_whirlpool_ne] = whirlpool_ne
+	tile_dict[Tags.fl_whirlpool_nw] = whirlpool_nw
+	tile_dict[Tags.fl_whirlpool_sw] = whirlpool_sw
+	tile_dict[Tags.fl_whirlpool_se] = whirlpool_se
 	entities_dict[Tags.et_empty] = emptyEntity
 	entities_dict[Tags.et_palmtree] = palmtree
 	entities_dict[Tags.et_wall_y] = wall_y
@@ -107,6 +124,7 @@ func _ready():
 	entities_dict[Tags.et_lava_wisp] = wisp_lava
 	entities_dict[Tags.et_quake_wisp] = wisp_quake
 	entities_dict[Tags.et_sand_wisp] = wisp_sand
+	entities_dict[Tags.et_trap_door] = trap_door
 	block_dict[Tags.bl_empty] = block_empty
 	block_dict[Tags.bl_palmtree] = block_palmtree
 	block_dict[Tags.bl_default] = block_default
@@ -118,6 +136,7 @@ func _ready():
 	block_dict[Tags.bl_chkr_rdpiece] = block_chk_piece_red
 	block_dict[Tags.bl_dungeon] = block_dungeon
 	block_dict[Tags.bl_salt] = block_salt
+	block_dict[Tags.bl_button] = block_button
 
 func generate_floor_tile(tile, x, y):
 	if tile != null:

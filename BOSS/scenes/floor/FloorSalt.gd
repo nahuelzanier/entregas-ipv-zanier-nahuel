@@ -1,7 +1,5 @@
 extends "res://scenes/floor/FloorAbstract.gd"
 
-onready var disolving = false
-
 func _ready():
 	type_tag = Tags.g_tile
 	tag = Tags.fl_salt
@@ -19,8 +17,6 @@ func moving_water_wisp(wisp):
 		
 
 func water_wisp_is_on(wisp):
-	if disolving:
 		CurrentMap.map_manager.replace(Tags.fl_water, iso_x, iso_y)
-	else:
-		disolving = true
+
 

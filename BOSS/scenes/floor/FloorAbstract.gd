@@ -7,6 +7,7 @@ onready var tag
 onready var lift_block
 var respawn_crumbling_tile = false
 var entities
+onready var map_tag = CurrentMap.level_node.active_level.map_tag_name
 
 func _process(delta):
 	if entities.size() > 1:
@@ -106,3 +107,7 @@ func unlift_palmtree():
 
 func quake_start(): pass
 func quake(dir_x, dir_y): pass
+
+
+func button_active_effect(button): pass
+func button_inactive_effect(button): pass

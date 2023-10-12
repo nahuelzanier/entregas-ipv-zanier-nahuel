@@ -12,4 +12,4 @@ texture = ExtResource( 1 )
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -5, 1, 10, 8, 4, 11, -11, 4 )
+polygon = PoolVector2Array( 0, 0, 13, 7, 0, 14, -13, 7 )

@@ -20,15 +20,15 @@ func generate_map(level, spawn_point):
 	record_entities()
 	PlayerSingleton.remove_player()
 	rendered.reset_rendered_elements()
+	level_node.active_level = level
 	load_level(level, spawn_point)
 	map_generator.generate_map()
 	level.create_static_entities()
 	level.create_entities()
-	level_node.active_level = level
 	PlayerSingleton.place_player(player_spawn)
 
-func trigger_level_locations(iso_position):
-	level_node.active_level.trigger_level_locations(iso_position)
+func trigger_level_locations(iso_position, map_tag):
+	level_node.active_level.trigger_level_locations(iso_position, map_tag)
 
 func load_level(level, spawn_point):
 	player_spawn = spawn_point

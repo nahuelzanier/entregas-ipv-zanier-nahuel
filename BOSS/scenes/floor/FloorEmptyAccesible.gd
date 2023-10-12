@@ -20,4 +20,4 @@ func unlift_wisp(player):pass
 
 func _on_Trigger_body_entered(body):
 	if body.tag == Tags.et_player:
-		CurrentMap.trigger_level_locations(Vector2(iso_x, iso_y))
+		CurrentMap.trigger_level_locations(Vector2(iso_x, iso_y), map_tag)
