@@ -1,10 +1,9 @@
 extends "res://scenes/wisps/WispAbstract.gd"
 
-onready var block = Tags.bl_wisp
-
 func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_wisp
+	block = Tags.bl_wisp
 	$TerrainTimer.start()
 	$MoveTimer.start()
 	update_tile()

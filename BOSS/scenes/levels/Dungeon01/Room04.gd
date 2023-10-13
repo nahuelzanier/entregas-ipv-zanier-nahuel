@@ -6,7 +6,7 @@ func _ready():
 	map = [
 		['xxx','xxx','xxx','xxb','xxa','xxa','xxb','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','col','wlx','wlx','drl','drr','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','col','xxx'],
-		['xxx','wly','dng','emp','dng','dng','dng','emp','dng','dng','dng','dng','emp','dng','emp','fou','emp','dng','dng','emp','emp','wly','xxx'],
+		['xxx','wly','dng','emp','stn','stn','dng','emp','dng','dng','dng','dng','emp','dng','emp','fou','emp','dng','dng','emp','emp','wly','xxx'],
 		['xxx','wly','dng','dng','dng','dng','dng','emp','dng','dng','dng','dng','emp','dng','dng','emp','dng','dng','dng','dng','emp','wly','xxx'],
 		['xxx','wly','dng','emp','dng','dng','dng','emp','dng','dng','dng','dng','emp','dng','dng','dng','dng','dng','emp','dng','emp','wly','xxx'],
 		['xxx','wly','emp','dng','stn','stn','dng','emp','dng','emp','dng','dng','dng','dng','emp','dng','dng','dng','emp','emp','dng','wly','xxx'],

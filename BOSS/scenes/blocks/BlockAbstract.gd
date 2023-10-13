@@ -1,5 +1,6 @@
 extends Sprite
 
+onready var type_tag
 onready var unlift
 onready var tag
 onready var falling = false

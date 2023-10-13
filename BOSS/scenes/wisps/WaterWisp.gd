@@ -5,6 +5,7 @@ onready var on_land = false
 func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_water_wisp
+	block = Tags.bl_wisp_water
 	$MoveTimer.start()
 	$TerrainTimer.start()
 	update_tile()

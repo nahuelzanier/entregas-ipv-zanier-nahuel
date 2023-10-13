@@ -9,7 +9,9 @@ func _ready():
 	$WhirlpoolStartTimer.start()
 
 func get_lifted(player):
-	pass
+	CurrentMap.map_manager.create_entity(Tags.et_block_holder, iso_x, iso_y)
+	entities[0].set_block(player.block_tag_proper())
+	player.pop_block()
 
 func on_born():
 	$WaterGrowth.start()
@@ -60,7 +62,9 @@ func unlift_rock():
 	return entities.size() < 1
 
 func sinks_rock():
-	return false	
+	return true
+	
+func block_holder(block_holder):pass	
 	
 #PLAYER
 func player_is_on(player):

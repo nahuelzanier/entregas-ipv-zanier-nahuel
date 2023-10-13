@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -79,6 +79,14 @@
 [ext_resource path="res://scenes/floor/FloorWhirlpoolSW.tscn" type="PackedScene" id=77]
 [ext_resource path="res://scenes/floor/FloorWhirlpoolSE.tscn" type="PackedScene" id=78]
 [ext_resource path="res://scenes/floor/FloorWhirlpoolNW.tscn" type="PackedScene" id=79]
+[ext_resource path="res://scenes/blocks/BlockWispWater.tscn" type="PackedScene" id=80]
+[ext_resource path="res://scenes/entities/EntityBlockHolder.tscn" type="PackedScene" id=81]
+[ext_resource path="res://scenes/floor/FloorStairsDown.tscn" type="PackedScene" id=82]
+[ext_resource path="res://scenes/entities/StoneLid.tscn" type="PackedScene" id=83]
+[ext_resource path="res://scenes/blocks/BlockStoneLid.tscn" type="PackedScene" id=84]
+[ext_resource path="res://scenes/floor/FloorStairsUp.tscn" type="PackedScene" id=85]
+[ext_resource path="res://scenes/entities/StairsUp.tscn" type="PackedScene" id=86]
+[ext_resource path="res://scenes/levels/EmptyLevel.tscn" type="PackedScene" id=87]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
@@ -104,6 +112,8 @@ script = ExtResource( 45 )
 [node name="Island01" type="Node" parent="Level"]
 
 [node name="Island01" parent="Level/Island01" instance=ExtResource( 74 )]
+
+[node name="EmptyLevel" parent="Level" instance=ExtResource( 87 )]
 
 [node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )
@@ -147,6 +157,9 @@ whirlpool_ne = ExtResource( 76 )
 whirlpool_nw = ExtResource( 79 )
 whirlpool_sw = ExtResource( 77 )
 whirlpool_se = ExtResource( 78 )
+stairs_down = ExtResource( 82 )
+stairs_up = ExtResource( 85 )
+block_holder = ExtResource( 81 )
 emptyEntity = ExtResource( 23 )
 palmtree = ExtResource( 24 )
 wall_y = ExtResource( 29 )
@@ -168,6 +181,8 @@ wispWater = ExtResource( 12 )
 wisp_lava = ExtResource( 21 )
 wisp_quake = ExtResource( 31 )
 wisp_sand = ExtResource( 33 )
+stone_lid = ExtResource( 83 )
+entity_stairs_up = ExtResource( 86 )
 block_empty = ExtResource( 18 )
 block_palmtree = ExtResource( 25 )
 block_default = ExtResource( 17 )
@@ -180,6 +195,8 @@ block_chk_piece_red = ExtResource( 42 )
 block_dungeon = ExtResource( 53 )
 block_salt = ExtResource( 66 )
 block_button = ExtResource( 71 )
+block_water_wisp = ExtResource( 80 )
+block_stone_lid = ExtResource( 84 )
 
 [node name="Rendered" type="Node2D" parent="."]
 script = ExtResource( 51 )

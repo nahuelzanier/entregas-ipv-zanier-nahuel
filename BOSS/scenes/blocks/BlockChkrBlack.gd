@@ -1,6 +1,7 @@
 extends "res://scenes/blocks/BlockAbstract.gd"
 
 func _ready():
+	type_tag = Tags.g_tile
 	tag = Tags.bl_chkr_black
 	unlift = Tags.fl_chkr_black
 

@@ -6,10 +6,10 @@ func _ready():
 	map = [
 		['xxx','xxx','xxx','xxb','xxa','xxa','xxb','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','col','wlx','wlx','drl','drr','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','col','xxx'],
-		['xxb','wly','dng','dng','emp','emp','dng','dng','dng','dng','dng','dng','emp','dng','dng','wly','xxx'],
+		['xxb','wly','dng','stn','emp','emp','stn','dng','dng','dng','dng','dng','emp','dng','dng','wly','xxx'],
 		['xxa','drn','stn','emp','dng','dng','dng','dng','emp','dng','emp','dng','dng','emp','dng','wly','xxb'],
-		['xxa','drs','stn','emp','dng','dng','emp','emp','emp','emp','dng','dng','dng','dng','emp','drn','xxa'],
-		['xxb','wly','dng','dng','dng','dng','btn','dng','dng','dng','dng','dng','emp','dng','emp','drs','xxa'],
+		['xxa','drs','stn','emp','dng','dng','emp','emp','emp','emp','dng','dng','dng','dng','stn','drn','xxa'],
+		['xxb','wly','dng','dng','dng','dng','btn','dng','dng','dng','dng','dng','emp','dng','stn','drs','xxa'],
 		['xxx','wly','h2o','emp','emp','emp','emp','emp','emp','emp','dng','emp','dng','emp','dng','wly','xxb'],
 		['xxx','col','wlx','wlx','wlx','wlx','wlx','wlx','col','emp','dng','dng','emp','col','wlx','col','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','wly','emp','dng','dng','emp','wly','xxx','xxx','xxx'],
@@ -19,10 +19,10 @@ func _ready():
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','col','wlx','drl','drr','wlx','col','xxx','xxx','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxb','xxa','xxa','xxb','xxx','xxx','xxx','xxx']
 	]
-	entities[0] = [Tags.et_trap_door, 4, 2]
-	entities[1] = [Tags.et_trap_door, 5, 2]
-	entities[2] = [Tags.et_trap_door, 6, 6]
-	entities[3] = [Tags.et_rock, 6, 5]
+#	entities[0] = [Tags.et_trap_door, 4, 2]
+#	entities[1] = [Tags.et_trap_door, 5, 2]
+#	entities[2] = [Tags.et_trap_door, 6, 6]
+#	entities[3] = [Tags.et_rock, 6, 5]
 
 func create_static_entities():
 	var c_map = CurrentMap.map

@@ -46,7 +46,10 @@ func lift():
 func block():
 	return lift_position.block
 
-func block_tag():
+func block_tag_proper():
+	return lift_position.block.tag
+
+func block_tag():  #the entity it unlifts to
 	return lift_position.block.unlift
 
 func grab_floor_block(block):

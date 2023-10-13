@@ -95,6 +95,14 @@ func unlift_rock():
 
 func sinks_rock():
 	return false
+	
+func block_holder(block_holder):
+	if block_holder.held_block.type_tag == Tags.g_tile:
+		CurrentMap.map_manager.replace(block_holder.unlift(), iso_x, iso_y)
+		block_holder.destroy_self()
+	if block_holder.held_block.type_tag == Tags.g_entity:
+		CurrentMap.map_manager.create_entity(block_holder.unlift(), iso_x, iso_y)
+		block_holder.destroy_self()
 
 func unlift_wisp(player):
 	if entities.size() > 0:

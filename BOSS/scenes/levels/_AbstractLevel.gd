@@ -13,4 +13,6 @@ func create_entities():
 		CurrentMap.map_manager.create_entity(entities[k][0], entities[k][1], entities[k][2])
 	entities = {}
 
+func update_maps():pass
+
 func trigger_level_locations(iso_position, tag): pass

@@ -50,3 +50,4 @@ func unlift_rock():
 func unlift_palmtree():
 	return entities.size() == 0
 
+func block_holder(block_holder):pass

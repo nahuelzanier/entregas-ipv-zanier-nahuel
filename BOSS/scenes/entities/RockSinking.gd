@@ -5,7 +5,7 @@ func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_rock
 	block = Tags.bl_rock
-	$SinkTimer.start()
+	#$SinkTimer.start()
 
 func _on_SinkTimer_timeout():
 	destroy_self()

@@ -3,6 +3,7 @@ extends Area2D
 onready var type_tag
 onready var tag
 var current_tile
+var block
 
 func try_to_move(): pass
 

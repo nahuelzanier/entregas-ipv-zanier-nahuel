@@ -17,8 +17,9 @@ func size_y():
 	return map.size()
 
 func generate_map(level, spawn_point):
-	record_entities()
 	PlayerSingleton.remove_player()
+	level_node.active_level.update_maps()
+	record_entities()
 	rendered.reset_rendered_elements()
 	level_node.active_level = level
 	load_level(level, spawn_point)

@@ -3,6 +3,7 @@ extends "res://scenes/blocks/BlockAbstract.gd"
 var unlift_alt
 
 func _ready():
+	type_tag = Tags.g_entity
 	tag = Tags.bl_rock
 	unlift = Tags.et_rock
 	unlift_alt = Tags.et_sinking_rock
