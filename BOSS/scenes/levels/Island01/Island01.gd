@@ -4,7 +4,7 @@ func _ready():
 	map_tag_name = "island 1-1"
 	player_spawn = Vector2(14,42)
 	map = [
-		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
+		['xxx','xxx','xxx','xxx','xxx','xxb','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxb','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
 		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
 		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
@@ -74,6 +74,8 @@ func create_static_entities():
 				c_map[y][x].create_detail()
 
 func trigger_level_locations(iso_position, tag):
+	if iso_position.y == 0 and tag == self.map_tag_name:
+			CurrentMap.call_deferred("generate_map", $"../../Tests/IslandMap", Vector2(46,40))
 	match [iso_position, self.map_tag_name]:
 		[Vector2(6,15), tag]:
 			CurrentMap.call_deferred("generate_map", $"../../Dungeon01/Room01", Vector2(2,10))

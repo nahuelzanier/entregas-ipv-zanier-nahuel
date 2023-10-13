@@ -19,14 +19,15 @@ func button_activation_effect():
 	CurrentMap.map[iso_y - 1][iso_x - 1].button_active_effect(self)
 
 func button_deactivation_effect():
-	CurrentMap.map[iso_y][iso_x + 1].button_inactive_effect(self)
-	CurrentMap.map[iso_y][iso_x - 1].button_inactive_effect(self)
-	CurrentMap.map[iso_y + 1][iso_x].button_inactive_effect(self)
-	CurrentMap.map[iso_y - 1][iso_x].button_inactive_effect(self)
-	CurrentMap.map[iso_y + 1][iso_x + 1].button_inactive_effect(self)
-	CurrentMap.map[iso_y + 1][iso_x - 1].button_inactive_effect(self)
-	CurrentMap.map[iso_y - 1][iso_x + 1].button_inactive_effect(self)
-	CurrentMap.map[iso_y - 1][iso_x - 1].button_inactive_effect(self)
+	if proper_map_is_active():
+		CurrentMap.map[iso_y][iso_x + 1].button_inactive_effect(self)
+		CurrentMap.map[iso_y][iso_x - 1].button_inactive_effect(self)
+		CurrentMap.map[iso_y + 1][iso_x].button_inactive_effect(self)
+		CurrentMap.map[iso_y - 1][iso_x].button_inactive_effect(self)
+		CurrentMap.map[iso_y + 1][iso_x + 1].button_inactive_effect(self)
+		CurrentMap.map[iso_y + 1][iso_x - 1].button_inactive_effect(self)
+		CurrentMap.map[iso_y - 1][iso_x + 1].button_inactive_effect(self)
+		CurrentMap.map[iso_y - 1][iso_x - 1].button_inactive_effect(self)
 
 #ENTITIES
 func unlift_rock():

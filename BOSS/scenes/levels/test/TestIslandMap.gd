@@ -1,6 +1,7 @@
 extends "res://scenes/levels/_AbstractLevel.gd"
 
 func _ready():
+	map_tag_name = "Test Island"
 	player_spawn = Vector2(46,40)
 	map = [
 		['col','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','col'],

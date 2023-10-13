@@ -12,9 +12,6 @@ func get_lifted(player): pass
 func get_lifted_with_entity(player): pass
 
 #PLAYER
-func player_is_on(player):
-	player.speed = 1
-	
 func unlift_wisp(player):pass
 
 

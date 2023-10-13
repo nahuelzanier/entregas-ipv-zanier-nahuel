@@ -26,13 +26,12 @@ func _ready():
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','wly','dng','emp','emp','dng','emp','emp','wly','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','wly','wlx','wlx','stn','stn','wlx','wlx','wly','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','wly','emp','emp','dng','dng','emp','emp','wly','xxx'],
-		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','wly','dng','dng','stn','stn','btn','dng','wly','xxx'],
+		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','wly','dng','dng','stn','stn','dng','dng','wly','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','col','wlx','wlx','drl','drr','wlx','wlx','col','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxb','xxa','xxa','xxb','xxx','xxx','xxx']
 	]
-#	entities[0] = [Tags.et_trap_door, 10, 21]
-#	entities[1] = [Tags.et_trap_door, 11, 21]
-	entities[2] = [Tags.et_rock, 11, 21]
+	entities[0] = [Tags.et_trap_door, 10, 21]
+	entities[1] = [Tags.et_trap_door, 11, 21]
 
 	
 func create_static_entities():
@@ -52,10 +51,9 @@ func trigger_level_locations(iso_position, tag):
 			pass
 
 func update_maps():
-	print('room05 update map')
-	if (map[4][8]!= Tags.fl_water
-	 && map[4][10] != Tags.fl_water 
-	 && map[4][12] != Tags.fl_water):
+	if (map[4][8] != Tags.fl_water
+	 && map[6][8] != Tags.fl_water 
+	 && map[8][8] != Tags.fl_water):
 		$"../../Island01/Island01".stop_whirlpool()
 	else:
 		$"../../Island01/Island01".start_whirlpool()

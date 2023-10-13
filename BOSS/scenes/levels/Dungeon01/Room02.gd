@@ -19,10 +19,10 @@ func _ready():
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','col','wlx','drl','drr','wlx','col','xxx','xxx','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxb','xxa','xxa','xxb','xxx','xxx','xxx','xxx']
 	]
-#	entities[0] = [Tags.et_trap_door, 4, 2]
-#	entities[1] = [Tags.et_trap_door, 5, 2]
-#	entities[2] = [Tags.et_trap_door, 6, 6]
-#	entities[3] = [Tags.et_rock, 6, 5]
+	entities[0] = [Tags.et_trap_door, 4, 2]
+	entities[1] = [Tags.et_trap_door, 5, 2]
+	entities[2] = [Tags.et_trap_door, 6, 6]
+	entities[3] = [Tags.et_rock, 6, 5]
 
 func create_static_entities():
 	var c_map = CurrentMap.map

@@ -45,6 +45,9 @@ func create_detail():
 func switch_sprites():
 	pass
 
+func proper_map_is_active():
+	return CurrentMap.level_node.active_level.map_tag_name == map_tag
+
 #TILES
 func born_default_tile(tile): pass
 
