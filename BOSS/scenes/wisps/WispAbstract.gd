@@ -54,3 +54,4 @@ func button_inactive_effect(button): pass
 
 func whirlpool(direction):
 	move_whirlpool(direction)
+func set_block(block_tag):pass

@@ -19,7 +19,7 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_released("grab"):
-		lift()
+		call_deferred("lift")
 	rotation = 0
 	var grab = grab_coords()
 	highlight.global_position = Global._iso_to_pos(grab.x, grab.y) + Vector2(0,7)

@@ -1,7 +1,7 @@
 extends "res://scenes/levels/_AbstractLevel.gd"
 
 func _ready():
-	player_spawn = Vector2(5,3)
+	player_spawn = Vector2(2,6)
 	map = [
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','col','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','col','xxx'],
@@ -15,7 +15,7 @@ func _ready():
 		['xxx','wly','def','emp','def','bea','h2o','h2o','h2o','bea','def','btm','def','wly','xxx'],
 		['xxx','wly','def','emp','def','bea','bea','bea','bea','bea','def','btm','def','wly','xxx'],
 		['xxx','wly','def','emp','chr','chb','chr','chb','chr','chb','chr','def','def','wly','xxx'],
-		['xxx','wly','emp','def','emp','emp','emp','emp','emp','emp','emp','def','emp','fou','xxx'],
+		['xxx','wly','def','def','emp','emp','emp','emp','emp','emp','emp','def','def','fou','xxx'],
 		['xxx','wly','def','def','def','def','def','def','def','def','def','def','def','wly','xxx'],
 		['xxx','wly','cru','cru','cru','cru','cru','cru','cru','cru','cru','cru','cru','wly','xxx'],
 		['xxx','wly','cru','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','cru','wly','xxx'],

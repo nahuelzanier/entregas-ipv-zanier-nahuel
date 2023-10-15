@@ -16,7 +16,6 @@ func _process(delta):
 		entities[0].destroy_self()
 		falling_element.start_falling(block)
 
-
 func _on_RespawnCrumblingTile_timeout():
 	CurrentMap.map_manager.replace(Tags.fl_crumble, iso_x, iso_y)
 
