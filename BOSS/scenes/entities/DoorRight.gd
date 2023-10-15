@@ -5,5 +5,4 @@ func _ready():
 	tag = Tags.et_door_right
 	block = Tags.bl_empty
 
-func get_lifted(player):
-	pass
+func get_lifted(player): pass

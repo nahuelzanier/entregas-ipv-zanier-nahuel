@@ -53,9 +53,6 @@ func record_entities():
 				level_node.active_level.entities[entity_id] = [tile.entities[0].tag, x, y]
 				entity_id += 1
 
-
-
-
 #OPTIONAL STUFF
 func add_map_at(ins_map, x, y):
 	if x+ins_map[0].size() > size_x():

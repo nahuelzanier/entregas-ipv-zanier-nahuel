@@ -15,11 +15,6 @@ func get_lifted(player):
 	if player.block_tag() == Tags.fl_empty:
 		player.grab_entity_block(block)
 		destroy_self()
-	else:
-		var player_block = player.block_tag_proper()
-		player.grab_entity_block(block)
-		held_block.queue_free()
-		set_block(player_block)
 		
 func set_block(set_block):
 	self.block = set_block

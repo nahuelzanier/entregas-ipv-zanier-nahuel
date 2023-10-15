@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -88,6 +88,8 @@
 [ext_resource path="res://scenes/entities/StairsUp.tscn" type="PackedScene" id=86]
 [ext_resource path="res://scenes/levels/EmptyLevel.tscn" type="PackedScene" id=87]
 [ext_resource path="res://scenes/levels/test/TestIslandMap.tscn" type="PackedScene" id=88]
+[ext_resource path="res://scenes/levels/test/TestMap.tscn" type="PackedScene" id=89]
+[ext_resource path="res://scenes/game/DiscardObject.tscn" type="PackedScene" id=91]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
@@ -120,8 +122,11 @@ script = ExtResource( 45 )
 
 [node name="IslandMap" parent="Level/Tests" instance=ExtResource( 88 )]
 
+[node name="TestMap" parent="Level/Tests" instance=ExtResource( 89 )]
+
 [node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )
+discard_object = ExtResource( 91 )
 
 [node name="MapGenerator" type="Node" parent="MapManager"]
 script = ExtResource( 1 )

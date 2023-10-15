@@ -23,14 +23,6 @@ func destroy_self():
 func move_away_from_each_other():
 	pass
 
-func move_whirlpool(direction):
-	var coords = Global._pos_to_iso(position)
-	update_tile()
-	current_tile.entities.erase(self)
-	Global.move_to_coordinates(self, coords.x + direction.x, coords.y + direction.y)
-	update_tile()
-	current_tile.entities.append(self)
-
 func get_lifted(player):
 	if player.block_tag() == Tags.fl_empty:
 		player.grab_entity_block(block)
@@ -46,4 +38,9 @@ func button_active_effect(button): pass
 func button_inactive_effect(button): pass
 
 func whirlpool(direction):
-	move_whirlpool(direction)
+	var coords = Global._pos_to_iso(position)
+	update_tile()
+	current_tile.entities.erase(self)
+	Global.move_to_coordinates(self, coords.x + direction.x, coords.y + direction.y)
+	update_tile()
+	current_tile.entities.append(self)

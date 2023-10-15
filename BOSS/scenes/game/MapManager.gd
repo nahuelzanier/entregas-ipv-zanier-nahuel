@@ -1,5 +1,6 @@
 extends Node
 
+export (PackedScene) var discard_object
 onready var rendered = $"../Rendered"
 onready var packed_scenes = $MapGenerator/PackedScenes
 
