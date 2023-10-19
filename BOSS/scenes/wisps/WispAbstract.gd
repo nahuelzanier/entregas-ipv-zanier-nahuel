@@ -7,12 +7,12 @@ var block
 
 func try_to_move(): pass
 
-func move(iso_x, iso_y):
+func move(vector2):
 	update_tile()
 	current_tile.entities.erase(self)
-	var x_pos = max(min(iso_x, CurrentMap.size_x()-2), 1)
-	var y_pos = max(min(iso_y, CurrentMap.size_y()-2), 1)
-	Global.move_to_coordinates(self, Vector2(iso_x, iso_y))
+#	var x_pos = max(min(vector2.x, CurrentMap.size_x()-2), 1)
+#	var y_pos = max(min(vector2.y, CurrentMap.size_y()-2), 1)
+	Global.move_to_coordinates(self, vector2)
 	update_tile()
 	current_tile.entities.append(self)
 

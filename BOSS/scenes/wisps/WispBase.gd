@@ -30,7 +30,7 @@ func move_away_from_each_other():
 	var pool = [-2,-1,0,1,2]
 	pool.shuffle()
 	var iso_pos = Global._pos_to_iso(position)
-	move(iso_pos.x+pool[randi()%5], iso_pos.y+pool[randi()%5])
+	move(iso_pos + Vector2(pool[randi()%5], pool[randi()%5]) )
 
 func get_lifted(player):
 	if player.block_tag() == Tags.fl_empty:

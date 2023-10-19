@@ -3,8 +3,7 @@ extends Node
 var map_tag_name
 var player_spawn = Vector2(2,7)
 onready var entities = {}
-var map
-var map_dict = {}
+var map = {}
 
 func create_static_entities():
 	pass

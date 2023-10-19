@@ -33,7 +33,7 @@ func trigger_level_locations(iso_position, map_tag):
 
 func load_level(level, spawn_point):
 	player_spawn = spawn_point
-	update_map(level.map_dict)
+	update_map(level.map)
 
 func update_map(dict):
 	for vector2 in dict.keys():

@@ -20,8 +20,8 @@ func index_to_tag(tile_index):
 		3: ret=Tags.fl_chkr_black
 		4: ret=Tags.fl_chkr_red
 		5: ret=Tags.fl_cliff_side
-		6: ret=Tags.fl_cliff
-		7: ret=Tags.fl_cliff_back
+		6: ret=Tags.fl_cliff_back
+		7: ret=Tags.fl_cliff
 		8: ret=Tags.fl_crumble
 		9: ret=Tags.fl_deep_water
 		10: ret=Tags.fl_dungeon
@@ -41,5 +41,6 @@ func index_to_tag(tile_index):
 		24: ret=Tags.fl_whirlpool_nw
 		25: ret=Tags.fl_whirlpool_se
 		26: ret=Tags.fl_whirlpool_sw
+
 	return ret
 		
