@@ -1,6 +1,6 @@
 extends "res://scenes/entities/EntityAbstract.gd"
 
-onready var current_size = 2
+onready var current_size
 onready var size = [$SpriteSmall, $Sprite, $SpritePillar]
 
 func _ready():

@@ -20,7 +20,7 @@
 [ext_resource path="res://scenes/player/directional/W.gd" type="Script" id=18]
 [ext_resource path="res://scenes/player/LiftingPosition.gd" type="Script" id=19]
 [ext_resource path="res://scenes/blocks/BlockEmpty.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/highlight.png" type="Texture" id=21]
+[ext_resource path="res://assets/player/highlight.png" type="Texture" id=21]
 [ext_resource path="res://scenes/player/StatesPlayer.gd" type="Script" id=22]
 [ext_resource path="res://scenes/player/StateMoving.gd" type="Script" id=23]
 [ext_resource path="res://scenes/player/StateGrabing.gd" type="Script" id=24]
@@ -29,6 +29,8 @@
 gravity_scale = 0.0
 linear_damp = 50.0
 script = ExtResource( 2 )
+speed = 400
+default_speed = 400
 
 [node name="StatesPlayer" type="Node" parent="."]
 script = ExtResource( 22 )
@@ -92,7 +94,6 @@ polygon = PoolVector2Array( -7, 4, 0, 8, 7, 4, 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.25, 0.25 )
 
 [node name="PositionTimer" type="Timer" parent="."]
 wait_time = 0.08

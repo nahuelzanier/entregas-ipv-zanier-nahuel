@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/wall basic color.png" type="Texture" id=1]
+[ext_resource path="res://assets/floor/wall basic color.png" type="Texture" id=1]
 [ext_resource path="res://scenes/floor/FloorWallBaseX.gd" type="Script" id=2]
 
 [node name="FloorWallBaseX" type="Node2D"]

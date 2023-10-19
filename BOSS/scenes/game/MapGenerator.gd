@@ -7,19 +7,28 @@ onready var creator = $MapArrayCreator
 func _ready():
 	CurrentMap.map_generator = self
 
+#func generate_map(detail = false):
+#	for y in range(CurrentMap.size_y()):
+#		for x in range(CurrentMap.size_x()):
+#			var new_floor = packed_scenes.generate_floor_tile(CurrentMap.map[y][x], x, y)
+#			CurrentMap.map[y][x] = new_floor
+#			rendered.floor_map.add_child(new_floor)
+#	for y in range(CurrentMap.size_y()):
+#		for x in range(CurrentMap.size_x()):
+#			CurrentMap.map[y][x].on_born()
+#	if detail:
+#		for y in range(CurrentMap.size_y()):
+#			for x in range(CurrentMap.size_x()):
+#				CurrentMap.map[y][x].create_detail()
+
 func generate_map(detail = false):
-	for y in range(CurrentMap.size_y()):
-		for x in range(CurrentMap.size_x()):
-			var new_floor = packed_scenes.generate_floor_tile(CurrentMap.map[y][x], x, y)
-			CurrentMap.map[y][x] = new_floor
-			rendered.floor_map.add_child(new_floor)
-	for y in range(CurrentMap.size_y()):
-		for x in range(CurrentMap.size_x()):
-			CurrentMap.map[y][x].on_born()
-	if detail:
-		for y in range(CurrentMap.size_y()):
-			for x in range(CurrentMap.size_x()):
-				CurrentMap.map[y][x].create_detail()
+	var keys = CurrentMap.map.keys()
+	for vector2 in keys:
+		var new_floor = packed_scenes.generate_floor_tile(CurrentMap.map[vector2], vector2)
+		CurrentMap.map[vector2] = new_floor
+		rendered.floor_map.add_child(new_floor)
+	for vector2 in keys:
+		CurrentMap.map[vector2].on_born()
 
 func generate_entity(entity, x, y):
 	var new_entity = packed_scenes.generate_entity(entity, x, y)

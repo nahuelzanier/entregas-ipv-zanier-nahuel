@@ -9,18 +9,18 @@ func get_lifted(player):pass
 	
 #TILES
 func born_empty_tile(tile):
-	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
+	var isoCoords = tile.iso_pos
 	var crumbling_tile = tile.respawn_crumbling_tile
 	$WaterGrowth.start()
 	if crumbling_tile:
-		CurrentMap.map[isoCoords.y][isoCoords.x].crumbling_tile_active()
+		CurrentMap.map[isoCoords].crumbling_tile_active()
 
 func born_lava_tile(tile):
-	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
+	var isoCoords = tile.iso_pos
 	var crumbling_tile = tile.respawn_crumbling_tile
 	CurrentMap.map_manager.replace(Tags.fl_default, isoCoords.x, isoCoords.y)
 	if crumbling_tile:
-		CurrentMap.map[isoCoords.y][isoCoords.x].crumbling_tile_active()
+		CurrentMap.map[isoCoords].crumbling_tile_active()
 
 func born_bottomless_tile(tile):
 	var falling_tile = tile.falling_water.instance()
@@ -35,5 +35,5 @@ func unlift_wisp(player):pass
 
 func _on_WaterGrowth_timeout():
 	for i in [1, -1]:
-		CurrentMap.map[iso_y][iso_x + i].born_water_tile(self)
-		CurrentMap.map[iso_y + i][iso_x].born_water_tile(self)
+		CurrentMap.map[iso_pos + Vector2(i,0)].born_water_tile(self)
+		CurrentMap.map[iso_pos + Vector2(0,i)].born_water_tile(self)

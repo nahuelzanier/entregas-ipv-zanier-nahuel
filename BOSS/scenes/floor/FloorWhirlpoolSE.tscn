@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/whirlpool se.png" type="Texture" id=1]
+[ext_resource path="res://assets/floor/whirlpool se.png" type="Texture" id=1]
 [ext_resource path="res://scenes/floor/FloorWhirlpoolSE.gd" type="Script" id=2]
 
 [node name="FloorWhirlpoolSE" type="Node2D"]

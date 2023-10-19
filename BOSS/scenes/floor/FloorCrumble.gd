@@ -14,9 +14,9 @@ func _on_Area2D_body_exited(body):
 
 func fall():
 	var falling_floor = falling_tile.instance()
-	CurrentMap.map_manager.place_floor_effect(falling_floor, iso_x, iso_y)
-	CurrentMap.map_manager.replace(Tags.fl_empty, iso_x, iso_y)
-	CurrentMap.map[iso_y][iso_x].crumbling_tile_active()
+	CurrentMap.map_manager.place_floor_effect(falling_floor, iso_pos)
+	CurrentMap.map_manager.replace(Tags.fl_empty, iso_pos)
+	CurrentMap.map[iso_pos].crumbling_tile_active()
 
 #ENTITIES
 func unlift_rock():

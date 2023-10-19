@@ -14,6 +14,6 @@ func get_lifted_with_entity(player): pass
 #PLAYER
 func player_is_on(player):
 	player.queue_free()
-	CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn.x, CurrentMap.player_spawn.y)
+	CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn)
 
 func unlift_wisp(player):pass

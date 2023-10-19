@@ -11,4 +11,4 @@ func get_lifted(player): pass
 func unlift_wisp(player):pass
 
 func unlift_rock():
-	return true
+	return entities.size()==0

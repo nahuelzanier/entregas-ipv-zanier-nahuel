@@ -33,6 +33,9 @@ export (PackedScene) var whirlpool_sw
 export (PackedScene) var whirlpool_se
 export (PackedScene) var stairs_down
 export (PackedScene) var stairs_up
+export (PackedScene) var cliff
+export (PackedScene) var cliff_side
+export (PackedScene) var cliff_back
 #ENTITIES
 export (PackedScene) var block_holder
 export (PackedScene) var emptyEntity
@@ -50,6 +53,8 @@ export (PackedScene) var door_right
 export (PackedScene) var door_north
 export (PackedScene) var door_south
 export (PackedScene) var salt_pillar
+export (PackedScene) var salt_pile
+export (PackedScene) var salt_tile
 export (PackedScene) var trap_door
 export (PackedScene) var wispBase
 export (PackedScene) var wispWater
@@ -112,6 +117,9 @@ func _ready():
 	tile_dict[Tags.fl_whirlpool_se] = whirlpool_se
 	tile_dict[Tags.fl_stairs_down] = stairs_down
 	tile_dict[Tags.fl_stairs_up] = stairs_up
+	tile_dict[Tags.fl_cliff] = cliff
+	tile_dict[Tags.fl_cliff_side] = cliff_side
+	tile_dict[Tags.fl_cliff_back] = cliff_back
 	entities_dict[Tags.et_block_holder] = block_holder
 	entities_dict[Tags.et_empty] = emptyEntity
 	entities_dict[Tags.et_palmtree] = palmtree
@@ -128,6 +136,8 @@ func _ready():
 	entities_dict[Tags.et_door_north] = door_north
 	entities_dict[Tags.et_door_south] = door_south
 	entities_dict[Tags.et_salt_pillar] = salt_pillar
+	entities_dict[Tags.et_salt_pile] = salt_pile
+	entities_dict[Tags.et_salt_tile] = salt_tile
 	entities_dict[Tags.et_wisp] = wispBase
 	entities_dict[Tags.et_water_wisp] = wispWater
 	entities_dict[Tags.et_lava_wisp] = wisp_lava
@@ -151,23 +161,22 @@ func _ready():
 	block_dict[Tags.bl_wisp_water] = block_water_wisp
 	block_dict[Tags.bl_stone_lid] = block_stone_lid
 
-func generate_floor_tile(tile, x, y):
+func generate_floor_tile(tile, vector2):
 	if tile != null:
 		var new_floor = tile_dict[tile].instance()
-		new_floor.iso_x = x
-		new_floor.iso_y = y
+		new_floor.iso_pos = vector2
 		new_floor.entities = []
-		Global.move_to_coordinates(new_floor, x, y)
+		Global.move_to_coordinates(new_floor, vector2)
 		return new_floor
 
-func generate_player(x, y):
+func generate_player(vector2):
 	var new_player = entities_dict[Tags.et_player].instance()
-	Global.move_to_coordinates(new_player, x, y)
+	Global.move_to_coordinates(new_player, vector2)
 	return new_player
 
-func generate_entity(entity, x, y):
+func generate_entity(entity, vector2):
 	var new_entity = entities_dict[entity].instance()
-	Global.move_to_coordinates(new_entity, x, y)
+	Global.move_to_coordinates(new_entity, vector2)
 	return new_entity
 
 func new_entity(entity_tag):

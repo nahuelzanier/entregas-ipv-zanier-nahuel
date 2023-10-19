@@ -15,7 +15,7 @@ func get_lifted_with_entity(player):
 	entities[0].get_lifted(player)
 
 func create_detail():
-	CurrentMap.map_manager.create_entity(Tags.et_stairs_up, iso_x, iso_y)
+	CurrentMap.map_manager.create_entity(Tags.et_stairs_up, iso_pos)
 
 #PLAYER
 func unlift_rock():
@@ -26,7 +26,7 @@ func unlift_wisp(player):pass
 
 func _on_Trigger_body_entered(body):
 	if body.tag == Tags.et_player:
-		CurrentMap.trigger_level_locations(Vector2(iso_x, iso_y), map_tag)
+		CurrentMap.trigger_level_locations(iso_pos, map_tag)
 
 func flip():
 	$Sprite.flip_h = !$Sprite.flip_h

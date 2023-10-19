@@ -4,13 +4,14 @@ var map_tag_name
 var player_spawn = Vector2(2,7)
 onready var entities = {}
 var map
+var map_dict = {}
 
 func create_static_entities():
 	pass
 
 func create_entities():
 	for k in entities.keys():
-		CurrentMap.map_manager.create_entity(entities[k][0], entities[k][1], entities[k][2])
+		CurrentMap.map_manager.create_entity(entities[k], k)
 	entities = {}
 
 func update_maps():pass

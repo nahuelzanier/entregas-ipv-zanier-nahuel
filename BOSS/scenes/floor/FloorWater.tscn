@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/water floor basic.png" type="Texture" id=1]
+[ext_resource path="res://assets/floor/water floor basic.png" type="Texture" id=1]
 [ext_resource path="res://scenes/floor/FloorWater.gd" type="Script" id=2]
 
 [node name="FloorWater" type="Node2D"]

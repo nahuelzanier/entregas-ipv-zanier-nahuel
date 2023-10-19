@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/button.png" type="Texture" id=1]
+[ext_resource path="res://assets/floor/button.png" type="Texture" id=1]
 [ext_resource path="res://scenes/floor/FloorButton.gd" type="Script" id=2]
-[ext_resource path="res://assets/button down.png" type="Texture" id=3]
+[ext_resource path="res://assets/floor/button down.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.0

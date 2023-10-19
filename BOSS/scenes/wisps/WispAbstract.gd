@@ -12,7 +12,7 @@ func move(iso_x, iso_y):
 	current_tile.entities.erase(self)
 	var x_pos = max(min(iso_x, CurrentMap.size_x()-2), 1)
 	var y_pos = max(min(iso_y, CurrentMap.size_y()-2), 1)
-	Global.move_to_coordinates(self, x_pos, y_pos)
+	Global.move_to_coordinates(self, Vector2(iso_x, iso_y))
 	update_tile()
 	current_tile.entities.append(self)
 
@@ -20,13 +20,13 @@ func move_whirlpool(direction):
 	var coords = Global._pos_to_iso(position)
 	update_tile()
 	current_tile.entities.erase(self)
-	Global.move_to_coordinates(self, coords.x + direction.x, coords.y + direction.y)
+	Global.move_to_coordinates(self, coords + direction)
 	update_tile()
 	current_tile.entities.append(self)
 
 func update_tile():
 	var iso_pos = Global._pos_to_iso(position)
-	var on_tile = CurrentMap.map[iso_pos.y][iso_pos.x]
+	var on_tile = CurrentMap.map[iso_pos]
 	current_tile = on_tile
 
 func go_to_sleep():

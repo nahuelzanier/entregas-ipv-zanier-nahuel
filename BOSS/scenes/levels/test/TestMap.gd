@@ -1,7 +1,9 @@
 extends "res://scenes/levels/_AbstractLevel.gd"
+onready var map_designer = $MapDesigner
+onready var map_entity_designer = $MapEntityDesigner
 
 func _ready():
-	player_spawn = Vector2(2,6)
+	player_spawn = Vector2(5,5)
 	map = [
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
 		['xxx','col','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','col','xxx'],
@@ -30,15 +32,10 @@ func _ready():
 		['xxx','col','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','wlx','col','xxx'],
 		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx']
 	]
+	
+	map_dict = map_designer.get_map()
+	entities = map_entity_designer.get_map()
 
 func create_entities():
-	var c_map = CurrentMap.map
-	for y in c_map.size():
-		for x in c_map[y].size():
-			if c_map[y][x].type_tag != Tags.g_wall:
-				if randi()%5 == 0:
-					CurrentMap.map_manager.create_entity(Tags.et_wisp, x, y)
-				else:
-					c_map[y][x].create_detail()
-			else:
-				c_map[y][x].create_detail()
+	for k in entities.keys():
+		CurrentMap.map_manager.create_entity(entities[k], k)

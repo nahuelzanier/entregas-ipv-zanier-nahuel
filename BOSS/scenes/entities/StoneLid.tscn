@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/stone lid.png" type="Texture" id=1]
+[ext_resource path="res://assets/entities/stone lid.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/StoneLid.gd" type="Script" id=2]
 
 [node name="StoneLid" type="KinematicBody2D"]

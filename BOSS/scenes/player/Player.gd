@@ -22,7 +22,7 @@ func _physics_process(delta):
 		call_deferred("lift")
 	rotation = 0
 	var grab = grab_coords()
-	highlight.global_position = Global._iso_to_pos(grab.x, grab.y) + Vector2(0,7)
+	highlight.global_position = Global._iso_to_pos(grab) + Vector2(0,7)
 	apply_central_impulse(direction.normalized()*speed*state.current_state.move_multiplier)
 
 func _on_PositionTimer_timeout():
@@ -54,7 +54,7 @@ func block_tag():  #the entity it unlifts to
 
 func grab_floor_block(block):
 	var grab = grab_coords()
-	CurrentMap.map_manager.replace(block_tag(), grab.x, grab.y)
+	CurrentMap.map_manager.replace(block_tag(), grab)
 	lift_position.get_new_block(block)
 
 func grab_entity_block(block):
@@ -63,13 +63,13 @@ func grab_entity_block(block):
 func set_lift_position(block_tag):
 	lift_position.get_new_block(block_tag)
 
-func unlift_entity_at(entity_tag, iso_x, iso_y):
-	CurrentMap.map_manager.create_entity(entity_tag, iso_x, iso_y)
+func unlift_entity_at(entity_tag, vector2):
+	CurrentMap.map_manager.create_entity(entity_tag, vector2)
 	lift_position.get_new_block(Tags.bl_empty)
 
 func unlift_entity(entity_tag):
 	var grab = grab_coords()
-	unlift_entity_at(entity_tag, grab.x, grab.y)
+	unlift_entity_at(entity_tag, grab)
 
 func pop_block():
 	var tag = lift_position.block.tag
@@ -78,7 +78,7 @@ func pop_block():
 
 func update_tile():
 	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
-	var on_tile = CurrentMap.map[iso_pos.y][iso_pos.x]
+	var on_tile = CurrentMap.map[iso_pos]
 	current_tile = on_tile
 
 func move_away_from_each_other():

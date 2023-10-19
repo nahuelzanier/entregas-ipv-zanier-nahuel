@@ -17,7 +17,7 @@ func _process(delta):
 		falling_element.start_falling(block)
 
 func _on_RespawnCrumblingTile_timeout():
-	CurrentMap.map_manager.replace(Tags.fl_crumble, iso_x, iso_y)
+	CurrentMap.map_manager.replace(Tags.fl_crumble, iso_pos)
 
 func get_lifted(player):
 	var block = CurrentMap.map_manager.new_block(player.block().tag)
@@ -29,8 +29,8 @@ func bottomless_effect_update():
 		effect.queue_free()
 	current_falling_effects.clear()
 	for i in [1, -1]:
-		CurrentMap.map[iso_y][iso_x + i].born_bottomless_tile(self)
-		CurrentMap.map[iso_y + i][iso_x].born_bottomless_tile(self)
+		CurrentMap.map[iso_pos + Vector2(i,0)].born_bottomless_tile(self)
+		CurrentMap.map[iso_pos + Vector2(0,i)].born_bottomless_tile(self)
 
 #TILES
 func born_water_tile(tile):

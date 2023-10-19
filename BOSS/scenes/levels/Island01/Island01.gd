@@ -4,9 +4,9 @@ func _ready():
 	map_tag_name = "island 1-1"
 	player_spawn = Vector2(14,42)
 	map = [
-		['xxx','xxx','xxx','xxx','xxx','xxb','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxa','xxb','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
-		['xxx','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
-		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
+		['xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxb','xxa','xxb','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx','xxx'],
+		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','wly','stn','wly','d2o','col','wlx','wlx','col','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
+		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','col','stn','col','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
 		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','h2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
 		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','VVV','<<<','<<<','<<<','<<<','<<<','<<<','<<<','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
 		['xxx','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','VVV','VVV','<<<','<<<','<<<','<<<','<<<','AAA','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','d2o','xxx'],
@@ -75,7 +75,7 @@ func create_static_entities():
 
 func trigger_level_locations(iso_position, tag):
 	if iso_position.y == 0 and tag == self.map_tag_name:
-			CurrentMap.call_deferred("generate_map", $"../../Tests/IslandMap", Vector2(46,40))
+			CurrentMap.call_deferred("generate_map", $"../Island02", Vector2(iso_position.x,25))
 	match [iso_position, self.map_tag_name]:
 		[Vector2(6,15), tag]:
 			CurrentMap.call_deferred("generate_map", $"../../Dungeon01/Room01", Vector2(2,10))

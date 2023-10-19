@@ -1,7 +1,6 @@
 extends Node2D
 
-var iso_x
-var iso_y
+var iso_pos
 onready var type_tag
 onready var tag
 onready var lift_block
@@ -22,10 +21,10 @@ func scramble_entities():
 
 func get_lifted(player):
 	var crumbler = respawn_crumbling_tile
-	var pos = Vector2(iso_x, iso_y)
+	var pos = iso_pos
 	player.grab_floor_block(lift_block)
 	if crumbler:
-		CurrentMap.map[pos.y][pos.x].crumbling_tile_active()
+		CurrentMap.map[iso_pos].crumbling_tile_active()
 	
 func get_lifted_with_entity(player):
 	entities[0].get_lifted(player)
@@ -101,10 +100,10 @@ func sinks_rock():
 	
 func block_holder(block_holder):
 	if block_holder.held_block.type_tag == Tags.g_tile:
-		CurrentMap.map_manager.replace(block_holder.unlift(), iso_x, iso_y)
+		CurrentMap.map_manager.replace(block_holder.unlift(), iso_pos)
 		block_holder.destroy_self()
 	if block_holder.held_block.type_tag == Tags.g_entity:
-		CurrentMap.map_manager.create_entity(block_holder.unlift(), iso_x, iso_y)
+		CurrentMap.map_manager.create_entity(block_holder.unlift(), iso_pos)
 		block_holder.destroy_self()
 
 func unlift_wisp(player):
@@ -117,7 +116,7 @@ func unlift_palmtree():
 	return false
 
 func quake_start(): pass
-func quake(dir_x, dir_y): pass
+func quake(vector2): pass
 
 
 func button_active_effect(button): pass

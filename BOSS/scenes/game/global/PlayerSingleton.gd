@@ -10,8 +10,8 @@ func remove_player():
 
 func place_player(iso_position):
 	if player_exists:
-		CurrentMap.map_manager.place_entity(player, iso_position.x, iso_position.y)
+		CurrentMap.map_manager.place_entity(player, iso_position)
 	else:
 		player_exists = true
 		player = CurrentMap.map_manager.new_entity(Tags.et_player)
-		CurrentMap.map_manager.place_entity(player, iso_position.x, iso_position.y)
+		CurrentMap.map_manager.place_entity(player, iso_position)

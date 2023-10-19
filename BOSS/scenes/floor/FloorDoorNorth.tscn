@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/floor/FloorDoorNorth.gd" type="Script" id=1]
-[ext_resource path="res://assets/door tile south.png" type="Texture" id=2]
-[ext_resource path="res://assets/door tile west.png" type="Texture" id=3]
+[ext_resource path="res://assets/floor/door tile south.png" type="Texture" id=2]
+[ext_resource path="res://assets/floor/door tile west.png" type="Texture" id=3]
 
 [node name="FloorDoorNorth" type="Node2D"]
 script = ExtResource( 1 )

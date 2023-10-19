@@ -4,7 +4,7 @@ onready var whirlpool_direction
 
 func get_lifted(player):
 	if player.block_tag() != Tags.fl_empty:
-		CurrentMap.map_manager.create_entity(Tags.et_block_holder, iso_x, iso_y)
+		CurrentMap.map_manager.create_entity(Tags.et_block_holder, iso_pos)
 		entities[0].set_block(player.block_tag_proper())
 		player.pop_block()
 
@@ -13,26 +13,26 @@ func on_born():
 
 func _on_WaterGrowth_timeout():
 	for i in [1, -1]:
-		CurrentMap.map[iso_y][iso_x + i].born_water_tile(self)
-		CurrentMap.map[iso_y + i][iso_x].born_water_tile(self)
+		CurrentMap.map[iso_pos + Vector2(i,0)].born_water_tile(self)
+		CurrentMap.map[iso_pos + Vector2(0,i)].born_water_tile(self)
 
 #TILES
 func born_empty_tile(tile):
-	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
+	var isoCoords = tile.iso_pos
 	var crumbling_tile = tile.respawn_crumbling_tile
 	$WaterGrowth.start()
 	if crumbling_tile:
-		CurrentMap.map[isoCoords.y][isoCoords.x].crumbling_tile_active()
+		CurrentMap.map[isoCoords].crumbling_tile_active()
 
 func born_lava_tile(tile):
 	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
 	var crumbling_tile = tile.respawn_crumbling_tile
-	CurrentMap.map_manager.replace(Tags.fl_default, isoCoords.x, isoCoords.y)
+	CurrentMap.map_manager.replace(Tags.fl_default, isoCoords)
 	if crumbling_tile:
-		CurrentMap.map[isoCoords.y][isoCoords.x].crumbling_tile_active()
+		CurrentMap.map[isoCoords].crumbling_tile_active()
 
 func _on_RespawnCrumblingTile_timeout():
-	CurrentMap.map_manager.replace(Tags.fl_crumble, iso_x, iso_y)
+	CurrentMap.map_manager.replace(Tags.fl_crumble, iso_pos)
 
 func born_bottomless_tile(tile):
 	var falling_tile = tile.falling_water.instance()
@@ -44,7 +44,7 @@ func sleeping_wisp_is_on(wisp):
 	wisp.turn_into_water_wisp()
 
 func moving_water_wisp(wisp):
-	wisp.move(iso_x, iso_y)
+	wisp.move(iso_pos)
 	wisp.on_land = false
 
 func water_wisp_is_on(wisp): pass

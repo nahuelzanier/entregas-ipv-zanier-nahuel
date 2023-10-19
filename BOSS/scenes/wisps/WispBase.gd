@@ -13,13 +13,13 @@ func try_to_move():
 	var iso_pos = Global._pos_to_iso(position)
 	var x = iso_pos.x
 	var y = iso_pos.y
-	var positions = [[x+1,y],[x-1,y],[x,y+1],[x,y-1]]
+	var positions = [Vector2(x+1,y), Vector2(x-1,y), Vector2(x,y+1), Vector2(x,y-1)]
 	for pair in positions:
-		CurrentMap.map[pair[1]][pair[0]].moving_sleeping_wisp(self)
+		CurrentMap.map[pair].moving_sleeping_wisp(self)
 
 func update_tile():
 	var iso_pos = Global._pos_to_iso(position)
-	var on_tile = CurrentMap.map[iso_pos.y][iso_pos.x]
+	var on_tile = CurrentMap.map[iso_pos]
 	current_tile = on_tile
 
 func go_to_sleep():

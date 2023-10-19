@@ -7,7 +7,7 @@ func _ready():
 func get_lifted(player): pass
 
 func create_detail():
-	CurrentMap.map_manager.create_entity(Tags.et_door_left, iso_x, iso_y)
+	CurrentMap.map_manager.create_entity(Tags.et_door_left, iso_pos)
 
 func switch_sprites():
 	$Sprite.visible = !$Sprite.visible

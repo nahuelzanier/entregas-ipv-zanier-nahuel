@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/deep water.png" type="Texture" id=1]
+[ext_resource path="res://assets/floor/deep water.png" type="Texture" id=1]
 [ext_resource path="res://scenes/floor/FloorDeepWater.gd" type="Script" id=2]
 
 [node name="FloorDeepWater" type="Node2D"]

@@ -13,5 +13,5 @@ func get_lifted(player):
 
 func button_active_effect(button):
 	destroy_self()
-	CurrentMap.map_manager.call_deferred("replace", Tags.fl_trap_door, current_tile.iso_x, current_tile.iso_y)
+	CurrentMap.map_manager.call_deferred("replace", Tags.fl_trap_door, current_tile.iso_pos)
 	

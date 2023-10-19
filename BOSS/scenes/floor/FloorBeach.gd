@@ -7,31 +7,31 @@ func _ready():
 
 func _on_SandFillTimer_timeout():
 	for i in [1, -1]:
-		CurrentMap.map[iso_y][iso_x + i].born_beach_tile(self)
-		CurrentMap.map[iso_y + i][iso_x].born_beach_tile(self)
+		CurrentMap.map[iso_pos + Vector2(i,0)].born_beach_tile(self)
+		CurrentMap.map[iso_pos + Vector2(0,i)].born_beach_tile(self)
 
 func create_detail():
 	randomize()
 	if randi()%10 == 0:
-		CurrentMap.map_manager.create_entity(Tags.et_palmtree, iso_x, iso_y)
+		CurrentMap.map_manager.create_entity(Tags.et_palmtree, iso_pos)
 
 #WISPS
 func sleeping_wisp_is_on(wisp):
 	wisp.turn_into_sand_wisp()
 
 func moving_sand_wisp(wisp):
-	wisp.move(iso_x, iso_y)
+	wisp.move(iso_pos)
 
 func sand_wisp_is_on(wisp):
 	pass
 
 #TILES
 func born_empty_tile(tile):
-	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
+	var isoCoords = tile.iso_pos
 	var crumbling_tile = tile.respawn_crumbling_tile
 	$SandFillTimer.start()
 	if crumbling_tile:
-		CurrentMap.map[isoCoords.y][isoCoords.x].crumbling_tile_active()
+		CurrentMap.map[isoCoords].crumbling_tile_active()
 
 #PLAYER
 func player_is_on(player):

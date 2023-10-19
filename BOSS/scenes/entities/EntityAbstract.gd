@@ -12,7 +12,7 @@ func _ready():
 
 func update_tile():
 	var iso_pos = Global._pos_to_iso(position)
-	var on_tile = CurrentMap.map[iso_pos.y][iso_pos.x]
+	var on_tile = CurrentMap.map[iso_pos]
 	current_tile = on_tile
 
 func destroy_self():
@@ -41,6 +41,6 @@ func whirlpool(direction):
 	var coords = Global._pos_to_iso(position)
 	update_tile()
 	current_tile.entities.erase(self)
-	Global.move_to_coordinates(self, coords.x + direction.x, coords.y + direction.y)
+	Global.move_to_coordinates(self, coords + direction)
 	update_tile()
 	current_tile.entities.append(self)
