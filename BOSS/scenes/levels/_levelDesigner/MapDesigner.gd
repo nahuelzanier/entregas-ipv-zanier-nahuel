@@ -41,6 +41,7 @@ func index_to_tag(tile_index):
 		24: ret=Tags.fl_whirlpool_nw
 		25: ret=Tags.fl_whirlpool_se
 		26: ret=Tags.fl_whirlpool_sw
+		27: ret=Tags.fl_stairs_up
 
 	return ret
 		

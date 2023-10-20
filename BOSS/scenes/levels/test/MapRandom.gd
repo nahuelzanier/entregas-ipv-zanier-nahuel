@@ -1,9 +1,8 @@
 extends "res://scenes/levels/_AbstractLevel.gd"
 
 var tiles = [Tags.fl_beach, Tags.fl_bottomless, Tags.fl_button, Tags.fl_chkr_black, Tags.fl_chkr_red, 
-Tags.fl_column, Tags.fl_crumble, Tags.fl_deep_water, Tags.fl_default, Tags.fl_door_left, Tags.fl_door_north,
-Tags.fl_door_right, Tags.fl_door_south, Tags.fl_dungeon, Tags.fl_empty, Tags.fl_fountain, Tags.fl_lava, Tags.fl_salt,
-Tags.fl_stairs_down, Tags.fl_stairs_up, Tags.fl_stone, Tags.fl_trap_door, Tags.fl_wall_x, Tags.fl_wall_y, Tags.fl_water, 
+Tags.fl_crumble, Tags.fl_deep_water, Tags.fl_default, Tags.fl_dungeon, Tags.fl_empty, Tags.fl_fountain, Tags.fl_lava, Tags.fl_salt,
+Tags.fl_stairs_down, Tags.fl_stairs_up, Tags.fl_stone, Tags.fl_trap_door, Tags.fl_water, 
 Tags.fl_whirlpool_ne, Tags.fl_whirlpool_nw, Tags.fl_whirlpool_se, Tags.fl_whirlpool_sw]
 
 func _ready():

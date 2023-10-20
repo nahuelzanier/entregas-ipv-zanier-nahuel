@@ -36,17 +36,17 @@ func load_level(level, spawn_point):
 	update_map(level.map)
 
 func update_map(dict):
+	map = {}
 	for vector2 in dict.keys():
 		map[vector2] = dict[vector2]
 
 func record_entities():
-	var entity_id = 0
-	for y in range(map.size()):
-		for x in range(map[y].size()):
-			var tile = map[y][x]
-			if tile.has_entities() && tile.entities[0].type_tag != Tags.g_wall:
-				level_node.active_level.entities[entity_id] = [tile.entities[0].tag, x, y]
-				entity_id += 1
+	var rec_ent = {}
+	for v2 in map.keys():
+		var tile = map[v2]
+		if tile.entities.size() > 0:
+			rec_ent[tile.iso_pos] = tile.entities[0].tag
+	level_node.active_level.entities = rec_ent
 
 #OPTIONAL STUFF
 #func add_map_at(ins_map, x, y):

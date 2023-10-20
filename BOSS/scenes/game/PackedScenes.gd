@@ -84,8 +84,8 @@ var entities_dict = {}
 var block_dict = {}
 
 func _ready():
-	tile_dict[Tags.fl_wall_y] = wallBase_y
-	tile_dict[Tags.fl_wall_x] = wallBase_x
+#	tile_dict[Tags.fl_wall_y] = wallBase_y
+#	tile_dict[Tags.fl_wall_x] = wallBase_x
 	tile_dict[Tags.fl_default] = floorDefault
 	tile_dict[Tags.fl_empty] = floorEmpty
 	tile_dict[Tags.fl_empty_no_access] = floor_empty_no_access
@@ -97,15 +97,15 @@ func _ready():
 	tile_dict[Tags.fl_crumble] = crumbleFloor
 	tile_dict[Tags.fl_lava] = lavaFloor
 	tile_dict[Tags.fl_beach] = sandBeach
-	tile_dict[Tags.fl_column] = columnBase
-	tile_dict[Tags.fl_player] = player_spawn
+#	tile_dict[Tags.fl_column] = columnBase
+#	tile_dict[Tags.fl_player] = player_spawn
 	tile_dict[Tags.fl_chkr_black] = checker_black
 	tile_dict[Tags.fl_chkr_red] = checker_red
 	tile_dict[Tags.fl_bottomless] = bottomless
-	tile_dict[Tags.fl_door_left] = tile_door_left
-	tile_dict[Tags.fl_door_right] = tile_door_right
-	tile_dict[Tags.fl_door_north] = tile_door_north
-	tile_dict[Tags.fl_door_south] = tile_door_south
+#	tile_dict[Tags.fl_door_left] = tile_door_left
+#	tile_dict[Tags.fl_door_right] = tile_door_right
+#	tile_dict[Tags.fl_door_north] = tile_door_north
+#	tile_dict[Tags.fl_door_south] = tile_door_south
 	tile_dict[Tags.fl_dungeon] = floor_dungeon
 	tile_dict[Tags.fl_stone] = floor_stone
 	tile_dict[Tags.fl_salt] = floor_salt
@@ -131,10 +131,10 @@ func _ready():
 	entities_dict[Tags.et_column] = columnBody
 	entities_dict[Tags.et_chkr_black] = checker_piece_black
 	entities_dict[Tags.et_chkr_red] = checker_piece_red
-	entities_dict[Tags.et_door_left] = door_left
-	entities_dict[Tags.et_door_right] = door_right
-	entities_dict[Tags.et_door_north] = door_north
-	entities_dict[Tags.et_door_south] = door_south
+#	entities_dict[Tags.et_door_left] = door_left
+#	entities_dict[Tags.et_door_right] = door_right
+#	entities_dict[Tags.et_door_north] = door_north
+#	entities_dict[Tags.et_door_south] = door_south
 	entities_dict[Tags.et_salt_pillar] = salt_pillar
 	entities_dict[Tags.et_salt_pile] = salt_pile
 	entities_dict[Tags.et_salt_tile] = salt_tile

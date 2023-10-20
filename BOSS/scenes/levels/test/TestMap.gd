@@ -7,6 +7,3 @@ func _ready():
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
 
-func create_entities():
-	for k in entities.keys():
-		CurrentMap.map_manager.create_entity(entities[k], k)

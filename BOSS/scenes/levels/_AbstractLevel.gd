@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var map_tag_name
 var player_spawn = Vector2(2,7)
@@ -11,7 +11,6 @@ func create_static_entities():
 func create_entities():
 	for k in entities.keys():
 		CurrentMap.map_manager.create_entity(entities[k], k)
-	entities = {}
 
 func update_maps():pass
 

@@ -37,6 +37,7 @@ func replace(tile_name, vector2):
 	old_tile.destroy_self()
 	rendered.floor_map.add_child(new_tile)
 	new_tile.on_born()
+	CurrentMap.level_node.active_level.map[vector2] = tile_name
 
 func replace_entity(entity, entity_tag):
 	var et_pos = Global._pos_to_iso(entity.position)

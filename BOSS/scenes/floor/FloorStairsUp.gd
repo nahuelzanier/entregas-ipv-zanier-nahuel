@@ -8,18 +8,16 @@ func _ready():
 
 func _process(delta): pass
 
-func get_lifted(player):
-	player.unlift_entity(player.block_tag())
+func get_lifted(player): pass
 
-func get_lifted_with_entity(player):
-	entities[0].get_lifted(player)
+func get_lifted_with_entity(player): pass
 
 func create_detail():
 	CurrentMap.map_manager.create_entity(Tags.et_stairs_up, iso_pos)
 
 #PLAYER
 func unlift_rock():
-	return true
+	return false
 
 func unlift_wisp(player):pass
 

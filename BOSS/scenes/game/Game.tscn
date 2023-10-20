@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -87,13 +87,8 @@
 [ext_resource path="res://scenes/floor/FloorStairsUp.tscn" type="PackedScene" id=85]
 [ext_resource path="res://scenes/entities/StairsUp.tscn" type="PackedScene" id=86]
 [ext_resource path="res://scenes/levels/EmptyLevel.tscn" type="PackedScene" id=87]
-[ext_resource path="res://scenes/levels/test/TestIslandMap.tscn" type="PackedScene" id=88]
-[ext_resource path="res://scenes/levels/test/TestMap.tscn" type="PackedScene" id=89]
-[ext_resource path="res://scenes/levels/test/MapRandom.tscn" type="PackedScene" id=90]
 [ext_resource path="res://scenes/game/DiscardObject.tscn" type="PackedScene" id=91]
 [ext_resource path="res://scenes/floor/FloorCliff.tscn" type="PackedScene" id=92]
-[ext_resource path="res://scenes/levels/Island01/Island02.tscn" type="PackedScene" id=93]
-[ext_resource path="res://scenes/levels/Island01/Island03.tscn" type="PackedScene" id=94]
 [ext_resource path="res://scenes/floor/FloorCliffSide.tscn" type="PackedScene" id=95]
 [ext_resource path="res://scenes/floor/FloorCliffBack.tscn" type="PackedScene" id=96]
 [ext_resource path="res://scenes/entities/SaltPillarMed.tscn" type="PackedScene" id=97]
@@ -111,44 +106,39 @@ _bundled = {
 "version": 2
 }
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": "d"
 }
 
-[node name="Level" type="Node" parent="."]
+[node name="Level" type="Node2D" parent="."]
 script = ExtResource( 45 )
 
-[node name="Dungeon01" type="Node" parent="Level"]
+[node name="Dungeon01" type="Node2D" parent="Level"]
 
 [node name="Room01" parent="Level/Dungeon01" instance=ExtResource( 46 )]
+visible = false
 
 [node name="Room02" parent="Level/Dungeon01" instance=ExtResource( 55 )]
+visible = false
 
 [node name="Room03" parent="Level/Dungeon01" instance=ExtResource( 54 )]
+visible = false
 
 [node name="Room04" parent="Level/Dungeon01" instance=ExtResource( 67 )]
+visible = false
 
 [node name="Room05" parent="Level/Dungeon01" instance=ExtResource( 73 )]
+visible = false
 
-[node name="Island01" type="Node" parent="Level"]
+[node name="Island01" type="Node2D" parent="Level"]
 
 [node name="Island01" parent="Level/Island01" instance=ExtResource( 74 )]
-
-[node name="Island02" parent="Level/Island01" instance=ExtResource( 93 )]
-
-[node name="Island03" parent="Level/Island01" instance=ExtResource( 94 )]
+visible = false
 
 [node name="EmptyLevel" parent="Level" instance=ExtResource( 87 )]
-
-[node name="Tests" type="Node" parent="Level"]
-
-[node name="IslandMap" parent="Level/Tests" instance=ExtResource( 88 )]
-
-[node name="TestMap" parent="Level/Tests" instance=ExtResource( 89 )]
-
-[node name="MapRandom" parent="Level/Tests" instance=ExtResource( 90 )]
+visible = false
 
 [node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )

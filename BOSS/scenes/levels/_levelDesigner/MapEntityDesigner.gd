@@ -32,5 +32,6 @@ func index_to_tag(tile_index):
 		15: ret=Tags.et_lava_wisp
 		16: ret=Tags.et_sand_wisp
 		17: ret=Tags.et_quake_wisp
+		18: ret=Tags.et_stairs_up
 	return ret
 
