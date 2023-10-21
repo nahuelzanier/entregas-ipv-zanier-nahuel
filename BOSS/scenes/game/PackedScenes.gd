@@ -131,10 +131,10 @@ func _ready():
 	entities_dict[Tags.et_column] = columnBody
 	entities_dict[Tags.et_chkr_black] = checker_piece_black
 	entities_dict[Tags.et_chkr_red] = checker_piece_red
-#	entities_dict[Tags.et_door_left] = door_left
-#	entities_dict[Tags.et_door_right] = door_right
-#	entities_dict[Tags.et_door_north] = door_north
-#	entities_dict[Tags.et_door_south] = door_south
+	entities_dict[Tags.et_door_left] = door_left
+	entities_dict[Tags.et_door_right] = door_right
+	entities_dict[Tags.et_door_north] = door_north
+	entities_dict[Tags.et_door_south] = door_south
 	entities_dict[Tags.et_salt_pillar] = salt_pillar
 	entities_dict[Tags.et_salt_pile] = salt_pile
 	entities_dict[Tags.et_salt_tile] = salt_tile

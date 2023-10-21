@@ -21,7 +21,6 @@ func unlift_rock():
 
 func unlift_wisp(player):pass
 
-
 func _on_Trigger_body_entered(body):
 	if body.tag == Tags.et_player:
 		CurrentMap.trigger_level_locations(iso_pos, map_tag)
