@@ -6,6 +6,7 @@ onready var tag
 onready var lift_block
 var respawn_crumbling_tile = false
 var entities
+var previous_tile
 onready var map_tag = CurrentMap.level_node.active_level.map_tag_name
 
 func _process(delta):
@@ -93,6 +94,8 @@ func fire_wisp_is_on(wisp): pass
 
 #PLAYER
 func player_is_on(player):
+	if player.is_surfing:
+		player.stop_surfing(self)
 	player.speed = player.default_speed
 
 #ENTITIES
@@ -117,6 +120,9 @@ func unlift_wisp(player):
 		player.unlift_entity(Tags.et_wisp)
 
 func unlift_palmtree():
+	return false
+
+func sinks_palmtree():
 	return false
 
 func quake_start(): pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/player/character south east.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=2]
@@ -24,6 +24,12 @@
 [ext_resource path="res://scenes/player/StatesPlayer.gd" type="Script" id=22]
 [ext_resource path="res://scenes/player/StateMoving.gd" type="Script" id=23]
 [ext_resource path="res://scenes/player/StateGrabing.gd" type="Script" id=24]
+[ext_resource path="res://scenes/player/SurfSprites.gd" type="Script" id=25]
+[ext_resource path="res://assets/entities/palmtree sunk.png" type="Texture" id=26]
+[ext_resource path="res://scenes/player/SSE.gd" type="Script" id=27]
+[ext_resource path="res://scenes/player/SNW.gd" type="Script" id=28]
+[ext_resource path="res://scenes/player/SNE.gd" type="Script" id=29]
+[ext_resource path="res://scenes/player/SSW.gd" type="Script" id=30]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -89,6 +95,38 @@ visible = false
 texture = ExtResource( 6 )
 script = ExtResource( 18 )
 
+[node name="SurfSprites" type="Node2D" parent="."]
+visible = false
+position = Vector2( -1, -9 )
+script = ExtResource( 25 )
+
+[node name="Palmtree" type="Sprite" parent="SurfSprites"]
+position = Vector2( 0, 5 )
+texture = ExtResource( 26 )
+
+[node name="SNW" type="Sprite" parent="SurfSprites"]
+position = Vector2( 0, -14 )
+texture = ExtResource( 5 )
+script = ExtResource( 28 )
+
+[node name="SNE" type="Sprite" parent="SurfSprites"]
+visible = false
+position = Vector2( 0, -14 )
+texture = ExtResource( 3 )
+script = ExtResource( 29 )
+
+[node name="SSE" type="Sprite" parent="SurfSprites"]
+visible = false
+position = Vector2( 0, -14 )
+texture = ExtResource( 1 )
+script = ExtResource( 27 )
+
+[node name="SSW" type="Sprite" parent="SurfSprites"]
+visible = false
+position = Vector2( 0, -14 )
+texture = ExtResource( 4 )
+script = ExtResource( 30 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -7, 4, 0, 8, 7, 4, 0, 0 )
 
@@ -115,6 +153,7 @@ script = ExtResource( 19 )
 
 [node name="BlockEmpty" parent="LiftingPosition" instance=ExtResource( 20 )]
 
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 [connection signal="timeout" from="PositionTimer" to="." method="_on_PositionTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]
 [connection signal="timeout" from="HighlightTimer" to="StatesPlayer" method="_on_HighlightTimer_timeout"]

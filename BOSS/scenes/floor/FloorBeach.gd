@@ -35,6 +35,7 @@ func born_empty_tile(tile):
 
 #PLAYER
 func player_is_on(player):
+	.player_is_on(player)
 	player.speed = player.default_speed*3/4
 
 #ENTITIES

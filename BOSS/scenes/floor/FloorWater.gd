@@ -59,10 +59,15 @@ func unlift_rock():
 
 func sinks_rock():
 	return true	
-	
+
+func unlift_palmtree():
+	return true
+func sinks_palmtree():
+	return true
+
 #PLAYER
 func player_is_on(player):
-	player.speed = player.default_speed/4
+	player.speed = player.default_speed/2
 
 func button_active_effect(button): 
 	if entities.size() > 0:

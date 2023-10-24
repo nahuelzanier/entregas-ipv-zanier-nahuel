@@ -6,6 +6,7 @@ onready var size = [$SpriteSmall, $Sprite, $SpritePillar]
 func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_salt_pillar
+	block = Tags.bl_salt
 
 func get_lifted(player):pass
 

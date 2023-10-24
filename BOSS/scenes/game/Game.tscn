@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=98 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -92,6 +92,7 @@
 [ext_resource path="res://scenes/levels/Dungeon02/Dungeon02_01.tscn" type="PackedScene" id=90]
 [ext_resource path="res://scenes/game/DiscardObject.tscn" type="PackedScene" id=91]
 [ext_resource path="res://scenes/floor/FloorCliff.tscn" type="PackedScene" id=92]
+[ext_resource path="res://scenes/entities/PalmtreeSinking.tscn" type="PackedScene" id=93]
 [ext_resource path="res://scenes/floor/FloorCliffSide.tscn" type="PackedScene" id=95]
 [ext_resource path="res://scenes/floor/FloorCliffBack.tscn" type="PackedScene" id=96]
 [ext_resource path="res://scenes/entities/SaltPillarMed.tscn" type="PackedScene" id=97]
@@ -209,6 +210,7 @@ oil_fountain = ExtResource( 88 )
 block_holder = ExtResource( 81 )
 emptyEntity = SubResource( 1 )
 palmtree = ExtResource( 24 )
+palmtree_sunk = ExtResource( 93 )
 wall_y = ExtResource( 29 )
 wall_x = ExtResource( 28 )
 player = ExtResource( 4 )

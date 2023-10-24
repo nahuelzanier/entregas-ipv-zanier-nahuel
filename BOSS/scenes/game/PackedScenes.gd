@@ -42,6 +42,7 @@ export (PackedScene) var oil_fountain
 export (PackedScene) var block_holder
 export (PackedScene) var emptyEntity
 export (PackedScene) var palmtree
+export (PackedScene) var palmtree_sunk
 export (PackedScene) var wall_y
 export (PackedScene) var wall_x
 export (PackedScene) var player
@@ -131,6 +132,7 @@ func _ready():
 	entities_dict[Tags.et_block_holder] = block_holder
 	entities_dict[Tags.et_empty] = emptyEntity
 	entities_dict[Tags.et_palmtree] = palmtree
+	entities_dict[Tags.et_palmtree_sink] = palmtree_sunk
 	entities_dict[Tags.et_wall_y] = wall_y
 	entities_dict[Tags.et_wall_x] = wall_x
 	entities_dict[Tags.et_player] = player

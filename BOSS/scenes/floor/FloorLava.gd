@@ -58,5 +58,6 @@ func sinks_rock():
 
 #PLAYER
 func player_is_on(player):
+	.player_is_on(player)
 	player.queue_free()
 	CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn)

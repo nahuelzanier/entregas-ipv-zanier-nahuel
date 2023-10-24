@@ -10,6 +10,7 @@ onready var highlight = $Highlight
 onready var highlight_timer = $HighlightTimer
 onready var state = $StatesPlayer
 var current_tile
+onready var is_surfing = false
 onready var direction = Vector2.ZERO
 onready var tag = Tags.et_player
 
@@ -18,6 +19,9 @@ func _ready():
 	$PositionTimer.start()
 	$TerrainTimer.start()
 	update_tile()
+	contact_monitor = true
+	contacts_reported = 1
+
 
 func _physics_process(delta):
 	if Input.is_action_just_released("grab"):
@@ -90,3 +94,27 @@ func _on_TerrainTimer_timeout():
 	update_tile()
 	current_tile.player_is_on(self)
 
+func _on_Player_body_entered(body):
+	body.player_collision(self)
+
+func disable_collisions():
+	$CollisionPolygon2D.disabled = true
+func enable_collisions():
+	$CollisionPolygon2D.disabled = false
+
+func start_surfing(palmtree):
+	is_surfing = true
+	sprites.hide()
+	sprites = $SurfSprites
+	sprites.show()
+	Global.move_to_coordinates(self, palmtree.current_tile.iso_pos)
+	call_deferred("disable_collisions")
+
+func stop_surfing(tile):
+	is_surfing = false
+	sprites.hide()
+	sprites = $PlayerSprites
+	sprites.show()
+	Global.move_to_coordinates(self, tile.iso_pos)
+	call_deferred("enable_collisions")
+	grab_entity_block(Tags.bl_palmtree)

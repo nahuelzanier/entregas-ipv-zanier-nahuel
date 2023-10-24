@@ -15,3 +15,4 @@ func button_active_effect(button):
 	destroy_self()
 	CurrentMap.map_manager.call_deferred("replace", Tags.fl_trap_door, current_tile.iso_pos)
 	
+func bottomless_pit(pit):pass

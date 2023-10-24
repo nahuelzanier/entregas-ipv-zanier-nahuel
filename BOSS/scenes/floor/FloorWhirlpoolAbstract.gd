@@ -1,6 +1,7 @@
 extends "res://scenes/floor/FloorAbstract.gd"
 
 onready var whirlpool_direction
+onready var whirlpool_player
 
 func get_lifted(player):
 	if player.block_tag() != Tags.fl_empty:
@@ -57,13 +58,18 @@ func unlift_rock():
 	return entities.size() < 1
 
 func sinks_rock():
-	return true	
+	return true
+
+func unlift_palmtree():
+	return true
+func sinks_palmtree():
+	return true
 
 func block_holder(block_holder):pass
 
 #PLAYER
 func player_is_on(player):
-	player.speed = player.default_speed/4
+	player.apply_central_impulse(whirlpool_player*400)
 
 func button_active_effect(button): 
 	if entities.size() > 0:

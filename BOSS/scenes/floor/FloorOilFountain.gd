@@ -55,6 +55,7 @@ func sinks_rock():
 	
 #PLAYER
 func player_is_on(player):
+	.player_is_on(player)
 	player.speed = player.default_speed/2
 
 func button_active_effect(button): 

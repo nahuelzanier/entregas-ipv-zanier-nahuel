@@ -12,10 +12,9 @@ func _ready():
 	$KinematicBody2D.tag = tag
 
 func _process(delta):
-	if entities.size()>0:
-		var block = CurrentMap.map_manager.new_block(entities[0].block)
-		entities[0].destroy_self()
-		falling_element.start_falling(block)
+	if entities.size() > 0:
+		for entity in entities:
+			entity.bottomless_pit(self)
 
 func _on_RespawnCrumblingTile_timeout():
 	CurrentMap.map_manager.replace(Tags.fl_crumble, iso_pos)
@@ -51,3 +50,12 @@ func unlift_palmtree():
 	return entities.size() == 0
 
 func block_holder(block_holder):pass
+
+func button_active_effect(button): 
+	if entities.size() > 0:
+		entities[0].button_active_effect(button)
+
+func player_is_on(player):
+	.player_is_on(player)
+	player.queue_free()
+	CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn)

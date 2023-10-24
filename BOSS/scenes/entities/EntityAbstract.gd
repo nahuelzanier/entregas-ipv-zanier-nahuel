@@ -46,3 +46,10 @@ func whirlpool(direction):
 	current_tile.entities.append(self)
 
 func light_on_fire(): pass
+
+func bottomless_pit(pit):
+	var new_block = CurrentMap.map_manager.new_block(block)
+	destroy_self()
+	pit.falling_element.start_falling(new_block)
+
+func player_collision(player):pass

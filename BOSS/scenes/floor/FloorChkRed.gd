@@ -62,6 +62,7 @@ func _on_QuakeDamage_timeout():
 	quake = false
 
 func player_is_on(player):
+	.player_is_on(player)
 	if quake:
 		player.queue_free()
 		CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn)
