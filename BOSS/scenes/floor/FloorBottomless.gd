@@ -9,6 +9,7 @@ func _ready():
 	type_tag = Tags.g_tile
 	tag = Tags.fl_bottomless
 	lift_block = Tags.bl_empty
+	$KinematicBody2D.tag = tag
 
 func _process(delta):
 	if entities.size()>0:

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/entities/flame02.png" type="Texture" id=1]
+[ext_resource path="res://assets/entities/flame01.png" type="Texture" id=2]
+[ext_resource path="res://scenes/entities/Flame.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "flame",
+"speed": 2.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.06226
+
+[node name="Flame" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "flame"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+
+[node name="BurnOut" type="Timer" parent="."]
+wait_time = 10.22
+
+[node name="SpreadFire" type="Timer" parent="."]
+wait_time = 2.723
+
+[connection signal="timeout" from="BurnOut" to="." method="_on_BurnOut_timeout"]
+[connection signal="timeout" from="SpreadFire" to="." method="_on_SpreadFire_timeout"]

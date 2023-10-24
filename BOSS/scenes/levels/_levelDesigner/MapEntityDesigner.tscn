@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/entities/stone lid.png" type="Texture" id=1]
 [ext_resource path="res://assets/entities/trap door.png" type="Texture" id=2]
@@ -24,6 +24,10 @@
 [ext_resource path="res://assets/entities/door base.png" type="Texture" id=22]
 [ext_resource path="res://assets/entities/door north.png" type="Texture" id=23]
 [ext_resource path="res://assets/entities/door south.png" type="Texture" id=24]
+[ext_resource path="res://assets/entities/fire wisp.png" type="Texture" id=25]
+[ext_resource path="res://assets/entities/flame01.png" type="Texture" id=26]
+[ext_resource path="res://assets/entities/torch.png" type="Texture" id=27]
+[ext_resource path="res://assets/entities/torch on.png" type="Texture" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stone lid.png 0"
@@ -156,7 +160,7 @@
 9/texture = ExtResource( 10 )
 9/tex_offset = Vector2( -8, -30 )
 9/modulate = Color( 1, 1, 1, 1 )
-9/region = Rect2( 0, 0, 46, 40 )
+9/region = Rect2( 0, 0, 46, 39 )
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
@@ -348,6 +352,62 @@
 22/shape_one_way_margin = 0.0
 22/shapes = [  ]
 22/z_index = 0
+23/name = "fire wisp.png 23"
+23/texture = ExtResource( 25 )
+23/tex_offset = Vector2( 7, -16 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 0, 0, 20, 25 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 0, 0 )
+23/navigation_offset = Vector2( 0, 0 )
+23/shape_offset = Vector2( 0, 0 )
+23/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+23/shape_one_way = false
+23/shape_one_way_margin = 0.0
+23/shapes = [  ]
+23/z_index = 0
+24/name = "flame01.png 24"
+24/texture = ExtResource( 26 )
+24/tex_offset = Vector2( 7, -14 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 0, 0, 20, 28 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape_one_way = false
+24/shape_one_way_margin = 0.0
+24/shapes = [  ]
+24/z_index = 0
+25/name = "torch.png 25"
+25/texture = ExtResource( 27 )
+25/tex_offset = Vector2( 7, -9 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 0, 0, 18, 21 )
+25/tile_mode = 0
+25/occluder_offset = Vector2( 0, 0 )
+25/navigation_offset = Vector2( 0, 0 )
+25/shape_offset = Vector2( 0, 0 )
+25/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+25/shape_one_way = false
+25/shape_one_way_margin = 0.0
+25/shapes = [  ]
+25/z_index = 0
+26/name = "torch on.png 26"
+26/texture = ExtResource( 28 )
+26/tex_offset = Vector2( 7, -26 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 0, 0, 18, 38 )
+26/tile_mode = 0
+26/occluder_offset = Vector2( 0, 0 )
+26/navigation_offset = Vector2( 0, 0 )
+26/shape_offset = Vector2( 0, 0 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/shape_one_way = false
+26/shape_one_way_margin = 0.0
+26/shapes = [  ]
+26/z_index = 0
 
 [node name="MapEntityDesigner" type="TileMap"]
 mode = 1

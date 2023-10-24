@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/floor/button.png" type="Texture" id=1]
 [ext_resource path="res://assets/floor/box basic color.png" type="Texture" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://assets/floor/whirlpool se.png" type="Texture" id=27]
 [ext_resource path="res://scenes/levels/_levelDesigner/MapDesigner.gd" type="Script" id=28]
 [ext_resource path="res://assets/floor/stairs up tile.png" type="Texture" id=29]
+[ext_resource path="res://assets/floor/oil tile.png" type="Texture" id=30]
+[ext_resource path="res://assets/floor/oil fountain.png" type="Texture" id=31]
 
 [sub_resource type="TileSet" id=1]
 0/name = "box basic color.png 0"
@@ -423,6 +425,34 @@
 27/shape_one_way_margin = 0.0
 27/shapes = [  ]
 27/z_index = 0
+28/name = "oil tile.png 28"
+28/texture = ExtResource( 30 )
+28/tex_offset = Vector2( 0, 1 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 0, 0, 32, 19 )
+28/tile_mode = 0
+28/occluder_offset = Vector2( 0, 0 )
+28/navigation_offset = Vector2( 0, 0 )
+28/shape_offset = Vector2( 0, 0 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+28/shape_one_way = false
+28/shape_one_way_margin = 0.0
+28/shapes = [  ]
+28/z_index = 0
+29/name = "oil fountain.png 29"
+29/texture = ExtResource( 31 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 0, 0, 32, 23 )
+29/tile_mode = 0
+29/occluder_offset = Vector2( 0, 0 )
+29/navigation_offset = Vector2( 0, 0 )
+29/shape_offset = Vector2( 0, 0 )
+29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+29/shape_one_way = false
+29/shape_one_way_margin = 0.0
+29/shapes = [  ]
+29/z_index = 0
 
 [node name="MapDesigner" type="TileMap"]
 mode = 1

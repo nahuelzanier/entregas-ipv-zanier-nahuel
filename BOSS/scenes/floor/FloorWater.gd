@@ -4,6 +4,7 @@ func _ready():
 	type_tag = Tags.g_tile
 	tag = Tags.fl_water
 	lift_block = Tags.bl_empty
+	$Kinematic2D.tag = tag
 
 func on_born():
 	$WaterGrowth.start()
@@ -47,6 +48,9 @@ func moving_water_wisp(wisp):
 func water_wisp_is_on(wisp): pass
 
 func lava_wisp_is_on(wisp):
+	wisp.go_to_sleep()
+	
+func fire_wisp_is_on(wisp):
 	wisp.go_to_sleep()
 	
 #ENTITIES

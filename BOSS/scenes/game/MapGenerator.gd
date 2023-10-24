@@ -2,7 +2,7 @@ extends Node
 
 onready var rendered = $"../../Rendered"
 onready var packed_scenes = $PackedScenes
-onready var creator = $MapArrayCreator
+#onready var creator = $MapArrayCreator
 
 func _ready():
 	CurrentMap.map_generator = self
@@ -29,10 +29,10 @@ func generate_map(detail = false):
 		rendered.floor_map.add_child(new_floor)
 	for vector2 in keys:
 		CurrentMap.map[vector2].on_born()
-
-func generate_entity(entity, x, y):
-	var new_entity = packed_scenes.generate_entity(entity, x, y)
-	rendered.entities.add_child(new_entity)
+#
+#func generate_entity(entity, x, y):
+#	var new_entity = packed_scenes.generate_entity(entity, x, y)
+#	rendered.entities.add_child(new_entity)
 
 #func generate_test():
 #	generate_floor_map(current_map)
@@ -74,18 +74,18 @@ func generate_entity(entity, x, y):
 #	generate_entity(Tags.et_player, randi()%xsize, randi()%ysize)
 #	CurrentMap.player_spawn = Vector2(randi()%xsize, randi()%ysize)
 
-var map01 = [
-	['col','wlx','wlx','col'],
-	['wly','def','def','wly'],
-	['wly','def','def','wly'],
-	['col','wlx','wlx','col']
-]
-
-func test_creator():
-	CurrentMap.update_map(map01)
-	CurrentMap.add_map_at(map01, 5, 0)
-	CurrentMap.add_map_at(map01, 0, 5)
-	CurrentMap.add_map_at(map01, 5, 5)
-	CurrentMap.map[1][1] = 'pla'
-	CurrentMap.convert_nulls()
-	generate_map()
+#var map01 = [
+#	['col','wlx','wlx','col'],
+#	['wly','def','def','wly'],
+#	['wly','def','def','wly'],
+#	['col','wlx','wlx','col']
+#]
+#
+#func test_creator():
+#	CurrentMap.update_map(map01)
+#	CurrentMap.add_map_at(map01, 5, 0)
+#	CurrentMap.add_map_at(map01, 0, 5)
+#	CurrentMap.add_map_at(map01, 5, 5)
+#	CurrentMap.map[1][1] = 'pla'
+#	CurrentMap.convert_nulls()
+#	generate_map()

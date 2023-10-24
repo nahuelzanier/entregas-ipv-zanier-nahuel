@@ -4,6 +4,7 @@ func _ready():
 	type_tag = Tags.g_tile
 	tag = Tags.fl_water
 	lift_block = Tags.bl_empty
+	$Kinematic2D.tag = tag
 
 func get_lifted(player):
 	pass

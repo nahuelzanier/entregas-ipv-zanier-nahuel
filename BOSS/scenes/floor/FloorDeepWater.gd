@@ -4,9 +4,10 @@ func _ready():
 	type_tag = Tags.g_tile
 	tag = Tags.fl_deep_water
 	lift_block = Tags.bl_empty
+	$KinematicBody2D.tag = tag
 
 func get_lifted(player):pass
-	
+
 #TILES
 func born_empty_tile(tile):
 	var isoCoords = tile.iso_pos

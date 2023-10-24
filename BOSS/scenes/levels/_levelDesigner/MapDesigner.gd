@@ -29,7 +29,9 @@ var tags = [
 		Tags.fl_whirlpool_nw,
 		Tags.fl_whirlpool_se,
 		Tags.fl_whirlpool_sw,
-		Tags.fl_stairs_up
+		Tags.fl_stairs_up,
+		Tags.fl_oil,
+		Tags.fl_oil_fountain
 ]
 
 func get_map():

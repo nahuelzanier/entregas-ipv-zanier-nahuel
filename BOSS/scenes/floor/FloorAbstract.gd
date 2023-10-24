@@ -1,7 +1,7 @@
 extends Node2D
 
 var iso_pos
-onready var type_tag
+onready var type_tag = Tags.g_tile
 onready var tag
 onready var lift_block
 var respawn_crumbling_tile = false
@@ -60,6 +60,8 @@ func born_beach_tile(tile): pass
 
 func born_bottomless_tile(tile): pass
 
+func born_oil_tile(tile): pass
+
 #WISPS
 func sleeping_wisp_is_on(wisp): pass
 
@@ -86,6 +88,8 @@ func moving_sand_wisp(wisp): pass
 
 func sand_wisp_is_on(wisp):
 	wisp.go_to_sleep()
+
+func fire_wisp_is_on(wisp): pass
 
 #PLAYER
 func player_is_on(player):
@@ -117,7 +121,10 @@ func unlift_palmtree():
 
 func quake_start(): pass
 func quake(vector2): pass
-
-
 func button_active_effect(button): pass
 func button_inactive_effect(button): pass
+
+func light_on_fire():
+	if entities.size() > 0:
+		entities[0].light_on_fire()
+func burn_out(): pass

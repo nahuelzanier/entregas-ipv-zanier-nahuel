@@ -4,6 +4,7 @@ func _ready():
 	type_tag = Tags.g_wall
 	tag = Tags.fl_empty_no_access
 	lift_block = Tags.bl_empty
+	$Kinematic2D.tag = tag
 
 func _process(delta): pass
 

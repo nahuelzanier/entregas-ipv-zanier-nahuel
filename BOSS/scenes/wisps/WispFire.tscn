@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/entities/fire wisp.png" type="Texture" id=1]
+[ext_resource path="res://scenes/wisps/WispFire.gd" type="Script" id=2]
+[ext_resource path="res://assets/entities/fire wisp 2.png" type="Texture" id=3]
+[ext_resource path="res://assets/entities/fire wisp 4.png" type="Texture" id=4]
+[ext_resource path="res://assets/entities/fire wisp 3.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "flame",
+"speed": 2.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 9.0
+height = 8.0
+
+[node name="WispFire" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -5 )
+frames = SubResource( 2 )
+animation = "flame"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, -5 )
+shape = SubResource( 1 )
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.07
+
+[node name="TerrainTimer" type="Timer" parent="."]
+wait_time = 0.08
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
+[connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -8,8 +8,8 @@
 [ext_resource path="res://scenes/game/PackedScenes.gd" type="Script" id=6]
 [ext_resource path="res://scenes/wisps/WispBase.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/game/MapManager.gd" type="Script" id=8]
-[ext_resource path="res://scenes/floor/FloorWallBaseY.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/floor/FloorWallBaseX.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/Island01/Island02.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/levels/Island01/Jungle01.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/floor/FloorWater.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/wisps/WaterWisp.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/floor/FloorWaterFountain.tscn" type="PackedScene" id=13]
@@ -25,13 +25,13 @@
 [ext_resource path="res://scenes/entities/SaltPillarSmall.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/entities/Palmtree.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scenes/blocks/BlockPalmtree.tscn" type="PackedScene" id=25]
-[ext_resource path="res://scenes/floor/FloorColumn.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/levels/test/TestMap.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/entities/Column.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/entities/WallX.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/entities/WallY.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/floor/FloorEmptyInaccesible.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/wisps/WispQuake.tscn" type="PackedScene" id=31]
-[ext_resource path="res://scenes/floor/FloorPlayerSpawn.tscn" type="PackedScene" id=32]
+[ext_resource path="res://scenes/wisps/WispFire.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenes/wisps/WispSand.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scenes/game/MapArrayCreator.gd" type="Script" id=34]
 [ext_resource path="res://scenes/floor/FloorChkRed.tscn" type="PackedScene" id=35]
@@ -46,8 +46,8 @@
 [ext_resource path="res://scenes/floor/FloorBottomless.tscn" type="PackedScene" id=44]
 [ext_resource path="res://scenes/game/Level.gd" type="Script" id=45]
 [ext_resource path="res://scenes/levels/Dungeon01/Room01.tscn" type="PackedScene" id=46]
-[ext_resource path="res://scenes/floor/FloorDoorLeft.tscn" type="PackedScene" id=47]
-[ext_resource path="res://scenes/floor/FloorDoorRight.tscn" type="PackedScene" id=48]
+[ext_resource path="res://scenes/floor/FloorOil.tscn" type="PackedScene" id=47]
+[ext_resource path="res://scenes/entities/Flame.tscn" type="PackedScene" id=48]
 [ext_resource path="res://scenes/entities/DoorRight.tscn" type="PackedScene" id=49]
 [ext_resource path="res://scenes/entities/DoorLeft.tscn" type="PackedScene" id=50]
 [ext_resource path="res://scenes/game/Rendered.gd" type="Script" id=51]
@@ -59,8 +59,8 @@
 [ext_resource path="res://scenes/game/Entities.tscn" type="PackedScene" id=57]
 [ext_resource path="res://scenes/floor/FloorEmptyAccesible.tscn" type="PackedScene" id=58]
 [ext_resource path="res://scenes/floor/FloorStone.tscn" type="PackedScene" id=59]
-[ext_resource path="res://scenes/floor/FloorDoorNorth.tscn" type="PackedScene" id=60]
-[ext_resource path="res://scenes/floor/FloorDoorSouth.tscn" type="PackedScene" id=61]
+[ext_resource path="res://scenes/entities/Torch.tscn" type="PackedScene" id=60]
+[ext_resource path="res://scenes/levels/Furnace01/Furnace01.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/entities/DoorNorth.tscn" type="PackedScene" id=62]
 [ext_resource path="res://scenes/entities/DoorSouth.tscn" type="PackedScene" id=63]
 [ext_resource path="res://scenes/floor/FloorEmptyBlocked.tscn" type="PackedScene" id=64]
@@ -87,6 +87,9 @@
 [ext_resource path="res://scenes/floor/FloorStairsUp.tscn" type="PackedScene" id=85]
 [ext_resource path="res://scenes/entities/StairsUp.tscn" type="PackedScene" id=86]
 [ext_resource path="res://scenes/levels/EmptyLevel.tscn" type="PackedScene" id=87]
+[ext_resource path="res://scenes/floor/FloorOilFountain.tscn" type="PackedScene" id=88]
+[ext_resource path="res://scenes/entities/TorchOn.tscn" type="PackedScene" id=89]
+[ext_resource path="res://scenes/levels/Dungeon02/Dungeon02_01.tscn" type="PackedScene" id=90]
 [ext_resource path="res://scenes/game/DiscardObject.tscn" type="PackedScene" id=91]
 [ext_resource path="res://scenes/floor/FloorCliff.tscn" type="PackedScene" id=92]
 [ext_resource path="res://scenes/floor/FloorCliffSide.tscn" type="PackedScene" id=95]
@@ -109,11 +112,14 @@ _bundled = {
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 __meta__ = {
-"_editor_description_": "d"
+"_editor_description_": ""
 }
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 45 )
+
+[node name="EmptyLevel" parent="Level" instance=ExtResource( 87 )]
+visible = false
 
 [node name="Dungeon01" type="Node2D" parent="Level"]
 
@@ -137,7 +143,25 @@ visible = false
 [node name="Island01" parent="Level/Island01" instance=ExtResource( 74 )]
 visible = false
 
-[node name="EmptyLevel" parent="Level" instance=ExtResource( 87 )]
+[node name="Island02" parent="Level/Island01" instance=ExtResource( 9 )]
+visible = false
+
+[node name="Jungle01" parent="Level/Island01" instance=ExtResource( 10 )]
+visible = false
+
+[node name="Furnace01" type="Node2D" parent="Level"]
+
+[node name="Furnace01" parent="Level/Furnace01" instance=ExtResource( 61 )]
+visible = false
+
+[node name="TestMaps" type="Node2D" parent="Level"]
+
+[node name="TestMap" parent="Level/TestMaps" instance=ExtResource( 26 )]
+visible = false
+
+[node name="Dungeon02" type="Node2D" parent="Level"]
+
+[node name="Dungeon02_01" parent="Level/Dungeon02" instance=ExtResource( 90 )]
 visible = false
 
 [node name="MapManager" type="Node" parent="."]
@@ -152,8 +176,6 @@ script = ExtResource( 34 )
 
 [node name="PackedScenes" type="Node" parent="MapManager/MapGenerator"]
 script = ExtResource( 6 )
-wallBase_y = ExtResource( 9 )
-wallBase_x = ExtResource( 10 )
 floorDefault = ExtResource( 3 )
 floorEmpty = ExtResource( 5 )
 floor_empty_no_access = ExtResource( 30 )
@@ -165,15 +187,9 @@ fountainFloor = ExtResource( 13 )
 crumbleFloor = ExtResource( 14 )
 lavaFloor = ExtResource( 20 )
 sandBeach = ExtResource( 16 )
-columnBase = ExtResource( 26 )
-player_spawn = ExtResource( 32 )
 checker_black = ExtResource( 36 )
 checker_red = ExtResource( 35 )
 bottomless = ExtResource( 44 )
-tile_door_left = ExtResource( 47 )
-tile_door_right = ExtResource( 48 )
-tile_door_north = ExtResource( 60 )
-tile_door_south = ExtResource( 61 )
 floor_dungeon = ExtResource( 52 )
 floor_stone = ExtResource( 59 )
 floor_salt = ExtResource( 65 )
@@ -188,6 +204,8 @@ stairs_up = ExtResource( 85 )
 cliff = ExtResource( 92 )
 cliff_side = ExtResource( 95 )
 cliff_back = ExtResource( 96 )
+oil_tile = ExtResource( 47 )
+oil_fountain = ExtResource( 88 )
 block_holder = ExtResource( 81 )
 emptyEntity = SubResource( 1 )
 palmtree = ExtResource( 24 )
@@ -212,8 +230,12 @@ wispWater = ExtResource( 12 )
 wisp_lava = ExtResource( 21 )
 wisp_quake = ExtResource( 31 )
 wisp_sand = ExtResource( 33 )
+wisp_fire = ExtResource( 32 )
 stone_lid = ExtResource( 83 )
 entity_stairs_up = ExtResource( 86 )
+entity_flame = ExtResource( 48 )
+entity_torch = ExtResource( 60 )
+entity_torch_on = ExtResource( 89 )
 block_empty = ExtResource( 18 )
 block_palmtree = ExtResource( 25 )
 block_default = ExtResource( 17 )

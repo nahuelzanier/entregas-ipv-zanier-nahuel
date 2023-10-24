@@ -5,4 +5,5 @@ func _ready():
 	tag = Tags.fl_whirlpool_nw
 	lift_block = Tags.bl_empty
 	whirlpool_direction = Vector2(-1,0)
+	$Kinematic2D.tag = tag
 	$WhirlpoolStartTimer.start()

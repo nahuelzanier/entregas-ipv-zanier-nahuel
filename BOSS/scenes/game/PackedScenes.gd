@@ -1,7 +1,7 @@
 extends Node
 #FLOORS
-export (PackedScene) var wallBase_y
-export (PackedScene) var wallBase_x
+#export (PackedScene) var wallBase_y
+#export (PackedScene) var wallBase_x
 export (PackedScene) var floorDefault
 export (PackedScene) var floorEmpty
 export (PackedScene) var floor_empty_no_access
@@ -13,15 +13,15 @@ export (PackedScene) var fountainFloor
 export (PackedScene) var crumbleFloor
 export (PackedScene) var lavaFloor
 export (PackedScene) var sandBeach
-export (PackedScene) var columnBase
-export (PackedScene) var player_spawn
+#export (PackedScene) var columnBase
+#export (PackedScene) var player_spawn
 export (PackedScene) var checker_black
 export (PackedScene) var checker_red
 export (PackedScene) var bottomless
-export (PackedScene) var tile_door_left
-export (PackedScene) var tile_door_right
-export (PackedScene) var tile_door_north
-export (PackedScene) var tile_door_south
+#export (PackedScene) var tile_door_left
+#export (PackedScene) var tile_door_right
+#export (PackedScene) var tile_door_north
+#export (PackedScene) var tile_door_south
 export (PackedScene) var floor_dungeon
 export (PackedScene) var floor_stone
 export (PackedScene) var floor_salt
@@ -36,6 +36,8 @@ export (PackedScene) var stairs_up
 export (PackedScene) var cliff
 export (PackedScene) var cliff_side
 export (PackedScene) var cliff_back
+export (PackedScene) var oil_tile
+export (PackedScene) var oil_fountain
 #ENTITIES
 export (PackedScene) var block_holder
 export (PackedScene) var emptyEntity
@@ -61,8 +63,12 @@ export (PackedScene) var wispWater
 export (PackedScene) var wisp_lava
 export (PackedScene) var wisp_quake
 export (PackedScene) var wisp_sand
+export (PackedScene) var wisp_fire
 export (PackedScene) var stone_lid
 export (PackedScene) var entity_stairs_up
+export (PackedScene) var entity_flame
+export (PackedScene) var entity_torch
+export (PackedScene) var entity_torch_on
 #BLOCKS
 export (PackedScene) var block_empty
 export (PackedScene) var block_palmtree
@@ -120,6 +126,8 @@ func _ready():
 	tile_dict[Tags.fl_cliff] = cliff
 	tile_dict[Tags.fl_cliff_side] = cliff_side
 	tile_dict[Tags.fl_cliff_back] = cliff_back
+	tile_dict[Tags.fl_oil] = oil_tile
+	tile_dict[Tags.fl_oil_fountain] = oil_fountain
 	entities_dict[Tags.et_block_holder] = block_holder
 	entities_dict[Tags.et_empty] = emptyEntity
 	entities_dict[Tags.et_palmtree] = palmtree
@@ -143,9 +151,13 @@ func _ready():
 	entities_dict[Tags.et_lava_wisp] = wisp_lava
 	entities_dict[Tags.et_quake_wisp] = wisp_quake
 	entities_dict[Tags.et_sand_wisp] = wisp_sand
+	entities_dict[Tags.et_fire_wisp] = wisp_fire
 	entities_dict[Tags.et_trap_door] = trap_door
 	entities_dict[Tags.et_stone_lid] = stone_lid
 	entities_dict[Tags.et_stairs_up] = entity_stairs_up
+	entities_dict[Tags.et_flame] = entity_flame
+	entities_dict[Tags.et_torch] = entity_torch
+	entities_dict[Tags.et_torch_on] = entity_torch_on
 	block_dict[Tags.bl_empty] = block_empty
 	block_dict[Tags.bl_palmtree] = block_palmtree
 	block_dict[Tags.bl_default] = block_default

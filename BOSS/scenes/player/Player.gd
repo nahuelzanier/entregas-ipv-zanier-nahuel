@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export var speed = 220
 export var default_speed = 220
+onready var type_tag = Tags.g_player
 onready var sprites = $PlayerSprites
 onready var lift_position = $LiftingPosition
 onready var feet_position = $FeetPosition
@@ -13,6 +14,7 @@ onready var direction = Vector2.ZERO
 onready var tag = Tags.et_player
 
 func _ready():
+	PlayerSingleton.player == self
 	$PositionTimer.start()
 	$TerrainTimer.start()
 	update_tile()

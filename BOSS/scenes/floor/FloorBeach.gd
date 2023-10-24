@@ -35,7 +35,7 @@ func born_empty_tile(tile):
 
 #PLAYER
 func player_is_on(player):
-	player.speed = player.default_speed*2/3
+	player.speed = player.default_speed*3/4
 
 #ENTITIES
 func unlift_rock():

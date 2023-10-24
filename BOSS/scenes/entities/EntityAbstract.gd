@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var type_tag 
+onready var type_tag = Tags.g_entity
 onready var tag
 onready var block
 var current_tile
@@ -44,3 +44,5 @@ func whirlpool(direction):
 	Global.move_to_coordinates(self, coords + direction)
 	update_tile()
 	current_tile.entities.append(self)
+
+func light_on_fire(): pass

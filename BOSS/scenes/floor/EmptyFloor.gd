@@ -4,6 +4,7 @@ func _ready():
 	type_tag = Tags.g_tile
 	tag = Tags.fl_empty
 	lift_block = Tags.bl_empty
+	$KinematicBody2D.tag = tag
 
 func on_born():
 	for i in [1, -1]:
@@ -29,6 +30,12 @@ func born_lava_tile(tile):
 func born_beach_tile(tile):
 	var crumbling_tile = respawn_crumbling_tile
 	CurrentMap.map_manager.replace(Tags.fl_beach, iso_pos)
+	if crumbling_tile:
+		CurrentMap.map[iso_pos].crumbling_tile_active()
+
+func born_oil_tile(tile):
+	var crumbling_tile = respawn_crumbling_tile
+	CurrentMap.map_manager.replace(Tags.fl_oil, iso_pos)
 	if crumbling_tile:
 		CurrentMap.map[iso_pos].crumbling_tile_active()
 
