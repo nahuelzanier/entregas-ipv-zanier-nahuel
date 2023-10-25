@@ -154,6 +154,7 @@ script = ExtResource( 19 )
 [node name="BlockEmpty" parent="LiftingPosition" instance=ExtResource( 20 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="lift" from="StatesPlayer" to="." method="lift"]
 [connection signal="timeout" from="PositionTimer" to="." method="_on_PositionTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]
 [connection signal="timeout" from="HighlightTimer" to="StatesPlayer" method="_on_HighlightTimer_timeout"]

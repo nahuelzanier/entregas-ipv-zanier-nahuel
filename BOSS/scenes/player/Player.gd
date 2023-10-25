@@ -10,6 +10,7 @@ onready var highlight = $Highlight
 onready var highlight_timer = $HighlightTimer
 onready var state = $StatesPlayer
 var current_tile
+var previous_tile
 onready var is_surfing = false
 onready var direction = Vector2.ZERO
 onready var tag = Tags.et_player
@@ -22,10 +23,7 @@ func _ready():
 	contact_monitor = true
 	contacts_reported = 1
 
-
 func _physics_process(delta):
-	if Input.is_action_just_released("grab"):
-		call_deferred("lift")
 	rotation = 0
 	var grab = grab_coords()
 	highlight.global_position = Global._iso_to_pos(grab) + Vector2(0,7)
@@ -47,7 +45,8 @@ func grab_coords():
 	return (Global._pos_to_iso(position + Vector2(0,6)) + sprites.sprite.grab)
 
 func lift():
-	lift_position.block.lift(self)
+	if !is_surfing:
+		lift_position.block.lift(self)
 
 func block():
 	return lift_position.block
@@ -83,6 +82,7 @@ func pop_block():
 	return tag
 
 func update_tile():
+	previous_tile = current_tile
 	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
 	var on_tile = CurrentMap.map[iso_pos]
 	current_tile = on_tile
@@ -117,4 +117,4 @@ func stop_surfing(tile):
 	sprites.show()
 	Global.move_to_coordinates(self, tile.iso_pos)
 	call_deferred("enable_collisions")
-	grab_entity_block(Tags.bl_palmtree)
+	CurrentMap.map_manager.create_entity(Tags.et_palmtree_sink, previous_tile.iso_pos)
