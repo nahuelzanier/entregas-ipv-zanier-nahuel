@@ -8,14 +8,8 @@ func _ready():
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
 
-func trigger_level_locations(iso_position, tag):
-	match [iso_position, self.map_tag_name]:
-		[Vector2(10,24), tag]:
-			CurrentMap.call_deferred("generate_map", $"../Room04", Vector2(4.5,1))
-		[Vector2(11,24), tag]:
-			CurrentMap.call_deferred("generate_map", $"../Room04", Vector2(4.5,1))
-		_:
-			pass
+	triggers[Vector2(10,24)] = ["generate_map", $"../Room04", Vector2(4.5,1)]
+	triggers[Vector2(11,24)] = ["generate_map", $"../Room04", Vector2(4.5,1)]
 
 func update_maps():
 	if (map[Vector2(8,3)] != Tags.fl_water

@@ -56,6 +56,4 @@ func button_active_effect(button):
 		entities[0].button_active_effect(button)
 
 func player_is_on(player):
-	.player_is_on(player)
-	player.queue_free()
-	CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn)
+	player.die()

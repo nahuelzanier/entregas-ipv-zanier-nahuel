@@ -26,13 +26,22 @@ func try_to_move():
 		if body != null && body.type_tag == Tags.g_player:
 			position += ray_cast_2d.cast_to.normalized() * speed
 
+func move_away_from_each_other():
+	pass
+
 func is_exception(tag):
-	return (tag == Tags.fl_empty || tag == Tags.et_flame)
+	return (tag == Tags.fl_empty 
+		 || tag == Tags.et_flame
+		 || tag == Tags.fl_water)
 
 func _on_MoveTimer_timeout():
 	try_to_move()
 
 func _on_TerrainTimer_timeout():
+	call_deferred("terrain_timer_func")
+
+func terrain_timer_func():
 	update_tile()
+	current_tile.entities.erase(self)
 	current_tile.light_on_fire()
 	current_tile.fire_wisp_is_on(self)

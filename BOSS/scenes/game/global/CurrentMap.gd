@@ -18,8 +18,8 @@ onready var map = {}
 
 func generate_map(level, spawn_point):
 	PlayerSingleton.remove_player()
-	level_node.active_level.update_maps()
 	record_entities()
+	level_node.active_level.update_maps()
 	rendered.reset_rendered_elements()
 	level_node.active_level = level
 	load_level(level, spawn_point)

@@ -4,7 +4,6 @@ func _ready():
 	type_tag = Tags.g_wall
 	tag = Tags.fl_stairs_up
 	lift_block = Tags.bl_empty
-	create_detail()
 
 func _process(delta): pass
 

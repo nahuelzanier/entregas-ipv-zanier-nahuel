@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/player/character south east.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://scenes/player/SNW.gd" type="Script" id=28]
 [ext_resource path="res://scenes/player/SNE.gd" type="Script" id=29]
 [ext_resource path="res://scenes/player/SSW.gd" type="Script" id=30]
+[ext_resource path="res://scenes/player/StateSurfing.gd" type="Script" id=31]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -38,19 +39,19 @@ script = ExtResource( 2 )
 speed = 250
 default_speed = 250
 
-[node name="StatesPlayer" type="Node" parent="."]
+[node name="States" type="Node" parent="."]
+
+[node name="StateSurfing" type="Node" parent="States"]
+script = ExtResource( 31 )
+
+[node name="StatePlayer" type="Node" parent="States"]
 script = ExtResource( 22 )
 
-[node name="StateMoving" type="Node" parent="StatesPlayer"]
+[node name="StateMoving" type="Node" parent="States/StatePlayer"]
 script = ExtResource( 23 )
 
-[node name="StateGrabing" type="Node" parent="StatesPlayer"]
+[node name="StateGrabing" type="Node" parent="States/StatePlayer"]
 script = ExtResource( 24 )
-
-[node name="Highlight" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, 4 )
-texture = ExtResource( 21 )
 
 [node name="PlayerSprites" type="Node2D" parent="."]
 position = Vector2( 0, -14 )
@@ -144,6 +145,11 @@ wait_time = 0.05
 wait_time = 0.3
 one_shot = true
 
+[node name="Highlight" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, 4 )
+texture = ExtResource( 21 )
+
 [node name="FeetPosition" type="Position2D" parent="."]
 position = Vector2( 0, 4 )
 
@@ -154,7 +160,7 @@ script = ExtResource( 19 )
 [node name="BlockEmpty" parent="LiftingPosition" instance=ExtResource( 20 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
-[connection signal="lift" from="StatesPlayer" to="." method="lift"]
+[connection signal="lift" from="States/StatePlayer" to="." method="lift"]
 [connection signal="timeout" from="PositionTimer" to="." method="_on_PositionTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]
-[connection signal="timeout" from="HighlightTimer" to="StatesPlayer" method="_on_HighlightTimer_timeout"]
+[connection signal="timeout" from="HighlightTimer" to="States/StatePlayer" method="_on_HighlightTimer_timeout"]

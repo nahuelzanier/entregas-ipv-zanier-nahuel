@@ -15,3 +15,6 @@ func _on_SpreadFire_timeout():
 	for i in [1, -1]:
 		CurrentMap.map[current_tile.iso_pos + Vector2(i,0)].light_on_fire()
 		CurrentMap.map[current_tile.iso_pos + Vector2(0,i)].light_on_fire()
+
+func become_possessed(wisp):
+	wisp.turn_into_fire_wisp()

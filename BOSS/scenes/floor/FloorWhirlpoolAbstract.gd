@@ -1,7 +1,11 @@
 extends "res://scenes/floor/FloorAbstract.gd"
 
+
 onready var whirlpool_direction
 onready var whirlpool_player
+
+func _ready():
+	type_tag = Tags.g_whirlpool
 
 func get_lifted(player):
 	if player.block_tag() != Tags.fl_empty:
@@ -69,7 +73,7 @@ func block_holder(block_holder):pass
 
 #PLAYER
 func player_is_on(player):
-	player.apply_central_impulse(whirlpool_player*400)
+	player.whirlpool(self)
 
 func button_active_effect(button): 
 	if entities.size() > 0:
@@ -77,7 +81,9 @@ func button_active_effect(button):
 
 func _on_WhirlpoolTimer_timeout():
 	if entities.size() > 0:
-		entities[0].whirlpool(whirlpool_direction)
+		var next_tile = CurrentMap.map[iso_pos + whirlpool_direction]
+		if next_tile.type_tag == Tags.g_whirlpool || next_tile.tag == Tags.fl_water:
+			entities[0].whirlpool(whirlpool_direction)
 
 func _on_WhirlpoolStartTimer_timeout():
 	if entities.size() > 0:

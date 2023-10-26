@@ -31,7 +31,7 @@ shape = SubResource( 2 )
 wait_time = 10.22
 
 [node name="SpreadFire" type="Timer" parent="."]
-wait_time = 2.723
+wait_time = 1.53
 
 [connection signal="timeout" from="BurnOut" to="." method="_on_BurnOut_timeout"]
 [connection signal="timeout" from="SpreadFire" to="." method="_on_SpreadFire_timeout"]

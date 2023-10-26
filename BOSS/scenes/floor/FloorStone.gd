@@ -8,7 +8,5 @@ func _process(delta): pass
 
 func get_lifted(player): pass
 
-func unlift_wisp(player):pass
-
 func unlift_rock():
 	return entities.size()==0

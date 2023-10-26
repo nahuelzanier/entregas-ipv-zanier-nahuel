@@ -1,6 +1,6 @@
 extends Node
 
 func _ready():
-	var map = $Level/Dungeon02/Dungeon02_01
+	var map = $Level/Island01/Island02
 
 	CurrentMap.generate_map(map, map.player_spawn)

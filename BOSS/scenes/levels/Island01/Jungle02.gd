@@ -4,7 +4,7 @@ onready var map_entity_designer = $MapEntityDesigner
 onready var path_lit = false
 
 func _ready():
-	map_tag_name = "jungle-01"
+	map_tag_name = "jungle-02"
 	player_spawn = Vector2(1,12)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
@@ -13,19 +13,18 @@ func _ready():
 	triggers[Vector2(0,12)] = ["generate_map", $"../Island02", Vector2(32,16)]
 	triggers[Vector2(0,13)] = ["generate_map", $"../Island02", Vector2(32,17)]
 	
-	triggers[Vector2(12,0)] = ["generate_map", $"../Jungle02", Vector2(12,25)]
-	triggers[Vector2(13,0)] = ["generate_map", $"../Jungle02", Vector2(13,25)]
-	triggers[Vector2(14,0)] = ["generate_map", $"../Jungle02", Vector2(14,25)]
+	triggers[Vector2(12,0)] = ["generate_map", $"../Jungle01", Vector2(12,25)]
+	triggers[Vector2(13,0)] = ["generate_map", $"../Jungle01", Vector2(13,25)]
+	triggers[Vector2(14,0)] = ["generate_map", $"../Jungle01", Vector2(14,25)]
 	
-	triggers[Vector2(26,11)] = ["generate_map", $"../Jungle02", Vector2(1,11)]
-	triggers[Vector2(26,12)] = ["generate_map", $"../Jungle02", Vector2(1,12)]
-	triggers[Vector2(26,13)] = ["generate_map", $"../Jungle02", Vector2(1,13)]
+	triggers[Vector2(26,11)] = ["generate_map", $"../Jungle01", Vector2(1,11)]
+	triggers[Vector2(26,12)] = ["generate_map", $"../Jungle01", Vector2(1,12)]
+	triggers[Vector2(26,13)] = ["generate_map", $"../Jungle01", Vector2(1,13)]
 	
-	triggers[Vector2(12,26)] = ["generate_map", $"../Jungle02", Vector2(12,1)]
-	triggers[Vector2(13,26)] = ["generate_map", $"../Jungle02", Vector2(13,1)]
-	triggers[Vector2(14,26)] = ["generate_map", $"../Jungle02", Vector2(14,1)]
-
-
+	triggers[Vector2(12,26)] = ["generate_map", $"../Jungle01", Vector2(12,1)]
+	triggers[Vector2(13,26)] = ["generate_map", $"../Jungle01", Vector2(13,1)]
+	triggers[Vector2(14,26)] = ["generate_map", $"../Jungle01", Vector2(14,1)]
+	
 func light_the_path():
 	if !path_lit:
 		path_lit = true
@@ -49,11 +48,3 @@ func light_the_path():
 			triggers[Vector2(12,26)] = ["generate_map", $"../Jungle03", Vector2(12,1)]
 			triggers[Vector2(13,26)] = ["generate_map", $"../Jungle03", Vector2(13,1)]
 			triggers[Vector2(14,26)] = ["generate_map", $"../Jungle03", Vector2(14,1)]
-	
-	
-	
-	
-	
-	
-	
-	

@@ -10,3 +10,6 @@ func _ready():
 func get_lifted(player): pass
 
 func light_on_fire(): pass
+
+func become_possessed(wisp):
+	wisp.turn_into_fire_wisp()

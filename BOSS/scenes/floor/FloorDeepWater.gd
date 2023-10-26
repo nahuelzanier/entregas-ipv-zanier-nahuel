@@ -29,9 +29,7 @@ func born_bottomless_tile(tile):
 	tile.current_falling_effects.append(falling_tile)
 
 func player_is_on(player):
-	.player_is_on(player)
-	player.queue_free()
-	CurrentMap.map_manager.create_entity(Tags.et_player, CurrentMap.player_spawn)
+	player.die()
 
 #WISPS
 func sleeping_wisp_is_on(wisp):
