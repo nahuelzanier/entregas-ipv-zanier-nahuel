@@ -29,7 +29,8 @@ var tags = [
 		Tags.et_flame,
 		Tags.et_torch,
 		Tags.et_torch_on,
-		Tags.et_palmtree_sink
+		Tags.et_palmtree_sink,
+		Tags.et_wand_mineral
 ]
 
 func get_map():

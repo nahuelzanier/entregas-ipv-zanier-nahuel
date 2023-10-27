@@ -3,6 +3,7 @@ extends "res://scenes/floor/FloorAbstract.gd"
 
 onready var whirlpool_direction
 onready var whirlpool_player
+onready var center = $Position2D
 
 func _ready():
 	type_tag = Tags.g_whirlpool

@@ -88,15 +88,10 @@ func pop_block():
 	return tag
 
 func update_tile():
-	if current_map == CurrentMap.level_node.active_level.map_tag_name:
-		previous_tile = current_tile
-		var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
-		var on_tile = CurrentMap.map[iso_pos]
-		current_tile = on_tile
-	else:
-		current_map = CurrentMap.level_node.active_level.map_tag_name
-		update_tile()
-		
+	previous_tile = current_tile
+	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
+	var on_tile = CurrentMap.map[iso_pos]
+	current_tile = on_tile
 
 func move_away_from_each_other():
 	pass
@@ -133,6 +128,8 @@ func stop_surfing(tile):
 	CurrentMap.map_manager.create_entity(Tags.et_palmtree_sink, previous_tile.iso_pos)
 
 func whirlpool(whirlpool):
+	if previous_tile.push_dir != current_tile.push_dir:
+		global_position = whirlpool.center.global_position
 	sprites.update_sprite(whirlpool.whirlpool_player.x, whirlpool.whirlpool_player.y)
 	apply_central_impulse(whirlpool.whirlpool_player*400)
 

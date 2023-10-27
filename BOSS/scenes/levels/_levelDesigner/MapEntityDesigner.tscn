@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/entities/stone lid.png" type="Texture" id=1]
 [ext_resource path="res://assets/entities/trap door.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://assets/entities/torch.png" type="Texture" id=27]
 [ext_resource path="res://assets/entities/torch on.png" type="Texture" id=28]
 [ext_resource path="res://assets/entities/palmtree sunk.png" type="Texture" id=29]
+[ext_resource path="res://assets/wands/wand mineral.png" type="Texture" id=30]
 
 [sub_resource type="TileSet" id=1]
 0/name = "stone lid.png 0"
@@ -423,6 +424,20 @@
 27/shape_one_way_margin = 0.0
 27/shapes = [  ]
 27/z_index = 0
+28/name = "wand mineral.png 28"
+28/texture = ExtResource( 30 )
+28/tex_offset = Vector2( 6, -26 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 0, 0, 20, 34 )
+28/tile_mode = 0
+28/occluder_offset = Vector2( 0, 0 )
+28/navigation_offset = Vector2( 0, 0 )
+28/shape_offset = Vector2( 0, 0 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+28/shape_one_way = false
+28/shape_one_way_margin = 0.0
+28/shapes = [  ]
+28/z_index = 0
 
 [node name="MapEntityDesigner" type="TileMap"]
 mode = 1

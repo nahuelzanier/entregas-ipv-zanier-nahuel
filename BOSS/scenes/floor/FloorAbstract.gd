@@ -4,6 +4,7 @@ var iso_pos
 onready var type_tag = Tags.g_tile
 onready var tag
 onready var lift_block
+onready var push_dir = "none"
 var respawn_crumbling_tile = false
 var entities
 var previous_tile

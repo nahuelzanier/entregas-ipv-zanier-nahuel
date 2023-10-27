@@ -71,6 +71,7 @@ export (PackedScene) var entity_stairs_up
 export (PackedScene) var entity_flame
 export (PackedScene) var entity_torch
 export (PackedScene) var entity_torch_on
+export (PackedScene) var wand_mineral
 #BLOCKS
 export (PackedScene) var block_empty
 export (PackedScene) var block_palmtree
@@ -86,6 +87,7 @@ export (PackedScene) var block_salt
 export (PackedScene) var block_button
 export (PackedScene) var block_water_wisp
 export (PackedScene) var block_stone_lid
+export (PackedScene) var block_wand_mineral
 
 var tile_dict = {}
 var entities_dict = {}
@@ -162,6 +164,7 @@ func _ready():
 	entities_dict[Tags.et_flame] = entity_flame
 	entities_dict[Tags.et_torch] = entity_torch
 	entities_dict[Tags.et_torch_on] = entity_torch_on
+	entities_dict[Tags.et_wand_mineral] = wand_mineral
 	block_dict[Tags.bl_empty] = block_empty
 	block_dict[Tags.bl_palmtree] = block_palmtree
 	block_dict[Tags.bl_default] = block_default
@@ -176,6 +179,7 @@ func _ready():
 	block_dict[Tags.bl_button] = block_button
 	block_dict[Tags.bl_wisp_water] = block_water_wisp
 	block_dict[Tags.bl_stone_lid] = block_stone_lid
+	block_dict[Tags.bl_wand_mineral] = block_wand_mineral
 
 func generate_floor_tile(tile, vector2):
 	if tile != null:

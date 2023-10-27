@@ -32,6 +32,9 @@ one_shot = true
 [node name="WhirlpoolStartTimer" type="Timer" parent="."]
 wait_time = 0.12
 
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 5 )
+
 [connection signal="timeout" from="RespawnCrumblingTile" to="." method="_on_RespawnCrumblingTile_timeout"]
 [connection signal="timeout" from="WaterGrowth" to="." method="_on_WaterGrowth_timeout"]
 [connection signal="timeout" from="WhirlpoolTimer" to="." method="_on_WhirlpoolTimer_timeout"]
