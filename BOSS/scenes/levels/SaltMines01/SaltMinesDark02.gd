@@ -4,7 +4,7 @@ onready var map_entity_designer = $MapEntityDesigner
 
 func _ready():
 	map_tag_name = "salt mines dark room 02"
-	player_spawn = Vector2(4, 48)
+	player_spawn = Vector2(10, 14)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
 

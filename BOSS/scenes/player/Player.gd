@@ -36,15 +36,6 @@ func _physics_process(delta):
 
 func _on_PositionTimer_timeout():
 	direction = state.getInput(direction, current_tile)
-#	direction = Vector2.ZERO
-#	if Input.is_action_pressed("move_up"):
-#		direction.y = -1
-#	if Input.is_action_pressed("move_down"):
-#		direction.y = 1
-#	if Input.is_action_pressed("move_left"):
-#		direction.x = -2
-#	if Input.is_action_pressed("move_right"):
-#		direction.x = 2
 	sprites.update_sprite(direction.x, direction.y)
 
 func grab_coords():
@@ -110,21 +101,25 @@ func enable_collisions():
 
 func start_surfing(palmtree):
 	is_surfing = true
+	lift_position.position.y -= 10
 	sprites.hide()
 	sprites = $SurfSprites
 	sprites.show()
 	state = $States/StateSurfing
+	collision_layer = 2
+	collision_mask = 2
 	Global.move_to_coordinates(self, palmtree.current_tile.iso_pos)
-	call_deferred("disable_collisions")
 
 func stop_surfing(tile):
 	is_surfing = false
+	lift_position.position.y += 10
 	sprites.hide()
 	sprites = $PlayerSprites
 	sprites.show()
 	state = $States/StatePlayer
+	collision_layer = 1
+	collision_mask = 1
 	Global.move_to_coordinates(self, tile.iso_pos)
-	call_deferred("enable_collisions")
 	CurrentMap.map_manager.create_entity(Tags.et_palmtree_sink, previous_tile.iso_pos)
 
 func whirlpool(whirlpool):

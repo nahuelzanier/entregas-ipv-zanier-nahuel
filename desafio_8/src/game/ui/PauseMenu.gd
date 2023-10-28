@@ -4,6 +4,7 @@ extends Control
 ## (por default la tecla Esc).
 onready var options_menu = $OptionsMenu
 
+signal return_selected()
 
 func _ready() -> void:
 	hide()
@@ -18,3 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_ResumeButton_pressed() -> void:
 	hide()
 	get_tree().paused = false
+
+
+func _on_ReturnButton_pressed():
+	emit_signal("return_selected")

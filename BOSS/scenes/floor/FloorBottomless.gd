@@ -1,5 +1,6 @@
 extends "res://scenes/floor/FloorAbstract.gd"
 
+export (PackedScene) var crumbling_tile
 export (PackedScene) var falling_water
 export (PackedScene) var falling_lava
 onready var falling_element = $FallingElements

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/game/ui/GUIManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/ui/GUISprite.png" type="Texture" id=2]
@@ -10,6 +10,18 @@ region = Rect2( 18, 83, 59, 9 )
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 2 )
 region = Rect2( 18, 67, 59, 9 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 51, 64, 9 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 51, 64, 9 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 36, 64, 9 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
@@ -41,7 +53,35 @@ margin_bottom = 15.0
 max_value = 10.0
 value = 5.0
 texture_under = SubResource( 2 )
+texture_over = SubResource( 2 )
 texture_progress = SubResource( 3 )
+tint_progress = Color( 1, 0.0901961, 0.0901961, 1 )
+
+[node name="ManaProgress" type="TextureProgress" parent="StatsContainer"]
+unique_name_in_owner = true
+margin_left = 14.0
+margin_top = 15.0
+margin_right = 76.0
+margin_bottom = 24.0
+max_value = 10.0
+value = 5.0
+texture_under = SubResource( 2 )
+texture_over = SubResource( 2 )
+texture_progress = SubResource( 3 )
+tint_progress = Color( 0, 0.835294, 1, 1 )
+
+[node name="StaminaProgress" type="TextureProgress" parent="StatsContainer"]
+unique_name_in_owner = true
+margin_left = 14.0
+margin_top = 24.0
+margin_right = 76.0
+margin_bottom = 33.0
+max_value = 10.0
+value = 5.0
+texture_under = SubResource( 6 )
+texture_over = SubResource( 7 )
+texture_progress = SubResource( 8 )
+tint_progress = Color( 0.968627, 1, 0, 1 )
 
 [node name="HpProgress2" type="TextureProgress" parent="StatsContainer"]
 unique_name_in_owner = true

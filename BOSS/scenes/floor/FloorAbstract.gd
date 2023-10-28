@@ -18,8 +18,7 @@ func has_entities():
 	return entities.size() > 0
 
 func scramble_entities():
-	for entity in entities:
-		entity.move_away_from_each_other()
+	entities[1].move_away_from_each_other()
 
 func get_lifted(player):
 	var crumbler = respawn_crumbling_tile
@@ -96,7 +95,8 @@ func fire_wisp_is_on(wisp): pass
 #PLAYER
 func player_is_on(player):
 	if player.is_surfing:
-		player.stop_surfing(self)
+		if entities.size() == 0:
+			player.stop_surfing(self)
 	player.speed = player.default_speed
 
 #ENTITIES

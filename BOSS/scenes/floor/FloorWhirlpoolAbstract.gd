@@ -58,6 +58,9 @@ func water_wisp_is_on(wisp): pass
 func lava_wisp_is_on(wisp):
 	wisp.go_to_sleep()
 	
+func fire_wisp_is_on(wisp):
+	wisp.go_to_sleep()
+	
 #ENTITIES
 func unlift_rock():
 	return entities.size() < 1
@@ -83,7 +86,9 @@ func button_active_effect(button):
 func _on_WhirlpoolTimer_timeout():
 	if entities.size() > 0:
 		var next_tile = CurrentMap.map[iso_pos + whirlpool_direction]
-		if next_tile.type_tag == Tags.g_whirlpool || next_tile.tag == Tags.fl_water:
+		if (next_tile.type_tag == Tags.g_whirlpool 
+			  || next_tile.tag == Tags.fl_water 
+			  || next_tile.tag == Tags.fl_bottomless):
 			entities[0].whirlpool(whirlpool_direction)
 
 func _on_WhirlpoolStartTimer_timeout():

@@ -31,7 +31,7 @@ func replace(tile_name, vector2):
 	for e in old_tile.entities:
 		old_entities.append(e)
 	var new_tile = packed_scenes.generate_floor_tile(tile_name, vector2)
-#	new_tile.previous_tile = old_tile.tag
+	new_tile.previous_tile = old_tile.tag
 	for e in old_entities:
 		new_tile.entities.append(e)
 	CurrentMap.map[vector2] = new_tile

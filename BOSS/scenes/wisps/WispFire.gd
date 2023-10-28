@@ -32,7 +32,11 @@ func move_away_from_each_other():
 func is_exception(tag):
 	return (tag == Tags.fl_empty 
 		 || tag == Tags.et_flame
-		 || tag == Tags.fl_water)
+		 || tag == Tags.fl_water
+		 || tag ==Tags.fl_whirlpool_ne
+		 || tag ==Tags.fl_whirlpool_nw
+		 || tag ==Tags.fl_whirlpool_se
+		 || tag ==Tags.fl_whirlpool_sw)
 
 func _on_MoveTimer_timeout():
 	try_to_move()

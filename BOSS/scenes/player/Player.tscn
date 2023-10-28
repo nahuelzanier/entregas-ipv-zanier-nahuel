@@ -129,6 +129,7 @@ texture = ExtResource( 4 )
 script = ExtResource( 30 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 1 )
 polygon = PoolVector2Array( -7, 4, 0, 8, 7, 4, 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
