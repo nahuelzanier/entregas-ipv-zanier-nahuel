@@ -61,7 +61,7 @@ func button_active_effect(button):
 		entities[0].button_active_effect(button)
 
 func light_on_fire():
-	if entities.size() == 0:
+	if entities.size() == 0 || entities[0].tag == Tags.et_fire_wisp:
 		CurrentMap.map_manager.create_entity(Tags.et_flame, iso_pos)
 	else:
 		entities[0].light_on_fire()

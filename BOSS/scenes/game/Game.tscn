@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -107,6 +107,9 @@
 [ext_resource path="res://scenes/levels/SaltMines01/SaltMinesDark01.tscn" type="PackedScene" id=105]
 [ext_resource path="res://scenes/levels/SaltMines01/SaltMinesDark02.tscn" type="PackedScene" id=106]
 [ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_02.tscn" type="PackedScene" id=107]
+[ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_03.tscn" type="PackedScene" id=108]
+[ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_04.tscn" type="PackedScene" id=109]
+[ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_05.tscn" type="PackedScene" id=110]
 
 [sub_resource type="PackedScene" id=1]
 _bundled = {
@@ -198,11 +201,19 @@ visible = false
 [node name="SaltMinesDark01" parent="Level/SaltMines01" instance=ExtResource( 105 )]
 visible = false
 
+[node name="SaltMines01_02" parent="Level/SaltMines01" instance=ExtResource( 107 )]
+visible = false
+
 [node name="SaltMinesDark02" parent="Level/SaltMines01" instance=ExtResource( 106 )]
 visible = false
 
-[node name="SaltMines01_02" parent="Level/SaltMines01" instance=ExtResource( 107 )]
+[node name="SaltMines01_03" parent="Level/SaltMines01" instance=ExtResource( 108 )]
 visible = false
+
+[node name="SaltMines01_04" parent="Level/SaltMines01" instance=ExtResource( 109 )]
+visible = false
+
+[node name="SaltMines01_05" parent="Level/SaltMines01" instance=ExtResource( 110 )]
 
 [node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )

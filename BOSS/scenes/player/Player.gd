@@ -3,13 +3,13 @@ extends RigidBody2D
 export var speed = 220
 export var default_speed = 220
 onready var type_tag = Tags.g_player
+onready var tag = Tags.et_player
 
 onready var lift_position = $LiftingPosition
 onready var feet_position = $FeetPosition
 onready var highlight = $Highlight
 onready var highlight_timer = $HighlightTimer
 
-onready var sprites = $PlayerSprites
 onready var state = $States/StatePlayer
 
 var current_tile
@@ -18,7 +18,6 @@ var current_map
 
 onready var is_surfing = false
 onready var direction = Vector2.ZERO
-onready var tag = Tags.et_player
 
 func _ready():
 	PlayerSingleton.player == self
@@ -30,20 +29,36 @@ func _ready():
 
 func _physics_process(delta):
 	rotation = 0
+	state.process_state()
 	var grab = grab_coords()
 	highlight.global_position = Global._iso_to_pos(grab) + Vector2(0,7)
 	apply_central_impulse(direction.normalized()*speed*state.move_multiplier())
 
 func _on_PositionTimer_timeout():
 	direction = state.getInput(direction, current_tile)
-	sprites.update_sprite(direction.x, direction.y)
 
+func update_tile():
+	previous_tile = current_tile
+	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
+	current_tile = CurrentMap.map[iso_pos]
+
+func move_away_from_each_other():
+	pass
+
+func _on_TerrainTimer_timeout():
+	update_tile()
+	current_tile.player_is_on(self)
+
+func _on_Player_body_entered(body):
+	body.player_collision(self)
+
+
+# GRAB MECHANICS
 func grab_coords():
-	return (Global._pos_to_iso(position + Vector2(0,6)) + sprites.sprite.grab)
+	return (Global._pos_to_iso(position + Vector2(0,6)) + state.sprites.sprite.grab)
 
 func lift():
-	if !is_surfing:
-		lift_position.block.lift(self)
+	lift_position.block.lift(self)
 
 func block():
 	return lift_position.block
@@ -51,7 +66,7 @@ func block():
 func block_tag_proper():
 	return lift_position.block.tag
 
-func block_tag():  #the entity it unlifts to
+func block_tag():
 	return lift_position.block.unlift
 
 func grab_floor_block(block):
@@ -78,45 +93,29 @@ func pop_block():
 	lift_position.get_new_block(Tags.bl_empty)
 	return tag
 
-func update_tile():
-	previous_tile = current_tile
-	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
-	var on_tile = CurrentMap.map[iso_pos]
-	current_tile = on_tile
 
-func move_away_from_each_other():
-	pass
+# DAMAGE
+func die():
+	Global.move_to_coordinates(self, CurrentMap.player_spawn)
 
-func _on_TerrainTimer_timeout():
-	update_tile()
-	current_tile.player_is_on(self)
 
-func _on_Player_body_entered(body):
-	body.player_collision(self)
-
-func disable_collisions():
-	$CollisionPolygon2D.disabled = true
-func enable_collisions():
-	$CollisionPolygon2D.disabled = false
-
+# SURF
 func start_surfing(palmtree):
 	is_surfing = true
-	lift_position.position.y -= 10
-	sprites.hide()
-	sprites = $SurfSprites
-	sprites.show()
+	lift_position.position = lift_position.surfing_position
+	state.sprites.hide()
 	state = $States/StateSurfing
+	state.sprites.show()
 	collision_layer = 2
 	collision_mask = 2
 	Global.move_to_coordinates(self, palmtree.current_tile.iso_pos)
 
 func stop_surfing(tile):
 	is_surfing = false
-	lift_position.position.y += 10
-	sprites.hide()
-	sprites = $PlayerSprites
-	sprites.show()
+	lift_position.position = lift_position.player_position
+	state.sprites.hide()
 	state = $States/StatePlayer
+	state.sprites.show()
 	collision_layer = 1
 	collision_mask = 1
 	Global.move_to_coordinates(self, tile.iso_pos)
@@ -125,8 +124,5 @@ func stop_surfing(tile):
 func whirlpool(whirlpool):
 	if previous_tile.push_dir != current_tile.push_dir:
 		global_position = whirlpool.center.global_position
-	sprites.update_sprite(whirlpool.whirlpool_player.x, whirlpool.whirlpool_player.y)
-	apply_central_impulse(whirlpool.whirlpool_player*400)
-
-func die():
-	Global.move_to_coordinates(self, CurrentMap.player_spawn)
+	state.sprites.update_sprite(whirlpool.whirlpool_player.x, whirlpool.whirlpool_player.y)
+	apply_central_impulse(whirlpool.whirlpool_player*600)

@@ -1,12 +1,13 @@
-extends Node
+extends Node2D
 
 onready var current_state = $StateMoving
 onready var highlight = $"../../Highlight"
 onready var highlight_timer = $"../../HighlightTimer"
+onready var sprites = $PlayerSprites
 
 signal lift
 
-func _process(delta):
+func process_state():
 	if Input.is_action_just_pressed("grab"):
 		highlight_timer.start()
 	if Input.is_action_pressed("grab"):
@@ -27,6 +28,7 @@ func getInput(dir, tile):
 		direction.x = -2
 	if Input.is_action_pressed("move_right"):
 		direction.x = 2
+	sprites.update_sprite(direction.x, direction.y)
 	return direction
 
 func move_multiplier():

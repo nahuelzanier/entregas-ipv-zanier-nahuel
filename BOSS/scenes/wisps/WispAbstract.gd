@@ -10,8 +10,6 @@ func try_to_move(): pass
 func move(vector2):
 	update_tile()
 	current_tile.entities.erase(self)
-#	var x_pos = max(min(vector2.x, CurrentMap.size_x()-2), 1)
-#	var y_pos = max(min(vector2.y, CurrentMap.size_y()-2), 1)
 	Global.move_to_coordinates(self, vector2)
 	update_tile()
 	current_tile.entities.append(self)
@@ -47,7 +45,7 @@ func get_lifted(player):
 func unlift_wisp(player): pass
 
 func become_possessed(wisp):pass
-
+func bottomless_pit(bottomless_tile): pass
 func water_wisp_effect():pass
 func button_active_effect(button): pass
 func button_inactive_effect(button): pass

@@ -34,6 +34,7 @@ func on_born():pass
 
 func crumbling_tile_active():
 	respawn_crumbling_tile = true
+	CurrentMap.level_node.active_level.map[iso_pos] = Tags.fl_crumble
 	$RespawnCrumblingTile.start()
 
 func destroy_self():

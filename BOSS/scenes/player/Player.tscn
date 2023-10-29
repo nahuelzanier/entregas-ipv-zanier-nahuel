@@ -26,10 +26,10 @@
 [ext_resource path="res://scenes/player/StateGrabing.gd" type="Script" id=24]
 [ext_resource path="res://scenes/player/SurfSprites.gd" type="Script" id=25]
 [ext_resource path="res://assets/entities/palmtree sunk.png" type="Texture" id=26]
-[ext_resource path="res://scenes/player/SSE.gd" type="Script" id=27]
-[ext_resource path="res://scenes/player/SNW.gd" type="Script" id=28]
-[ext_resource path="res://scenes/player/SNE.gd" type="Script" id=29]
-[ext_resource path="res://scenes/player/SSW.gd" type="Script" id=30]
+[ext_resource path="res://scenes/player/surf_directional/SSE.gd" type="Script" id=27]
+[ext_resource path="res://scenes/player/surf_directional/SNW.gd" type="Script" id=28]
+[ext_resource path="res://scenes/player/surf_directional/SNE.gd" type="Script" id=29]
+[ext_resource path="res://scenes/player/surf_directional/SSW.gd" type="Script" id=30]
 [ext_resource path="res://scenes/player/StateSurfing.gd" type="Script" id=31]
 
 [node name="Player" type="RigidBody2D"]
@@ -39,94 +39,95 @@ script = ExtResource( 2 )
 speed = 250
 default_speed = 250
 
-[node name="States" type="Node" parent="."]
+[node name="States" type="Node2D" parent="."]
 
-[node name="StateSurfing" type="Node" parent="States"]
+[node name="StateSurfing" type="Node2D" parent="States"]
 script = ExtResource( 31 )
 
-[node name="StatePlayer" type="Node" parent="States"]
+[node name="SurfSprites" type="Node2D" parent="States/StateSurfing"]
+visible = false
+position = Vector2( -1, -9 )
+script = ExtResource( 25 )
+
+[node name="Palmtree" type="Sprite" parent="States/StateSurfing/SurfSprites"]
+position = Vector2( 0, 5 )
+texture = ExtResource( 26 )
+
+[node name="SNW" type="Sprite" parent="States/StateSurfing/SurfSprites"]
+position = Vector2( 0, -14 )
+texture = ExtResource( 5 )
+script = ExtResource( 28 )
+
+[node name="SNE" type="Sprite" parent="States/StateSurfing/SurfSprites"]
+visible = false
+position = Vector2( 0, -14 )
+texture = ExtResource( 3 )
+script = ExtResource( 29 )
+
+[node name="SSE" type="Sprite" parent="States/StateSurfing/SurfSprites"]
+visible = false
+position = Vector2( 0, -14 )
+texture = ExtResource( 1 )
+script = ExtResource( 27 )
+
+[node name="SSW" type="Sprite" parent="States/StateSurfing/SurfSprites"]
+visible = false
+position = Vector2( 0, -14 )
+texture = ExtResource( 4 )
+script = ExtResource( 30 )
+
+[node name="StatePlayer" type="Node2D" parent="States"]
+position = Vector2( 0, 6 )
 script = ExtResource( 22 )
+
+[node name="PlayerSprites" type="Node2D" parent="States/StatePlayer"]
+position = Vector2( 0, -20 )
+script = ExtResource( 10 )
+
+[node name="SE" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 1 )
+script = ExtResource( 11 )
+
+[node name="SW" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 4 )
+script = ExtResource( 12 )
+
+[node name="NE" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 3 )
+script = ExtResource( 13 )
+
+[node name="NW" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 5 )
+script = ExtResource( 14 )
+
+[node name="N" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 7 )
+script = ExtResource( 15 )
+
+[node name="S" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+texture = ExtResource( 8 )
+script = ExtResource( 16 )
+
+[node name="E" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 9 )
+script = ExtResource( 17 )
+
+[node name="W" type="Sprite" parent="States/StatePlayer/PlayerSprites"]
+visible = false
+texture = ExtResource( 6 )
+script = ExtResource( 18 )
 
 [node name="StateMoving" type="Node" parent="States/StatePlayer"]
 script = ExtResource( 23 )
 
 [node name="StateGrabing" type="Node" parent="States/StatePlayer"]
 script = ExtResource( 24 )
-
-[node name="PlayerSprites" type="Node2D" parent="."]
-position = Vector2( 0, -14 )
-script = ExtResource( 10 )
-
-[node name="SE" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 1 )
-script = ExtResource( 11 )
-
-[node name="SW" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 4 )
-script = ExtResource( 12 )
-
-[node name="NE" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 3 )
-script = ExtResource( 13 )
-
-[node name="NW" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 5 )
-script = ExtResource( 14 )
-
-[node name="N" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 7 )
-script = ExtResource( 15 )
-
-[node name="S" type="Sprite" parent="PlayerSprites"]
-texture = ExtResource( 8 )
-script = ExtResource( 16 )
-
-[node name="E" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 9 )
-script = ExtResource( 17 )
-
-[node name="W" type="Sprite" parent="PlayerSprites"]
-visible = false
-texture = ExtResource( 6 )
-script = ExtResource( 18 )
-
-[node name="SurfSprites" type="Node2D" parent="."]
-visible = false
-position = Vector2( -1, -9 )
-script = ExtResource( 25 )
-
-[node name="Palmtree" type="Sprite" parent="SurfSprites"]
-position = Vector2( 0, 5 )
-texture = ExtResource( 26 )
-
-[node name="SNW" type="Sprite" parent="SurfSprites"]
-position = Vector2( 0, -14 )
-texture = ExtResource( 5 )
-script = ExtResource( 28 )
-
-[node name="SNE" type="Sprite" parent="SurfSprites"]
-visible = false
-position = Vector2( 0, -14 )
-texture = ExtResource( 3 )
-script = ExtResource( 29 )
-
-[node name="SSE" type="Sprite" parent="SurfSprites"]
-visible = false
-position = Vector2( 0, -14 )
-texture = ExtResource( 1 )
-script = ExtResource( 27 )
-
-[node name="SSW" type="Sprite" parent="SurfSprites"]
-visible = false
-position = Vector2( 0, -14 )
-texture = ExtResource( 4 )
-script = ExtResource( 30 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 1 )

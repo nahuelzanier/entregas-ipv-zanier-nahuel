@@ -9,5 +9,3 @@ func player_collision(player):
 	player.start_surfing(self)
 	destroy_self()
 
-func move_away_from_each_other():
-	destroy_self()

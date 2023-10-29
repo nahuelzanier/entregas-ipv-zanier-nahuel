@@ -1,6 +1,6 @@
-extends Node
+extends Node2D
 
 func _ready():
-	var map = $Level/Island01/Island01
-
+	var map = $Level/SaltMines01/SaltMines01_01
+	
 	CurrentMap.generate_map(map, map.player_spawn)
