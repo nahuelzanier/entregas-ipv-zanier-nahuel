@@ -4,5 +4,6 @@
 [ext_resource path="res://scenes/blocks/BlockWandMineral.gd" type="Script" id=2]
 
 [node name="BlockWandMineral" type="Sprite"]
+position = Vector2( 0, -12 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )

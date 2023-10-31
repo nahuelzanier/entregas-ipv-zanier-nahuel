@@ -39,15 +39,14 @@ func _on_PositionTimer_timeout():
 
 func update_tile():
 	previous_tile = current_tile
-	var iso_pos = Global._pos_to_iso(position + Vector2(0,6))
-	current_tile = CurrentMap.map[iso_pos]
+	current_tile = Global._pos_to_iso(position + Vector2(0,6))
 
 func move_away_from_each_other():
 	pass
 
 func _on_TerrainTimer_timeout():
 	update_tile()
-	current_tile.player_is_on(self)
+	CurrentMap.map[current_tile].player_is_on(self)
 
 func _on_Player_body_entered(body):
 	body.player_collision(self)
@@ -108,7 +107,7 @@ func start_surfing(palmtree):
 	state.sprites.show()
 	collision_layer = 2
 	collision_mask = 2
-	Global.move_to_coordinates(self, palmtree.current_tile.iso_pos)
+	Global.move_to_coordinates(self, palmtree.current_tile)
 
 func stop_surfing(tile):
 	is_surfing = false
@@ -119,10 +118,10 @@ func stop_surfing(tile):
 	collision_layer = 1
 	collision_mask = 1
 	Global.move_to_coordinates(self, tile.iso_pos)
-	CurrentMap.map_manager.create_entity(Tags.et_palmtree_sink, previous_tile.iso_pos)
+	CurrentMap.map_manager.create_entity(Tags.et_palmtree_sink, previous_tile)
 
 func whirlpool(whirlpool):
-	if previous_tile.push_dir != current_tile.push_dir:
+	if CurrentMap.map[previous_tile].push_dir != CurrentMap.map[current_tile].push_dir:
 		global_position = whirlpool.center.global_position
 	state.sprites.update_sprite(whirlpool.whirlpool_player.x, whirlpool.whirlpool_player.y)
 	apply_central_impulse(whirlpool.whirlpool_player*600)

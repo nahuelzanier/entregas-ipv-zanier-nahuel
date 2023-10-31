@@ -8,16 +8,19 @@ onready var sprite = $Sprite
 
 func _ready():
 	update_tile()
-	current_tile.entities.append(self)
+	CurrentMap.map[current_tile].entities.append(self)
 
 func update_tile():
-	var iso_pos = Global._pos_to_iso(position)
-	var on_tile = CurrentMap.map[iso_pos]
-	current_tile = on_tile
+	current_tile = Global._pos_to_iso(position)
+
+func move(vector2):
+	CurrentMap.map[current_tile].entities.erase(self)
+	Global.move_to_coordinates(self, vector2)
+	update_tile()
+	CurrentMap.map[current_tile].entities.append(self)
 
 func destroy_self():
-	update_tile()
-	current_tile.entities.erase(self)
+	CurrentMap.map[current_tile].entities.erase(self)
 	self.queue_free()
 
 func move_away_from_each_other():
@@ -39,11 +42,12 @@ func button_inactive_effect(button): pass
 
 func whirlpool(direction):
 	var coords = Global._pos_to_iso(position)
-	update_tile()
-	current_tile.entities.erase(self)
-	Global.move_to_coordinates(self, coords + direction)
-	update_tile()
-	current_tile.entities.append(self)
+	move(coords + direction)
+#	update_tile()
+#	CurrentMap.map[current_tile].entities.erase(self).entities.erase(self)
+#	Global.move_to_coordinates(self, coords + direction)
+#	update_tile()
+#	CurrentMap.map[current_tile].entities.erase(self).entities.append(self)
 
 func light_on_fire(): pass
 

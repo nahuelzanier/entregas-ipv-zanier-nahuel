@@ -39,6 +39,9 @@ func born_bottomless_tile(tile):
 	tile.falling_element.add_child(falling_tile)
 	tile.current_falling_effects.append(falling_tile)
 
+func born_salt_tile(tile):
+	$LavaGrowth.start()
+
 #WISPS
 func water_wisp_is_on(wisp):
 	wisp.go_to_sleep()

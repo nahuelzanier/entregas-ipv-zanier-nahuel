@@ -8,24 +8,22 @@ var block
 func try_to_move(): pass
 
 func move(vector2):
-	update_tile()
-	current_tile.entities.erase(self)
+	CurrentMap.map[current_tile].entities.erase(self)
 	Global.move_to_coordinates(self, vector2)
 	update_tile()
-	current_tile.entities.append(self)
+	CurrentMap.map[current_tile].entities.append(self)
 
 func move_whirlpool(direction):
 	var coords = Global._pos_to_iso(position)
-	update_tile()
-	current_tile.entities.erase(self)
-	Global.move_to_coordinates(self, coords + direction)
-	update_tile()
-	current_tile.entities.append(self)
+	move(coords + direction)
+#	update_tile()
+#	current_tile.entities.erase(self)
+#	Global.move_to_coordinates(self, coords + direction)
+#	update_tile()
+#	current_tile.entities.append(self)
 
 func update_tile():
-	var iso_pos = Global._pos_to_iso(position)
-	var on_tile = CurrentMap.map[iso_pos]
-	current_tile = on_tile
+	current_tile = Global._pos_to_iso(position)
 
 func go_to_sleep():
 	CurrentMap.map_manager.replace_entity(self, Tags.et_wisp)
@@ -34,13 +32,12 @@ func move_away_from_each_other():
 	try_to_move()
 
 func destroy_self():
-	update_tile()
-	current_tile.entities.erase(self)
+	CurrentMap.map[current_tile].entities.erase(self)
 	self.queue_free()
 
 func get_lifted(player):
 	update_tile()
-	current_tile.get_lifted(player)
+	CurrentMap.map[current_tile].get_lifted(player)
 
 func unlift_wisp(player): pass
 

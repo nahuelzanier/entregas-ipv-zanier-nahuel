@@ -8,11 +8,11 @@ func _ready():
 
 func get_lifted(player):
 	update_tile()
-	current_tile.get_lifted(player)
+	CurrentMap.map[current_tile].get_lifted(player)
 	update_tile()
 
 func button_active_effect(button):
 	destroy_self()
-	CurrentMap.map_manager.call_deferred("replace", Tags.fl_trap_door, current_tile.iso_pos)
+	CurrentMap.map_manager.call_deferred("replace", Tags.fl_trap_door, CurrentMap.map[current_tile].iso_pos)
 	
 func bottomless_pit(pit):pass

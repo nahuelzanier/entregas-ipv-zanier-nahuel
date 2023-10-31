@@ -22,7 +22,7 @@ func born_empty_tile(tile):
 	$WaterGrowth.start()
 
 func born_lava_tile(tile):
-	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
+	var isoCoords = tile.iso_pos
 	CurrentMap.map_manager.replace(Tags.fl_default, isoCoords)
 
 func born_bottomless_tile(tile):pass
@@ -50,3 +50,5 @@ func sinks_rock():
 #PLAYER
 func player_is_on(player):
 	player.speed = player.default_speed/4
+
+func mineral_wand():pass

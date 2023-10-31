@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -110,6 +110,10 @@
 [ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_03.tscn" type="PackedScene" id=108]
 [ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_04.tscn" type="PackedScene" id=109]
 [ext_resource path="res://scenes/levels/SaltMines01/SaltMines01_05.tscn" type="PackedScene" id=110]
+[ext_resource path="res://scenes/levels/Canyon01/Canyon01_01.tscn" type="PackedScene" id=111]
+[ext_resource path="res://scenes/levels/Canyon01/Canyon01_02.tscn" type="PackedScene" id=112]
+[ext_resource path="res://scenes/levels/Canyon01/Canyon01_03.tscn" type="PackedScene" id=113]
+[ext_resource path="res://scenes/levels/Extra/Checkers01.tscn" type="PackedScene" id=114]
 
 [sub_resource type="PackedScene" id=1]
 _bundled = {
@@ -175,11 +179,6 @@ visible = false
 [node name="Furnace01" parent="Level/Furnace01" instance=ExtResource( 61 )]
 visible = false
 
-[node name="TestMaps" type="Node2D" parent="Level"]
-
-[node name="TestMap" parent="Level/TestMaps" instance=ExtResource( 26 )]
-visible = false
-
 [node name="Dungeon02" type="Node2D" parent="Level"]
 
 [node name="Dungeon02_01" parent="Level/Dungeon02" instance=ExtResource( 90 )]
@@ -214,6 +213,27 @@ visible = false
 visible = false
 
 [node name="SaltMines01_05" parent="Level/SaltMines01" instance=ExtResource( 110 )]
+visible = false
+
+[node name="Canyon01" type="Node2D" parent="Level"]
+
+[node name="Canyon01_01" parent="Level/Canyon01" instance=ExtResource( 111 )]
+visible = false
+
+[node name="Canyon01_02" parent="Level/Canyon01" instance=ExtResource( 112 )]
+visible = false
+
+[node name="Canyon01_03" parent="Level/Canyon01" instance=ExtResource( 113 )]
+visible = false
+
+[node name="Extras" type="Node2D" parent="Level"]
+
+[node name="Checkers01" parent="Level/Extras" instance=ExtResource( 114 )]
+
+[node name="TestMaps" type="Node2D" parent="Level"]
+
+[node name="TestMap" parent="Level/TestMaps" instance=ExtResource( 26 )]
+visible = false
 
 [node name="MapManager" type="Node" parent="."]
 script = ExtResource( 8 )

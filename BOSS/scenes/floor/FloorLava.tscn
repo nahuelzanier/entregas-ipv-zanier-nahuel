@@ -16,7 +16,7 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -13, 7, 0, 0, 13, 7, 0, 14 )
 
 [node name="LavaGrowth" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.381
 one_shot = true
 
 [node name="RespawnCrumblingTile" type="Timer" parent="."]

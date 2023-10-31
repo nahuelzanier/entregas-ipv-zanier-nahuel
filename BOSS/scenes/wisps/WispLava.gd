@@ -6,7 +6,7 @@ func _ready():
 	$TerrainTimer.start()
 	$MoveTimer.start()
 	update_tile()
-	current_tile.entities.append(self)
+	CurrentMap.map[current_tile].entities.append(self)
 
 func try_to_move():
 	var iso_pos = Global._pos_to_iso(position)
@@ -23,4 +23,4 @@ func _on_MoveTimer_timeout():
 
 func _on_TerrainTimer_timeout():
 	update_tile()
-	current_tile.lava_wisp_is_on(self)
+	CurrentMap.map[current_tile].lava_wisp_is_on(self)

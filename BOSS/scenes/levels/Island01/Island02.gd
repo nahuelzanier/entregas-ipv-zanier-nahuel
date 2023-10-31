@@ -19,3 +19,5 @@ func _ready():
 	triggers[Vector2(33,16)] = ["generate_map", $"../Jungle01", Vector2(1,12)]
 	triggers[Vector2(33,17)] = ["generate_map", $"../Jungle01", Vector2(1,13)]
 	triggers[Vector2(8,6)] = ["generate_map", $"../../SaltMines01/SaltMines01_01", Vector2(5,48)]
+	triggers[Vector2(21,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(29,31)]
+	triggers[Vector2(22,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(30,31)]

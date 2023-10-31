@@ -23,7 +23,7 @@ func born_empty_tile(tile):
 		CurrentMap.map[isoCoords].crumbling_tile_active()
 
 func born_lava_tile(tile):
-	var isoCoords = Vector2(tile.iso_x, tile.iso_y)
+	var isoCoords = tile.iso_pos
 	var crumbling_tile = tile.respawn_crumbling_tile
 	CurrentMap.map_manager.replace(Tags.fl_default, isoCoords)
 	if crumbling_tile:

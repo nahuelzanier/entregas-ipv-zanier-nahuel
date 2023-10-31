@@ -64,6 +64,8 @@ func born_bottomless_tile(tile): pass
 
 func born_oil_tile(tile): pass
 
+func born_salt_tile(tile): pass
+
 #WISPS
 func sleeping_wisp_is_on(wisp): pass
 
@@ -136,3 +138,6 @@ func light_on_fire():
 	if entities.size() > 0:
 		entities[0].light_on_fire()
 func burn_out(): pass
+
+func mineral_wand():
+	CurrentMap.map_manager.replace(Tags.fl_salt, iso_pos)

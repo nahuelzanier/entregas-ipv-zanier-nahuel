@@ -9,7 +9,7 @@ func _ready():
 	held_block = CurrentMap.map_manager.new_block(Tags.bl_empty)
 
 func _process(delta):
-	current_tile.block_holder(self)
+	CurrentMap.map[current_tile].block_holder(self)
 
 func get_lifted(player):
 	if player.block_tag() == Tags.fl_empty:

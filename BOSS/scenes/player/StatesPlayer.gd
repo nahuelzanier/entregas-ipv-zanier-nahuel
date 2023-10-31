@@ -18,7 +18,7 @@ func process_state():
 		highlight.visible = false
 		highlight_timer.stop()
 
-func getInput(dir, tile):
+func getInput(dir, tile_pos):
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("move_up"):
 		direction.y = -1

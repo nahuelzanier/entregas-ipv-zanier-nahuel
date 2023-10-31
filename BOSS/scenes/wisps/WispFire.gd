@@ -11,7 +11,7 @@ func _ready():
 	$TerrainTimer.start()
 	$MoveTimer.start()
 	update_tile()
-	CurrentMap.map[last_tile_pos].entities.append(self)
+	CurrentMap.map[current_tile].entities.append(self)
 
 func _physics_process(delta):
 	ray_cast_2d.cast_to = move_vector
@@ -40,27 +40,20 @@ func is_exception(tag):
 		 || tag ==Tags.fl_whirlpool_se
 		 || tag ==Tags.fl_whirlpool_sw)
 
-func update_tile():
-	last_tile_pos = Global._pos_to_iso(position)
-
-func destroy_self():
-	CurrentMap.map[last_tile_pos].entities.erase(self)
-	self.queue_free()
+#func update_tile():
+#	current = Global._pos_to_iso(position)
+#
+#func destroy_self():
+#	CurrentMap.map[last_tile_pos].entities.erase(self)
+#	self.queue_free()
 
 func _on_MoveTimer_timeout():
 	try_to_move()
 
 func _on_TerrainTimer_timeout():
-	CurrentMap.map[last_tile_pos].entities.erase(self)
+	CurrentMap.map[current_tile].entities.erase(self)
 	update_tile()
-	CurrentMap.map[last_tile_pos].entities.append(self)
-	CurrentMap.map[last_tile_pos].light_on_fire()
-	CurrentMap.map[last_tile_pos].fire_wisp_is_on(self)
-#	call_deferred("terrain_timer_func")
+	CurrentMap.map[current_tile].entities.append(self)
+	CurrentMap.map[current_tile].light_on_fire()
+	CurrentMap.map[current_tile].fire_wisp_is_on(self)
 
-func terrain_timer_func():
-	CurrentMap.map[last_tile_pos].entities.erase(self)
-	update_tile()
-	CurrentMap.map[last_tile_pos].entities.append(self)
-	CurrentMap.map[last_tile_pos].light_on_fire()
-	CurrentMap.map[last_tile_pos].fire_wisp_is_on(self)

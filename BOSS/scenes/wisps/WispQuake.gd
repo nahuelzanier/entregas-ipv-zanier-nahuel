@@ -5,7 +5,7 @@ func _ready():
 	tag = Tags.et_quake_wisp
 	$QuakeTimer.start()
 	update_tile()
-	current_tile.entities.append(self)
+	CurrentMap.map[current_tile].entities.append(self)
 
 func get_lifted(player):
 	if player.block_tag() == Tags.fl_empty:
@@ -15,5 +15,5 @@ func get_lifted(player):
 func _on_QuakeTimer_timeout():
 	$AnimationPlayer.play("QuakeAttack")
 	update_tile()
-	current_tile.quake_start()
+	CurrentMap.map[current_tile].quake_start()
 	

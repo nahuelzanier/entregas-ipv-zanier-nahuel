@@ -7,7 +7,7 @@ func _ready():
 	$TerrainTimer.start()
 	$MoveTimer.start()
 	update_tile()
-	current_tile.entities.append(self)
+	CurrentMap.map[current_tile].entities.append(self)
 
 func try_to_move():
 	var iso_pos = Global._pos_to_iso(position)
@@ -18,9 +18,7 @@ func try_to_move():
 		CurrentMap.map[pair].moving_sleeping_wisp(self)
 
 func update_tile():
-	var iso_pos = Global._pos_to_iso(position)
-	var on_tile = CurrentMap.map[iso_pos]
-	current_tile = on_tile
+	current_tile = Global._pos_to_iso(position)
 
 func go_to_sleep():
 	pass
@@ -37,7 +35,7 @@ func get_lifted(player):
 		player.grab_entity_block(block)
 		destroy_self()
 	else:
-		current_tile.get_lifted(player)
+		CurrentMap.map[current_tile].get_lifted(player)
 		update_tile()
 
 func turn_into_water_wisp():
@@ -54,7 +52,7 @@ func turn_into_fire_wisp():
 
 func _on_TerrainTimer_timeout():
 	update_tile()
-	current_tile.sleeping_wisp_is_on(self)
+	CurrentMap.map[current_tile].sleeping_wisp_is_on(self)
 
 func _on_MoveTimer_timeout():
 	try_to_move()

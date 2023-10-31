@@ -33,18 +33,21 @@ func light_the_path():
 		if path == 0:
 			entities[Vector2(12,1)] = Tags.et_torch_on
 			entities[Vector2(14,1)] = Tags.et_torch_on
-			triggers[Vector2(12,0)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
-			triggers[Vector2(13,0)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
-			triggers[Vector2(14,0)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
+			triggers[Vector2(12,0)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(14,56)]
+			triggers[Vector2(13,0)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(15,56)]
+			triggers[Vector2(14,0)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(16,56)]
+			$"../../Volcano01/Volcano01_01".volcano_return_path(Vector2(13,1))
 		elif path == 1:
 			entities[Vector2(25,11)] = Tags.et_torch_on
 			entities[Vector2(25,13)] = Tags.et_torch_on
-			triggers[Vector2(26,11)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
-			triggers[Vector2(26,12)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
-			triggers[Vector2(26,13)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
+			triggers[Vector2(26,11)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(14,56)]
+			triggers[Vector2(26,12)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(15,56)]
+			triggers[Vector2(26,13)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(16,56)]
+			$"../../Volcano01/Volcano01_01".volcano_return_path(Vector2(25,12))
 		elif path == 2:
 			entities[Vector2(12,25)] = Tags.et_torch_on
 			entities[Vector2(14,25)] = Tags.et_torch_on
-			triggers[Vector2(12,26)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
-			triggers[Vector2(13,26)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
-			triggers[Vector2(14,26)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(3,3)]
+			triggers[Vector2(12,26)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(14,56)]
+			triggers[Vector2(13,26)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(15,56)]
+			triggers[Vector2(14,26)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(16,56)]
+			$"../../Volcano01/Volcano01_01".volcano_return_path(Vector2(13,25))
