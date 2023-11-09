@@ -43,11 +43,6 @@ func button_inactive_effect(button): pass
 func whirlpool(direction):
 	var coords = Global._pos_to_iso(position)
 	move(coords + direction)
-#	update_tile()
-#	CurrentMap.map[current_tile].entities.erase(self).entities.erase(self)
-#	Global.move_to_coordinates(self, coords + direction)
-#	update_tile()
-#	CurrentMap.map[current_tile].entities.erase(self).entities.append(self)
 
 func light_on_fire(): pass
 

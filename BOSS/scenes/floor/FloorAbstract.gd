@@ -75,6 +75,10 @@ func moving_sleeping_wisp(wisp):
 
 func moving_water_wisp(wisp): pass
 
+func move_sleeping_wisp_away(wisp):
+	if entities.size() == 0:
+		wisp.move(iso_pos)
+
 func water_wisp_is_on(wisp):
 	if wisp.on_land:
 		wisp.go_to_sleep()
@@ -139,5 +143,6 @@ func light_on_fire():
 		entities[0].light_on_fire()
 func burn_out(): pass
 
-func mineral_wand():
-	CurrentMap.map_manager.replace(Tags.fl_salt, iso_pos)
+func wand(wand):
+	wand.wand_effect(iso_pos)
+	

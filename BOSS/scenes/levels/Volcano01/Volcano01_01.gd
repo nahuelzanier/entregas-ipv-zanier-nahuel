@@ -5,7 +5,7 @@ onready var map_entity_designer = $MapEntityDesigner
 onready var volcano_return_path = Vector2(1,12)
 
 func _ready():
-	map_tag_name = "volcano 1-1"
+	map_tag_name = "VOLCANO"
 	player_spawn = Vector2(14,50)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()

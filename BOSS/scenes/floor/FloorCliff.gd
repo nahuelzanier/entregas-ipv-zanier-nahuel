@@ -12,3 +12,5 @@ func _process(delta): pass
 func get_lifted(player): pass
 
 func get_lifted_with_entity(player): pass
+
+func wand(wand):pass

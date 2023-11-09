@@ -30,7 +30,9 @@ var tags = [
 		Tags.et_torch,
 		Tags.et_torch_on,
 		Tags.et_palmtree_sink,
-		Tags.et_wand_mineral
+		Tags.et_wand_mineral,
+		Tags.et_heart,
+		Tags.et_wand_water
 ]
 
 func get_map():

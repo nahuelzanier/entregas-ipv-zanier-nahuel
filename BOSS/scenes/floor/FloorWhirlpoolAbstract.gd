@@ -94,3 +94,5 @@ func _on_WhirlpoolTimer_timeout():
 func _on_WhirlpoolStartTimer_timeout():
 	if entities.size() > 0:
 		$WhirlpoolTimer.start()
+
+func wand(wand):pass

@@ -3,13 +3,15 @@ onready var map_designer = $MapDesigner
 onready var map_entity_designer = $MapEntityDesigner
 
 func _ready():
-	map_tag_name = "island 1-2"
+	map_tag_name = "FISHER'S VILLA"
 	player_spawn = Vector2(21.5, 32)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
 
 	triggers[Vector2(21,33)] = ["generate_map", $"../Island01", Vector2(18,1)]
 	triggers[Vector2(22,33)] = ["generate_map", $"../Island01", Vector2(19,1)]
+	triggers[Vector2(5,30)] = ["generate_map", $"../Island03", Vector2(18,8)]
+	triggers[Vector2(5,29)] = ["generate_map", $"../Island03", Vector2(18,7)]
 	triggers[Vector2(28,12)] = ["generate_map", $"../../Furnace01/Furnace01", Vector2(2,20)]
 	triggers[Vector2(26,17)] = ["generate_map", $"../../Dungeon02/Dungeon02_01", Vector2(26,18)]
 	triggers[Vector2(25,23)] = ["generate_map", $"../../Dungeon02/Dungeon02_01", Vector2(25,24)]

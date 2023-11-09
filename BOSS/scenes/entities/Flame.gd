@@ -18,3 +18,6 @@ func _on_SpreadFire_timeout():
 
 func become_possessed(wisp):
 	wisp.turn_into_fire_wisp()
+
+func player_collision(player):
+	player.take_damage(global_position.direction_to(player.global_position).normalized())

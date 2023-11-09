@@ -23,8 +23,9 @@ PlayerSingleton="*res://scenes/game/global/PlayerSingleton.gd"
 
 [display]
 
-window/size/width=1280
+window/size/width=1980
 window/size/height=1024
+window/size/resizable=false
 
 [editor]
 
@@ -69,6 +70,11 @@ move_right={
 grab={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+start={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

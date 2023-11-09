@@ -28,8 +28,7 @@ func born_bottomless_tile(tile):
 	tile.falling_element.add_child(falling_tile)
 	tile.current_falling_effects.append(falling_tile)
 
-func player_is_on(player):
-	player.die()
+func player_is_on(player):pass
 
 #WISPS
 func sleeping_wisp_is_on(wisp):
@@ -41,3 +40,8 @@ func _on_WaterGrowth_timeout():
 	for i in [1, -1]:
 		CurrentMap.map[iso_pos + Vector2(i,0)].born_water_tile(self)
 		CurrentMap.map[iso_pos + Vector2(0,i)].born_water_tile(self)
+
+func block_holder(block_holder):
+	block_holder.destroy_self()
+
+func wand(wand):pass

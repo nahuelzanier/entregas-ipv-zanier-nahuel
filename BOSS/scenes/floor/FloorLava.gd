@@ -61,4 +61,4 @@ func sinks_rock():
 
 #PLAYER
 func player_is_on(player):
-	player.die()
+	player.take_damage(global_position.direction_to(player.global_position).normalized())

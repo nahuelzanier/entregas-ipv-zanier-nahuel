@@ -10,10 +10,12 @@ func get_lifted(player):
 	pass
 
 func _on_Area2D_body_entered(body):
-	$CrumbleTimer.start()
+	if body.type_tag == Tags.g_player:
+		$CrumbleTimer.start()
 
 func _on_Area2D_body_exited(body):
-	call_deferred("fall")
+	if body.type_tag == Tags.g_player:
+		call_deferred("fall")
 
 func fall():
 	var falling_tile = falling_tile_effect.instance()

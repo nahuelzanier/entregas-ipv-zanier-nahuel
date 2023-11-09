@@ -10,21 +10,6 @@ func _ready():
 func get_tile(vector2):
 	return CurrentMap.map[vector2]
 
-#func replace(tile_name, x, y):
-#	if x<CurrentMap.size_x() && y<CurrentMap.size_y() && x>=0 && y>=0:
-#		var old_tile = CurrentMap.map[y][x]
-#		var old_entities = []
-#		for e in old_tile.entities:
-#			old_entities.append(e)		
-#		var new_tile = packed_scenes.generate_floor_tile(tile_name, x, y)
-#		for e in old_entities:
-#			new_tile.entities.append(e)
-#		CurrentMap.map[y][x] = new_tile
-#		old_tile.destroy_self()
-#		rendered.floor_map.add_child(new_tile)
-#		new_tile.on_born()
-#		CurrentMap.level_node.active_level.map[y][x] = tile_name
-
 func replace(tile_name, vector2):
 	var old_tile = CurrentMap.map[vector2]
 	var old_entities = []

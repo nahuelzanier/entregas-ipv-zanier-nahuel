@@ -2,8 +2,6 @@ extends Node2D
 
 export var map_tag_name:String
 export var player_spawn = Vector2(2,7)
-#export var trigger_points:PoolVector2Array
-#export var trigger_parameters:
 onready var map = {}
 onready var entities = {}
 onready var triggers = {}

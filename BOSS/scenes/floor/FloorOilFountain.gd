@@ -67,3 +67,5 @@ func light_on_fire():
 		CurrentMap.map_manager.create_entity(Tags.et_flame, iso_pos)
 	else:
 		entities[0].light_on_fire()
+
+func wand(wand):pass

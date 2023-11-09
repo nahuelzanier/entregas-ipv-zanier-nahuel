@@ -14,9 +14,8 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 9.0
-height = 8.0
+[sub_resource type="CircleShape2D" id=3]
+radius = 3.0
 
 [node name="WispFire" type="Area2D"]
 script = ExtResource( 2 )
@@ -28,8 +27,8 @@ animation = "flame"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -5 )
-shape = SubResource( 1 )
+position = Vector2( 0, 5 )
+shape = SubResource( 3 )
 
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.07
@@ -40,5 +39,11 @@ wait_time = 0.08
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 
+[node name="DamagePlayerTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_WispFire_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_WispFire_body_exited"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]
+[connection signal="timeout" from="DamagePlayerTimer" to="." method="_on_DamagePlayerTimer_timeout"]

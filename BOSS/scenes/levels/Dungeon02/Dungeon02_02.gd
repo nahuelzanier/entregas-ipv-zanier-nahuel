@@ -3,7 +3,7 @@ onready var map_designer = $MapDesigner
 onready var map_entity_designer = $MapEntityDesigner
 
 func _ready():
-	map_tag_name = "dungeon 2-2"
+	map_tag_name = "LIGHTHOUSE BASE"
 	player_spawn = Vector2(3, 3)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()

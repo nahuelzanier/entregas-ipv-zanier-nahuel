@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -114,6 +114,45 @@
 [ext_resource path="res://scenes/levels/Canyon01/Canyon01_02.tscn" type="PackedScene" id=112]
 [ext_resource path="res://scenes/levels/Canyon01/Canyon01_03.tscn" type="PackedScene" id=113]
 [ext_resource path="res://scenes/levels/Extra/Checkers01.tscn" type="PackedScene" id=114]
+[ext_resource path="res://scenes/levels/Island01/Island03.tscn" type="PackedScene" id=115]
+[ext_resource path="res://scenes/game/UITop.gd" type="Script" id=116]
+[ext_resource path="res://scenes/UI/EmptyHeart.tscn" type="PackedScene" id=117]
+[ext_resource path="res://scenes/UI/FullHeart.tscn" type="PackedScene" id=118]
+[ext_resource path="res://assets/fonts/joystix monospace.otf" type="DynamicFontData" id=119]
+[ext_resource path="res://scenes/levels/Side01/SideCave01.tscn" type="PackedScene" id=120]
+[ext_resource path="res://scenes/UI/UIHearts.tscn" type="PackedScene" id=121]
+[ext_resource path="res://scenes/entities/Heart.tscn" type="PackedScene" id=122]
+[ext_resource path="res://scenes/blocks/BlockHeart.tscn" type="PackedScene" id=123]
+[ext_resource path="res://scenes/levels/Extra/StartingMenu.tscn" type="PackedScene" id=124]
+[ext_resource path="res://assets/floor/sand.png" type="Texture" id=125]
+[ext_resource path="res://assets/entities/palmtree.png" type="Texture" id=126]
+[ext_resource path="res://assets/background/title.png" type="Texture" id=127]
+[ext_resource path="res://assets/background/title2.png" type="Texture" id=128]
+[ext_resource path="res://scenes/game/PressStart.gd" type="Script" id=129]
+[ext_resource path="res://scenes/floor/FloorEmptyAccesibleWater.tscn" type="PackedScene" id=130]
+[ext_resource path="res://scenes/blocks/BlockPlayer.tscn" type="PackedScene" id=131]
+[ext_resource path="res://scenes/entities/Sign.tscn" type="PackedScene" id=132]
+[ext_resource path="res://scenes/blocks/BlockSign.tscn" type="PackedScene" id=133]
+[ext_resource path="res://scenes/game/TimeLapse.gd" type="Script" id=134]
+[ext_resource path="res://scenes/blocks/BlockWandWater.tscn" type="PackedScene" id=135]
+[ext_resource path="res://scenes/wands/WaterWand.tscn" type="PackedScene" id=136]
+[ext_resource path="res://scenes/levels/WaterTemple01/WaterTemple01.tscn" type="PackedScene" id=137]
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+font_data = ExtResource( 119 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 119 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 119 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 119 )
 
 [sub_resource type="PackedScene" id=1]
 _bundled = {
@@ -134,10 +173,189 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="GameOverTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+anchor_right = 0.23
+anchor_bottom = 0.23
+margin_right = 32.0
+margin_bottom = 20.48
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
+anchor_left = 0.415
+anchor_top = 0.445
+anchor_right = 0.42
+anchor_bottom = 0.486
+margin_left = -2.0
+margin_top = 0.0800018
+margin_right = 68.0
+margin_bottom = 3.584
+custom_fonts/font = SubResource( 4 )
+text = "GAME OVER"
+
+[node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
+
+[node name="UITop" type="ColorRect" parent="UI"]
+anchor_right = 0.25
+anchor_bottom = 0.001
+margin_bottom = 24.976
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 116 )
+full_heart = ExtResource( 118 )
+empty_heart = ExtResource( 117 )
+ui_hearts_pack = ExtResource( 121 )
+
+[node name="Label" type="Label" parent="UI/UITop"]
+anchor_right = 1.0
+margin_top = 14.0
+margin_bottom = 28.0
+input_pass_on_modal_close_click = false
+custom_fonts/font = SubResource( 2 )
+align = 1
+
+[node name="UIHearts" parent="UI/UITop" instance=ExtResource( 121 )]
+
+[node name="UIBottom" type="ColorRect" parent="UI"]
+anchor_right = 0.25
+anchor_bottom = 0.001
+margin_top = 246.0
+margin_bottom = 254.976
+color = Color( 0, 0, 0, 1 )
+
+[node name="TimeLapse" type="CanvasLayer" parent="."]
+visible = false
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
+script = ExtResource( 134 )
+
+[node name="HideTimer" type="Timer" parent="TimeLapse"]
+wait_time = 3.4
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="TimeLapse"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="TimeLapse/ColorRect"]
+anchor_left = 0.281
+anchor_top = 0.472
+anchor_right = 0.637
+anchor_bottom = 0.515
+margin_left = 43.888
+margin_top = -0.0454559
+margin_right = -47.896
+margin_bottom = 2.10718
+custom_fonts/font = SubResource( 5 )
+text = "LOADING ISLAND..."
+
+[node name="TitleScreen" type="CanvasLayer" parent="."]
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="TitleScreen"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+color = Color( 0, 0, 0, 1 )
+
+[node name="PressStart" type="Label" parent="TitleScreen/ColorRect"]
+anchor_left = 0.377
+anchor_top = 0.582
+anchor_right = 0.392
+anchor_bottom = 0.582
+margin_left = 17.385
+margin_top = 29.008
+margin_right = 105.385
+margin_bottom = 43.008
+custom_fonts/font = SubResource( 3 )
+text = "PRESS START"
+script = ExtResource( 129 )
+
+[node name="PressStartTimer" type="Timer" parent="TitleScreen/ColorRect/PressStart"]
+wait_time = 0.5
+autostart = true
+
+[node name="Beach" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.432
+anchor_top = 0.203
+anchor_right = 0.432
+anchor_bottom = 0.203
+margin_left = 22.16
+margin_top = 14.032
+margin_right = 54.16
+margin_bottom = 35.032
+texture = ExtResource( 125 )
+
+[node name="Beach4" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.513
+anchor_top = 0.297
+anchor_right = 0.526
+anchor_bottom = 0.324
+margin_left = 2.06499
+margin_top = -0.0319977
+margin_right = 20.7
+margin_bottom = 14.056
+texture = ExtResource( 125 )
+
+[node name="Beach2" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.447
+anchor_top = 0.299
+anchor_right = 0.46
+anchor_bottom = 0.366
+margin_left = -3.60001
+margin_top = -0.543999
+margin_right = 17.6
+margin_bottom = 3.304
+texture = ExtResource( 125 )
+
+[node name="Beach3" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.474
+anchor_top = 0.329
+anchor_right = 0.527
+anchor_bottom = 0.347
+texture = ExtResource( 125 )
+
+[node name="Palmtree" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.446
+anchor_top = 0.135
+anchor_right = 0.486
+anchor_bottom = 0.135
+margin_left = 7.23
+margin_top = 1.44
+margin_right = 33.43
+margin_bottom = 40.44
+texture = ExtResource( 126 )
+
+[node name="Lay" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.246
+anchor_top = 0.275
+anchor_right = 0.5
+anchor_bottom = 0.275
+texture = ExtResource( 127 )
+
+[node name="Land" type="TextureRect" parent="TitleScreen/ColorRect"]
+anchor_left = 0.514
+anchor_top = 0.243
+anchor_right = 0.541
+anchor_bottom = 0.243
+texture = ExtResource( 128 )
+
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 45 )
 
 [node name="EmptyLevel" parent="Level" instance=ExtResource( 87 )]
+visible = false
+
+[node name="StartingMenu" parent="Level" instance=ExtResource( 124 )]
 visible = false
 
 [node name="Dungeon01" type="Node2D" parent="Level"]
@@ -157,12 +375,20 @@ visible = false
 [node name="Room05" parent="Level/Dungeon01" instance=ExtResource( 73 )]
 visible = false
 
+[node name="SideAreas01" type="Node2D" parent="Level"]
+
+[node name="SideCave01" parent="Level/SideAreas01" instance=ExtResource( 120 )]
+visible = false
+
 [node name="Island01" type="Node2D" parent="Level"]
 
 [node name="Island01" parent="Level/Island01" instance=ExtResource( 74 )]
 visible = false
 
 [node name="Island02" parent="Level/Island01" instance=ExtResource( 9 )]
+visible = false
+
+[node name="Island03" parent="Level/Island01" instance=ExtResource( 115 )]
 visible = false
 
 [node name="Jungle01" parent="Level/Island01" instance=ExtResource( 10 )]
@@ -172,6 +398,9 @@ visible = false
 visible = false
 
 [node name="Jungle03" parent="Level/Island01" instance=ExtResource( 100 )]
+visible = false
+
+[node name="WaterTemple01" parent="Level/Island01" instance=ExtResource( 137 )]
 visible = false
 
 [node name="Furnace01" type="Node2D" parent="Level"]
@@ -229,6 +458,7 @@ visible = false
 [node name="Extras" type="Node2D" parent="Level"]
 
 [node name="Checkers01" parent="Level/Extras" instance=ExtResource( 114 )]
+visible = false
 
 [node name="TestMaps" type="Node2D" parent="Level"]
 
@@ -251,6 +481,7 @@ floorDefault = ExtResource( 3 )
 floorEmpty = ExtResource( 5 )
 floor_empty_no_access = ExtResource( 30 )
 floor_empty_access = ExtResource( 58 )
+floor_empty_access_water = ExtResource( 130 )
 floor_empty_blocked = ExtResource( 64 )
 waterFloor = ExtResource( 11 )
 deep_water = ExtResource( 75 )
@@ -310,6 +541,9 @@ entity_flame = ExtResource( 48 )
 entity_torch = ExtResource( 60 )
 entity_torch_on = ExtResource( 89 )
 wand_mineral = ExtResource( 103 )
+wand_water = ExtResource( 136 )
+heart = ExtResource( 122 )
+sign_board = ExtResource( 132 )
 block_empty = ExtResource( 18 )
 block_palmtree = ExtResource( 25 )
 block_default = ExtResource( 17 )
@@ -325,6 +559,10 @@ block_button = ExtResource( 71 )
 block_water_wisp = ExtResource( 80 )
 block_stone_lid = ExtResource( 84 )
 block_wand_mineral = ExtResource( 104 )
+block_wand_water = ExtResource( 135 )
+block_heart = ExtResource( 123 )
+block_player = ExtResource( 131 )
+block_sign = ExtResource( 133 )
 
 [node name="Rendered" type="Node2D" parent="."]
 script = ExtResource( 51 )
@@ -334,3 +572,7 @@ ysort_entities = ExtResource( 57 )
 [node name="Floor" parent="Rendered" instance=ExtResource( 56 )]
 
 [node name="Entities" parent="Rendered" instance=ExtResource( 57 )]
+
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]
+[connection signal="timeout" from="TimeLapse/HideTimer" to="TimeLapse" method="_on_HideTimer_timeout"]
+[connection signal="timeout" from="TitleScreen/ColorRect/PressStart/PressStartTimer" to="TitleScreen/ColorRect/PressStart" method="_on_PressStartTimer_timeout"]

@@ -26,3 +26,5 @@ func _on_Trigger_body_entered(body):
 
 func flip():
 	$Sprite.flip_h = !$Sprite.flip_h
+
+func wand(wand):pass

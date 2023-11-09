@@ -64,7 +64,7 @@ func _on_QuakeDamage_timeout():
 func player_is_on(player):
 	.player_is_on(player)
 	if quake:
-		player.die()
+		player.take_damage(global_position.direction_to(player.global_position).normalized())
 	else:
 		player.speed = player.default_speed
 

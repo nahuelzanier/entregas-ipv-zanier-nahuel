@@ -57,4 +57,4 @@ func button_active_effect(button):
 		entities[0].button_active_effect(button)
 
 func player_is_on(player):
-	player.die()
+	player.sink()

@@ -14,7 +14,8 @@ func get_lifted_with_entity(player): pass
 #PLAYER
 func unlift_wisp(player):pass
 
-
 func _on_Trigger_body_entered(body):
 	if body.tag == Tags.et_player:
 		CurrentMap.trigger_level_locations(iso_pos, map_tag)
+
+func wand(wand):pass

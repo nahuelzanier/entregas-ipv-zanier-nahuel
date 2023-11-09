@@ -1,11 +1,10 @@
 extends Node
 #FLOORS
-#export (PackedScene) var wallBase_y
-#export (PackedScene) var wallBase_x
 export (PackedScene) var floorDefault
 export (PackedScene) var floorEmpty
 export (PackedScene) var floor_empty_no_access
 export (PackedScene) var floor_empty_access
+export (PackedScene) var floor_empty_access_water
 export (PackedScene) var floor_empty_blocked
 export (PackedScene) var waterFloor
 export (PackedScene) var deep_water
@@ -13,15 +12,9 @@ export (PackedScene) var fountainFloor
 export (PackedScene) var crumbleFloor
 export (PackedScene) var lavaFloor
 export (PackedScene) var sandBeach
-#export (PackedScene) var columnBase
-#export (PackedScene) var player_spawn
 export (PackedScene) var checker_black
 export (PackedScene) var checker_red
 export (PackedScene) var bottomless
-#export (PackedScene) var tile_door_left
-#export (PackedScene) var tile_door_right
-#export (PackedScene) var tile_door_north
-#export (PackedScene) var tile_door_south
 export (PackedScene) var floor_dungeon
 export (PackedScene) var floor_stone
 export (PackedScene) var floor_salt
@@ -72,6 +65,9 @@ export (PackedScene) var entity_flame
 export (PackedScene) var entity_torch
 export (PackedScene) var entity_torch_on
 export (PackedScene) var wand_mineral
+export (PackedScene) var wand_water
+export (PackedScene) var heart
+export (PackedScene) var sign_board
 #BLOCKS
 export (PackedScene) var block_empty
 export (PackedScene) var block_palmtree
@@ -88,18 +84,21 @@ export (PackedScene) var block_button
 export (PackedScene) var block_water_wisp
 export (PackedScene) var block_stone_lid
 export (PackedScene) var block_wand_mineral
+export (PackedScene) var block_wand_water
+export (PackedScene) var block_heart
+export (PackedScene) var block_player
+export (PackedScene) var block_sign
 
 var tile_dict = {}
 var entities_dict = {}
 var block_dict = {}
 
 func _ready():
-#	tile_dict[Tags.fl_wall_y] = wallBase_y
-#	tile_dict[Tags.fl_wall_x] = wallBase_x
 	tile_dict[Tags.fl_default] = floorDefault
 	tile_dict[Tags.fl_empty] = floorEmpty
 	tile_dict[Tags.fl_empty_no_access] = floor_empty_no_access
 	tile_dict[Tags.fl_empty_access] = floor_empty_access
+	tile_dict[Tags.fl_empty_access_water] = floor_empty_access_water
 	tile_dict[Tags.fl_empty_blocked] = floor_empty_blocked
 	tile_dict[Tags.fl_water] = waterFloor
 	tile_dict[Tags.fl_deep_water] = deep_water
@@ -107,15 +106,9 @@ func _ready():
 	tile_dict[Tags.fl_crumble] = crumbleFloor
 	tile_dict[Tags.fl_lava] = lavaFloor
 	tile_dict[Tags.fl_beach] = sandBeach
-#	tile_dict[Tags.fl_column] = columnBase
-#	tile_dict[Tags.fl_player] = player_spawn
 	tile_dict[Tags.fl_chkr_black] = checker_black
 	tile_dict[Tags.fl_chkr_red] = checker_red
 	tile_dict[Tags.fl_bottomless] = bottomless
-#	tile_dict[Tags.fl_door_left] = tile_door_left
-#	tile_dict[Tags.fl_door_right] = tile_door_right
-#	tile_dict[Tags.fl_door_north] = tile_door_north
-#	tile_dict[Tags.fl_door_south] = tile_door_south
 	tile_dict[Tags.fl_dungeon] = floor_dungeon
 	tile_dict[Tags.fl_stone] = floor_stone
 	tile_dict[Tags.fl_salt] = floor_salt
@@ -165,6 +158,9 @@ func _ready():
 	entities_dict[Tags.et_torch] = entity_torch
 	entities_dict[Tags.et_torch_on] = entity_torch_on
 	entities_dict[Tags.et_wand_mineral] = wand_mineral
+	entities_dict[Tags.et_wand_water] = wand_water
+	entities_dict[Tags.et_heart] = heart
+	entities_dict[Tags.et_sign] = sign_board
 	block_dict[Tags.bl_empty] = block_empty
 	block_dict[Tags.bl_palmtree] = block_palmtree
 	block_dict[Tags.bl_default] = block_default
@@ -180,6 +176,10 @@ func _ready():
 	block_dict[Tags.bl_wisp_water] = block_water_wisp
 	block_dict[Tags.bl_stone_lid] = block_stone_lid
 	block_dict[Tags.bl_wand_mineral] = block_wand_mineral
+	block_dict[Tags.bl_wand_water] = block_wand_water
+	block_dict[Tags.bl_heart] = block_heart
+	block_dict[Tags.bl_player] = block_player
+	block_dict[Tags.bl_sign] = block_sign
 
 func generate_floor_tile(tile, vector2):
 	if tile != null:

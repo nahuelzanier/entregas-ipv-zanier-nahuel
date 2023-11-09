@@ -48,3 +48,5 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	button_inactive()
+
+func wand(wand):pass

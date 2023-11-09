@@ -31,7 +31,8 @@ var tags = [
 		Tags.fl_whirlpool_sw,
 		Tags.fl_stairs_up,
 		Tags.fl_oil,
-		Tags.fl_oil_fountain
+		Tags.fl_oil_fountain,
+		Tags.fl_empty_access_water
 ]
 
 func get_map():

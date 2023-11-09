@@ -16,3 +16,5 @@ func player_is_on(player):
 	player.die()
 
 func unlift_wisp(player):pass
+
+func wand(wand):pass

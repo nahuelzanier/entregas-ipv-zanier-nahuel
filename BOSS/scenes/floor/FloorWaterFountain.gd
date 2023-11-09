@@ -51,4 +51,4 @@ func sinks_rock():
 func player_is_on(player):
 	player.speed = player.default_speed/4
 
-func mineral_wand():pass
+func wand(wand):pass

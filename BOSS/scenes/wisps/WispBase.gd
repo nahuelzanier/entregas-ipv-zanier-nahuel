@@ -24,11 +24,12 @@ func go_to_sleep():
 	pass
 
 func move_away_from_each_other():
-	randomize()
-	var pool = [-2,-1,0,1,2]
-	pool.shuffle()
 	var iso_pos = Global._pos_to_iso(position)
-	move(iso_pos + Vector2(pool[randi()%5], pool[randi()%5]) )
+	var x = iso_pos.x
+	var y = iso_pos.y
+	var positions = [Vector2(x+1,y), Vector2(x-1,y), Vector2(x,y+1), Vector2(x,y-1)]
+	for pair in positions:
+		CurrentMap.map[pair].move_sleeping_wisp_away(self)
 
 func get_lifted(player):
 	if player.block_tag() == Tags.fl_empty:

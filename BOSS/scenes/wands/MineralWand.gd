@@ -7,4 +7,7 @@ func _ready():
 	transform()
 
 func transform():
-	CurrentMap.map[current_tile].mineral_wand()
+	CurrentMap.map[current_tile].wand(self)
+
+func wand_effect(tile_pos):
+	CurrentMap.map_manager.replace(Tags.fl_salt, tile_pos)

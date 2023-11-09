@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/floor/stairs up.png" type="Texture" id=1]
+[ext_resource path="res://assets/entities/stairs up.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/StairsUp.gd" type="Script" id=2]
 
 [node name="StairsUp" type="KinematicBody2D"]

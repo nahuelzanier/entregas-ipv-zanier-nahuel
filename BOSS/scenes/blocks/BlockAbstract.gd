@@ -4,7 +4,7 @@ onready var type_tag
 onready var unlift
 onready var tag
 onready var falling = false
-onready var fall_speed = 0.5
+onready var fall_speed = 0.8
 
 func _process(delta):
 	if falling:

@@ -25,7 +25,7 @@ func generate_map(level, spawn_point):
 	load_level(level, spawn_point)
 	map_generator.generate_map()
 	level.create_entities()
-	PlayerSingleton.place_player(player_spawn)
+	PlayerSingleton.place_player(player_spawn, level_node.active_level.map_tag_name)
 
 func trigger_level_locations(iso_position, map_tag):
 	level_node.active_level.trigger_level_locations(iso_position, map_tag)

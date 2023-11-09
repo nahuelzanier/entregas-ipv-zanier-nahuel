@@ -21,3 +21,7 @@ func update_sprite(x, y):
 	if x>0 && y>0:
 		sprite = $SE
 	sprite.show()
+	if x!=0 || y!=0:
+		sprite.animate_walk()
+	else:
+		sprite.stop_walk_anim()

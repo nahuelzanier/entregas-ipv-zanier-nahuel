@@ -4,7 +4,7 @@ onready var map_entity_designer = $MapEntityDesigner
 onready var path_lit = false
 
 func _ready():
-	map_tag_name = "jungle-02"
+	map_tag_name = "JUNGLE ??"
 	player_spawn = Vector2(1,12)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
