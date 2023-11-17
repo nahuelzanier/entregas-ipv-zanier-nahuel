@@ -38,11 +38,11 @@ func damage(amount):
 		player_exists = false
 		game.game_over()
 		topUI.set_label("OUCH...")
-	
+
 func increase_max_hearts():
 	max_hearts += 1
 	update_hearts()
-	
+
 func recover_life():
 	current_hearts = min(max_hearts, current_hearts+1)
 	update_hearts()

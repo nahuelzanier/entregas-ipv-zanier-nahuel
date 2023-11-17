@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=2]
+[gd_scene load_steps=164 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -124,10 +124,8 @@
 [ext_resource path="res://scenes/entities/Heart.tscn" type="PackedScene" id=122]
 [ext_resource path="res://scenes/blocks/BlockHeart.tscn" type="PackedScene" id=123]
 [ext_resource path="res://scenes/levels/Extra/StartingMenu.tscn" type="PackedScene" id=124]
-[ext_resource path="res://assets/floor/sand.png" type="Texture" id=125]
-[ext_resource path="res://assets/entities/palmtree.png" type="Texture" id=126]
-[ext_resource path="res://assets/background/title.png" type="Texture" id=127]
-[ext_resource path="res://assets/background/title2.png" type="Texture" id=128]
+[ext_resource path="res://assets/background/title_screen.png" type="Texture" id=125]
+[ext_resource path="res://scenes/game/BackgroundColor.gd" type="Script" id=126]
 [ext_resource path="res://scenes/game/PressStart.gd" type="Script" id=129]
 [ext_resource path="res://scenes/floor/FloorEmptyAccesibleWater.tscn" type="PackedScene" id=130]
 [ext_resource path="res://scenes/blocks/BlockPlayer.tscn" type="PackedScene" id=131]
@@ -137,6 +135,28 @@
 [ext_resource path="res://scenes/blocks/BlockWandWater.tscn" type="PackedScene" id=135]
 [ext_resource path="res://scenes/wands/WaterWand.tscn" type="PackedScene" id=136]
 [ext_resource path="res://scenes/levels/WaterTemple01/WaterTemple01.tscn" type="PackedScene" id=137]
+[ext_resource path="res://assets/UI/tutorialUI/graphpickup.png" type="Texture" id=138]
+[ext_resource path="res://assets/UI/tutorialUI/arrow.png" type="Texture" id=139]
+[ext_resource path="res://scenes/UI/Arrow.tscn" type="PackedScene" id=140]
+[ext_resource path="res://scenes/game/BGM.gd" type="Script" id=141]
+[ext_resource path="res://scenes/game/AmbientSounds.gd" type="Script" id=142]
+[ext_resource path="res://assets/sounds/music_star_tropics/2 - Overworld.mp3" type="AudioStream" id=143]
+[ext_resource path="res://assets/sounds/music_star_tropics/6 - Hidden Area.mp3" type="AudioStream" id=144]
+[ext_resource path="res://assets/sounds/music_star_tropics/5 - Dungeon.mp3" type="AudioStream" id=145]
+[ext_resource path="res://assets/sounds/ambient/wave.wav" type="AudioStream" id=146]
+[ext_resource path="res://assets/sounds/music_star_tropics/7 - Danger Zone.mp3" type="AudioStream" id=147]
+[ext_resource path="res://assets/sounds/music_star_tropics/3 - The Southern Cross.mp3" type="AudioStream" id=148]
+[ext_resource path="res://assets/sounds/music_star_tropics/4 - Town.mp3" type="AudioStream" id=149]
+[ext_resource path="res://scenes/game/SFX.gd" type="Script" id=150]
+[ext_resource path="res://assets/sounds/sfx/chomp.wav" type="AudioStream" id=151]
+[ext_resource path="res://assets/sounds/sfx/hurt3.wav" type="AudioStream" id=152]
+[ext_resource path="res://assets/sounds/sfx/heartup.wav" type="AudioStream" id=153]
+[ext_resource path="res://assets/sounds/sfx/hoppalmtee.wav" type="AudioStream" id=154]
+[ext_resource path="res://assets/sounds/sfx/quake.wav" type="AudioStream" id=155]
+[ext_resource path="res://assets/sounds/sfx/flame.wav" type="AudioStream" id=156]
+[ext_resource path="res://assets/sounds/sfx/pickup.wav" type="AudioStream" id=157]
+[ext_resource path="res://assets/sounds/music_star_tropics/1 - Title.mp3" type="AudioStream" id=158]
+[ext_resource path="res://assets/sounds/music_star_tropics/9 - Player Miss.mp3" type="AudioStream" id=159]
 
 [sub_resource type="DynamicFont" id=4]
 size = 10
@@ -151,6 +171,10 @@ size = 10
 font_data = ExtResource( 119 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 119 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 10
 font_data = ExtResource( 119 )
 
@@ -173,8 +197,82 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="MainThemeTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
+bus = "BGM"
+script = ExtResource( 141 )
+title_bgm = ExtResource( 158 )
+island_bgm = ExtResource( 143 )
+cave_bgm = ExtResource( 145 )
+side_area = ExtResource( 144 )
+jungle_bgm = ExtResource( 148 )
+canyon_bgm = ExtResource( 149 )
+volcano_bgm = ExtResource( 147 )
+game_over_bgm = ExtResource( 159 )
+
+[node name="BGMDelay" type="Timer" parent="Audio/BGM"]
+one_shot = true
+
+[node name="AmbientSounds" type="AudioStreamPlayer" parent="Audio"]
+bus = "Ambient"
+script = ExtResource( 142 )
+waves_sound = ExtResource( 146 )
+
+[node name="WaveTimer" type="Timer" parent="Audio/AmbientSounds"]
+wait_time = 6.0
+one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="Audio"]
+bus = "SFX"
+script = ExtResource( 150 )
+chomp = ExtResource( 151 )
+flame = ExtResource( 156 )
+heart_up = ExtResource( 153 )
+hop = ExtResource( 154 )
+hurt = ExtResource( 152 )
+quake = ExtResource( 155 )
+pick_up = ExtResource( 157 )
+
 [node name="GameOverTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BackgroundColor" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2( 0, 0 )
+script = ExtResource( 126 )
+
+[node name="DeepBlue" type="ColorRect" parent="BackgroundColor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.345098, 0.972549, 1 )
+
+[node name="Black" type="ColorRect" parent="BackgroundColor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Gray" type="ColorRect" parent="BackgroundColor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.486275, 0.486275, 0.486275, 1 )
+
+[node name="Red" type="ColorRect" parent="BackgroundColor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.658824, 0, 0.12549, 1 )
+
+[node name="Green" type="ColorRect" parent="BackgroundColor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.470588, 0, 1 )
 
 [node name="GameOverScreen" type="CanvasLayer" parent="."]
 visible = false
@@ -182,21 +280,16 @@ scale = Vector2( 4, 4 )
 transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
-anchor_right = 0.23
-anchor_bottom = 0.23
-margin_right = 32.0
-margin_bottom = 20.48
+anchor_right = 0.25
+anchor_bottom = 0.25
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="GameOverScreen/ColorRect"]
-anchor_left = 0.415
-anchor_top = 0.445
-anchor_right = 0.42
-anchor_bottom = 0.486
-margin_left = -2.0
+anchor_left = 0.44
+anchor_top = 0.47
+anchor_right = 0.5
+anchor_bottom = 0.5
 margin_top = 0.0800018
-margin_right = 68.0
-margin_bottom = 3.584
 custom_fonts/font = SubResource( 4 )
 text = "GAME OVER"
 
@@ -206,8 +299,7 @@ transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 
 [node name="UITop" type="ColorRect" parent="UI"]
 anchor_right = 0.25
-anchor_bottom = 0.001
-margin_bottom = 24.976
+anchor_bottom = 0.016
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 116 )
 full_heart = ExtResource( 118 )
@@ -215,9 +307,11 @@ empty_heart = ExtResource( 117 )
 ui_hearts_pack = ExtResource( 121 )
 
 [node name="Label" type="Label" parent="UI/UITop"]
+anchor_left = 0.55
 anchor_right = 1.0
-margin_top = 14.0
-margin_bottom = 28.0
+margin_left = -0.25
+margin_top = 2.0
+margin_bottom = 14.0
 input_pass_on_modal_close_click = false
 custom_fonts/font = SubResource( 2 )
 align = 1
@@ -225,10 +319,10 @@ align = 1
 [node name="UIHearts" parent="UI/UITop" instance=ExtResource( 121 )]
 
 [node name="UIBottom" type="ColorRect" parent="UI"]
+visible = false
+anchor_top = 0.245
 anchor_right = 0.25
-anchor_bottom = 0.001
-margin_top = 246.0
-margin_bottom = 254.976
+anchor_bottom = 0.25
 color = Color( 0, 0, 0, 1 )
 
 [node name="TimeLapse" type="CanvasLayer" parent="."]
@@ -247,14 +341,11 @@ anchor_bottom = 0.25
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="TimeLapse/ColorRect"]
-anchor_left = 0.281
-anchor_top = 0.472
+anchor_left = 0.36
+anchor_top = 0.47
 anchor_right = 0.637
 anchor_bottom = 0.515
-margin_left = 43.888
 margin_top = -0.0454559
-margin_right = -47.896
-margin_bottom = 2.10718
 custom_fonts/font = SubResource( 5 )
 text = "LOADING ISLAND..."
 
@@ -268,14 +359,11 @@ anchor_bottom = 0.25
 color = Color( 0, 0, 0, 1 )
 
 [node name="PressStart" type="Label" parent="TitleScreen/ColorRect"]
-anchor_left = 0.377
-anchor_top = 0.582
-anchor_right = 0.392
-anchor_bottom = 0.582
-margin_left = 17.385
-margin_top = 29.008
-margin_right = 105.385
-margin_bottom = 43.008
+anchor_left = 0.43
+anchor_top = 0.7
+anchor_right = 0.519
+anchor_bottom = 0.7
+margin_right = -9.40503
 custom_fonts/font = SubResource( 3 )
 text = "PRESS START"
 script = ExtResource( 129 )
@@ -284,70 +372,74 @@ script = ExtResource( 129 )
 wait_time = 0.5
 autostart = true
 
-[node name="Beach" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.432
-anchor_top = 0.203
-anchor_right = 0.432
-anchor_bottom = 0.203
-margin_left = 22.16
-margin_top = 14.032
-margin_right = 54.16
-margin_bottom = 35.032
+[node name="TextureRect" type="TextureRect" parent="TitleScreen"]
+anchor_left = 0.063
+anchor_top = 0.03
+anchor_right = 0.121
+anchor_bottom = 0.03
+margin_right = -120.78
 texture = ExtResource( 125 )
 
-[node name="Beach4" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.513
-anchor_top = 0.297
-anchor_right = 0.526
-anchor_bottom = 0.324
-margin_left = 2.06499
-margin_top = -0.0319977
-margin_right = 20.7
-margin_bottom = 14.056
-texture = ExtResource( 125 )
+[node name="Tutorial01" type="CanvasLayer" parent="."]
+visible = false
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 
-[node name="Beach2" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.447
-anchor_top = 0.299
-anchor_right = 0.46
-anchor_bottom = 0.366
-margin_left = -3.60001
-margin_top = -0.543999
-margin_right = 17.6
-margin_bottom = 3.304
-texture = ExtResource( 125 )
+[node name="TextureRect" type="TextureRect" parent="Tutorial01"]
+anchor_left = 0.067
+anchor_top = 0.06
+anchor_right = 0.075
+anchor_bottom = 0.06
+texture = ExtResource( 138 )
 
-[node name="Beach3" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.474
-anchor_top = 0.329
-anchor_right = 0.527
-anchor_bottom = 0.347
-texture = ExtResource( 125 )
+[node name="Label" type="Label" parent="Tutorial01"]
+anchor_left = 0.069
+anchor_top = 0.172
+anchor_right = 0.093
+anchor_bottom = 0.184
+custom_fonts/font = SubResource( 6 )
+text = "BUTTON"
 
-[node name="Palmtree" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.446
-anchor_top = 0.135
-anchor_right = 0.486
-anchor_bottom = 0.135
-margin_left = 7.23
-margin_top = 1.44
-margin_right = 33.43
-margin_bottom = 40.44
-texture = ExtResource( 126 )
+[node name="Label2" type="Label" parent="Tutorial01"]
+anchor_left = 0.115
+anchor_top = 0.172
+anchor_right = 0.13
+anchor_bottom = 0.184
+custom_fonts/font = SubResource( 6 )
+text = "HOLD"
 
-[node name="Lay" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.246
-anchor_top = 0.275
-anchor_right = 0.5
-anchor_bottom = 0.275
-texture = ExtResource( 127 )
+[node name="Label3" type="Label" parent="Tutorial01"]
+anchor_left = 0.154
+anchor_top = 0.172
+anchor_right = 0.182
+anchor_bottom = 0.184
+custom_fonts/font = SubResource( 6 )
+text = "RELEASE"
 
-[node name="Land" type="TextureRect" parent="TitleScreen/ColorRect"]
-anchor_left = 0.514
-anchor_top = 0.243
-anchor_right = 0.541
-anchor_bottom = 0.243
-texture = ExtResource( 128 )
+[node name="Tutorial02" type="CanvasLayer" parent="."]
+visible = false
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial02"]
+anchor_left = 0.081
+anchor_top = 0.065
+anchor_right = 0.173
+anchor_bottom = 0.189
+margin_left = -0.380005
+margin_top = 0.440002
+margin_right = -0.539978
+margin_bottom = 4.464
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial02"]
+anchor_left = 0.118
+anchor_top = 0.117
+anchor_right = 0.118
+anchor_bottom = 0.117
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 139 )
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 45 )
@@ -477,6 +569,7 @@ script = ExtResource( 34 )
 
 [node name="PackedScenes" type="Node" parent="MapManager/MapGenerator"]
 script = ExtResource( 6 )
+ui_arrow = ExtResource( 140 )
 floorDefault = ExtResource( 3 )
 floorEmpty = ExtResource( 5 )
 floor_empty_no_access = ExtResource( 30 )
@@ -573,6 +666,9 @@ ysort_entities = ExtResource( 57 )
 
 [node name="Entities" parent="Rendered" instance=ExtResource( 57 )]
 
+[connection signal="timeout" from="MainThemeTimer" to="." method="_on_MainThemeTimer_timeout"]
+[connection signal="timeout" from="Audio/BGM/BGMDelay" to="Audio/BGM" method="_on_BGMDelay_timeout"]
+[connection signal="timeout" from="Audio/AmbientSounds/WaveTimer" to="Audio/AmbientSounds" method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]
 [connection signal="timeout" from="TimeLapse/HideTimer" to="TimeLapse" method="_on_HideTimer_timeout"]
 [connection signal="timeout" from="TitleScreen/ColorRect/PressStart/PressStartTimer" to="TitleScreen/ColorRect/PressStart" method="_on_PressStartTimer_timeout"]

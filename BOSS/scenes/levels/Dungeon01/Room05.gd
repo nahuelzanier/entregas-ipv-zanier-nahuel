@@ -7,6 +7,8 @@ func _ready():
 	player_spawn = Vector2(10,23)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
+	bgm = GlobalAudio.cave_bgm
+	bg = "black"
 
 	triggers[Vector2(10,24)] = ["generate_map", $"../Room04", Vector2(4.5,1)]
 	triggers[Vector2(11,24)] = ["generate_map", $"../Room04", Vector2(4.5,1)]
@@ -20,3 +22,8 @@ func update_maps():
 		$"../../Island01/Island01".stop_whirlpool()
 	else:
 		$"../../Island01/Island01".start_whirlpool()
+
+func play_bgm():
+	GlobalAudio.update_bgm(bgm)
+	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:
+		GlobalAudio.bgm_player.play_bgm(GlobalAudio.bgm_player.cave_bgm, 0.1)

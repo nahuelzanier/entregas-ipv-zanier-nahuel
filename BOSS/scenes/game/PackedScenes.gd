@@ -1,4 +1,6 @@
 extends Node
+#UI
+export (PackedScene) var ui_arrow
 #FLOORS
 export (PackedScene) var floorDefault
 export (PackedScene) var floorEmpty
@@ -161,6 +163,7 @@ func _ready():
 	entities_dict[Tags.et_wand_water] = wand_water
 	entities_dict[Tags.et_heart] = heart
 	entities_dict[Tags.et_sign] = sign_board
+	entities_dict[Tags.ui_arrow] = ui_arrow
 	block_dict[Tags.bl_empty] = block_empty
 	block_dict[Tags.bl_palmtree] = block_palmtree
 	block_dict[Tags.bl_default] = block_default

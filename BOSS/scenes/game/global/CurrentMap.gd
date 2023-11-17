@@ -6,6 +6,7 @@ var map_manager
 var map_generator
 var level_node
 var rendered
+var backgrounds
 
 var player_spawn
 onready var map = {}
@@ -17,6 +18,7 @@ onready var map = {}
 #	return map.size()
 
 func generate_map(level, spawn_point):
+	GlobalAudio.ambient_player.ambient_stop()
 	PlayerSingleton.remove_player()
 	record_entities()
 	level_node.active_level.update_maps()
@@ -25,7 +27,9 @@ func generate_map(level, spawn_point):
 	load_level(level, spawn_point)
 	map_generator.generate_map()
 	level.create_entities()
+	backgrounds.apply_bg(level_node.active_level.bg)
 	PlayerSingleton.place_player(player_spawn, level_node.active_level.map_tag_name)
+	level_node.active_level.start_audio()
 
 func trigger_level_locations(iso_position, map_tag):
 	level_node.active_level.trigger_level_locations(iso_position, map_tag)

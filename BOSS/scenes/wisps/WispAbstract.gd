@@ -16,11 +16,6 @@ func move(vector2):
 func move_whirlpool(direction):
 	var coords = Global._pos_to_iso(position)
 	move(coords + direction)
-#	update_tile()
-#	current_tile.entities.erase(self)
-#	Global.move_to_coordinates(self, coords + direction)
-#	update_tile()
-#	current_tile.entities.append(self)
 
 func update_tile():
 	current_tile = Global._pos_to_iso(position)
@@ -51,3 +46,5 @@ func whirlpool(direction):
 	move_whirlpool(direction)
 func set_block(block_tag):pass
 func light_on_fire():pass
+
+func highlight():pass

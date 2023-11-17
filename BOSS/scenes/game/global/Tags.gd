@@ -7,6 +7,8 @@ var g_whirlpool = 'wrp'
 var g_player = 'pla'
 var g_wand = "wan"
 
+var ui_arrow = 'arr'
+
 var fl_default = 'def'
 var fl_empty = 'emp'
 var fl_empty_no_access = 'xxx'

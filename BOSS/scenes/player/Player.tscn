@@ -250,6 +250,10 @@ animation = "coconut"
 flip_h = true
 script = ExtResource( 77 )
 
+[node name="SoundDelay" type="Timer" parent="States/StateCoconut/SpritesCoconut"]
+wait_time = 0.7
+one_shot = true
+
 [node name="StateSurfing" type="Node2D" parent="States"]
 visible = false
 script = ExtResource( 31 )
@@ -534,17 +538,18 @@ position = Vector2( 0, 1 )
 polygon = PoolVector2Array( -7, 4, 0, 8, 7, 4, 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -22 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 
 [node name="PositionTimer" type="Timer" parent="."]
-wait_time = 0.08
+wait_time = 0.09
 
 [node name="TerrainTimer" type="Timer" parent="."]
 wait_time = 0.05
 
 [node name="HighlightTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.1
 one_shot = true
 
 [node name="DamagedTimer" type="Timer" parent="."]
@@ -576,6 +581,7 @@ script = ExtResource( 19 )
 [connection signal="animation_finished" from="States/StateFallen/FallenSprites" to="." method="_on_fall_animation_finished"]
 [connection signal="animation_finished" from="States/StateCoconut/SpritesCoconut/East" to="." method="_coconut_animation_finished"]
 [connection signal="animation_finished" from="States/StateCoconut/SpritesCoconut/West" to="." method="_coconut_animation_finished"]
+[connection signal="timeout" from="States/StateCoconut/SpritesCoconut/SoundDelay" to="States/StateCoconut" method="_on_SoundDelay_timeout"]
 [connection signal="lift" from="States/StatePlayer" to="." method="lift"]
 [connection signal="timeout" from="PositionTimer" to="." method="_on_PositionTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]

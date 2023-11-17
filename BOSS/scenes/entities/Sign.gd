@@ -10,14 +10,10 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.type_tag == Tags.g_player:
-		PlayerSingleton.topUI.set_label(text)
-
+		PlayerSingleton.game.call(text)
 
 func _on_Area2D_body_exited(body):
 	if body.type_tag == Tags.g_player:
-		PlayerSingleton.topUI.set_label(CurrentMap.level_node.active_level.map_tag_name)
+		PlayerSingleton.game.call(text)
 
-func get_lifted(player):
-	if player.block_tag() == Tags.fl_empty:
-		player.grab_sign(block, text)
-		destroy_self()
+func get_lifted(player):pass

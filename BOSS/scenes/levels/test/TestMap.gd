@@ -7,4 +7,6 @@ func _ready():
 	player_spawn = Vector2(5,5)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
+	bgm = GlobalAudio.island_bgm
+	bg = "deep_blue"
 

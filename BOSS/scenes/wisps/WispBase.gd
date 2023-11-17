@@ -47,8 +47,9 @@ func turn_into_lava_wisp():
 
 func turn_into_sand_wisp():
 	CurrentMap.map_manager.replace_entity(self, Tags.et_sand_wisp)
-	
+
 func turn_into_fire_wisp():
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.flame)
 	CurrentMap.map_manager.replace_entity(self, Tags.et_fire_wisp)
 
 func _on_TerrainTimer_timeout():

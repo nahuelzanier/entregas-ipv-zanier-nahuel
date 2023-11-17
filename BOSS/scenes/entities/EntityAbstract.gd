@@ -52,3 +52,5 @@ func bottomless_pit(pit):
 	pit.falling_element.start_falling(new_block)
 
 func player_collision(player):pass
+
+func highlight(): pass

@@ -7,10 +7,12 @@ Vector2(20,16), Vector2(23,16), Vector2(20,26), Vector2(23,26), Vector2(24,20), 
 Vector2(28,22), Vector2(28,20)]
 
 func _ready():
-	map_tag_name = "FURNACE"
+	map_tag_name = "TORCH FUEL STORAGE"
 	player_spawn = Vector2(2, 20)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
+	bgm = GlobalAudio.jungle_bgm
+	bg = "red"
 
 	triggers[Vector2(2,19)] = ["generate_map", $"../../Island01/Island02", Vector2(28,11)]
 
@@ -22,3 +24,8 @@ func update_maps():
 		$"../../Island01/Jungle01".light_the_path()
 		$"../../Island01/Jungle02".light_the_path()
 		$"../../Island01/Jungle03".light_the_path()
+
+func play_bgm():
+	GlobalAudio.update_bgm(bgm)
+	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:
+		GlobalAudio.bgm_player.play_bgm(GlobalAudio.bgm_player.jungle_bgm, 0.1)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/4 - Town.mp3-600e47c793e3d55e2cbbf4a9fa259d7e.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music_star_tropics/4 - Town.mp3"
+dest_files=[ "res://.import/4 - Town.mp3-600e47c793e3d55e2cbbf4a9fa259d7e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

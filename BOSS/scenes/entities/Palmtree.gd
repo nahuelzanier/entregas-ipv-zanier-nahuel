@@ -11,3 +11,11 @@ func grow_coconut():
 func become_possessed(wisp):
 	wisp.destroy_self()
 	grow_coconut()
+
+func highlight():
+	$HighlightTimer.start()
+
+func _on_HighlightTimer_timeout():
+	if CurrentMap.level_node.active_level.map_tag_name == "CASTAWAY":
+		$Sprite.play("highlight")
+

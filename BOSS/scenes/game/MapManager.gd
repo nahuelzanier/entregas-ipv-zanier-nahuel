@@ -37,6 +37,7 @@ func create_entity(entity_tag, vector2):
 	var new_entity = packed_scenes.generate_entity(entity_tag, vector2)
 	Global.move_to_coordinates(new_entity, vector2)
 	rendered.entities.add_child(new_entity)
+	return new_entity
 
 func new_block_with_position(block_tag, vector2):
 	var block = packed_scenes.new_block(block_tag)

@@ -7,6 +7,8 @@ func _ready():
 	player_spawn = Vector2(21.5, 32)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()
+	bgm = GlobalAudio.island_bgm
+	bg = "deep_blue"
 
 	triggers[Vector2(21,33)] = ["generate_map", $"../Island01", Vector2(18,1)]
 	triggers[Vector2(22,33)] = ["generate_map", $"../Island01", Vector2(19,1)]
@@ -23,3 +25,8 @@ func _ready():
 	triggers[Vector2(8,6)] = ["generate_map", $"../../SaltMines01/SaltMines01_01", Vector2(5,48)]
 	triggers[Vector2(21,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(29,31)]
 	triggers[Vector2(22,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(30,31)]
+
+func play_bgm():
+	GlobalAudio.update_bgm(bgm)
+	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:
+		GlobalAudio.bgm_player.play_bgm(GlobalAudio.bgm_player.island_bgm, 0.1)

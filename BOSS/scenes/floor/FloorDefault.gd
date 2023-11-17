@@ -49,6 +49,7 @@ func quake_start():
 	CurrentMap.map[iso_pos + Vector2(-1,0)].quake(Vector2(-1, 0))
 
 func quake(vector2):
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.quake)
 	quake = true
 	$Sprite/AnimationPlayer.play("QuakeDefault")
 	$QuakeDamage.start()
@@ -67,5 +68,4 @@ func player_is_on(player):
 		player.take_damage(global_position.direction_to(player.global_position).normalized())
 	else:
 		player.speed = player.default_speed
-
 

@@ -1,7 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/entities/water wisp.png" type="Texture" id=1]
 [ext_resource path="res://scenes/wisps/WaterWisp.gd" type="Script" id=2]
+[ext_resource path="res://assets/entities/water wisp anim 2.png" type="Texture" id=3]
+[ext_resource path="res://assets/entities/water wisp anim 1.png" type="Texture" id=4]
+[ext_resource path="res://assets/entities/water wisp anim 3.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "dive",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "surface",
+"speed": 3.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.0
@@ -9,9 +25,10 @@ radius = 6.0
 [node name="WaterWisp" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 6 )
-texture = ExtResource( 1 )
+frames = SubResource( 2 )
+animation = "dive"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 6 )
@@ -19,9 +36,11 @@ shape = SubResource( 1 )
 
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 1.67
+one_shot = true
 
 [node name="TerrainTimer" type="Timer" parent="."]
 wait_time = 1.32
 
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]

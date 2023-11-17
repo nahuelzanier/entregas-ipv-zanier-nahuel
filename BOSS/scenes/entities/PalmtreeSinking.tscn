@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/entities/PalmtreeSinking.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 9.0
+radius = 11.0
 
 [node name="PalmtreeSinking" type="KinematicBody2D"]
 collision_layer = 3

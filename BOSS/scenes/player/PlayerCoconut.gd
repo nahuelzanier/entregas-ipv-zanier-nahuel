@@ -18,6 +18,7 @@ func lifting_sprites():pass
 func unlifting_sprites():pass
 
 func drink_coconut(direction):
+	$SpritesCoconut/SoundDelay.start()
 	if direction.x >= 0:
 		west.hide()
 		east.show()
@@ -30,3 +31,7 @@ func drink_coconut(direction):
 func stop_animation():
 	east.playing = false
 	west.playing = false
+
+
+func _on_SoundDelay_timeout():
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.chomp)

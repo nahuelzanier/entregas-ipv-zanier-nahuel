@@ -13,6 +13,7 @@ func _ready():
 	$MoveTimer.start()
 	update_tile()
 	CurrentMap.map[current_tile].entities.append(self)
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.flame)
 
 func _physics_process(delta):
 	ray_cast_2d.cast_to = move_vector

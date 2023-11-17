@@ -6,6 +6,7 @@ func _ready():
 	block = Tags.bl_empty
 	$BurnOut.start()
 	$SpreadFire.start()
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.flame)
 
 func _on_BurnOut_timeout():
 	destroy_self()

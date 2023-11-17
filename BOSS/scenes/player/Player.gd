@@ -24,7 +24,6 @@ onready var is_lifting = false
 onready var can_sink = true
 onready var direction = Vector2.ZERO
 
-
 func _ready():
 	PlayerSingleton.player == self
 	PlayerSingleton.update_hearts()
@@ -65,12 +64,12 @@ func _on_TerrainTimer_timeout():
 func _on_Player_body_entered(body):
 	body.player_collision(self)
 
-
 # GRAB MECHANICS
 func grab_coords():
 	return (Global._pos_to_iso(position + Vector2(0,6)) + state.sprites.sprite.grab)
 
 func lift():
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.pick_up)
 	lift_position.block.lift(self)
 
 func block():
@@ -129,6 +128,7 @@ func grab_sign(block, text):
 # DAMAGE
 func take_damage(vector2):
 	if !invincible:
+		GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.hurt)
 		invincible = true
 		$InmunityTimer.start()
 		$DamagedTimer.start()
@@ -142,7 +142,7 @@ func _on_InmunityTimer_timeout():
 	invincible = false
 	state.visible = true
 	$DamagedTimer.stop()
-	
+
 func drink_coconut():
 	var direction = state.sprites.sprite.grab
 	state.hide()
@@ -182,6 +182,7 @@ func _on_SinkTimer_timeout():
 
 # SURF
 func start_surfing(palmtree):
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.hop)
 	is_surfing = true
 	lift_position.position = lift_position.surfing_position
 	state.hide()
@@ -201,6 +202,7 @@ func stop_surfing_ingore_palmtree():
 	collision_mask = 1
 
 func stop_surfing(tile):
+	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.hop)
 	is_surfing = false
 	lift_position.position = lift_position.player_position
 	state.hide()
@@ -229,6 +231,3 @@ func _on_fall_animation_finished():
 	state.hide()
 	state = $States/StatePlayer
 	state.show()
-
-
-
