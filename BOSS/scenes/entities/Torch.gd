@@ -15,7 +15,7 @@ func light_on_fire():
 	CurrentMap.map_manager.replace_entity(self, Tags.et_torch_on)
 
 func highlight():
-	if (CurrentMap.level_node.active_level.map_tag_name == "TORCH FUEL STORAGE"
+	if (CurrentMap.level_node.active_level.map_tag_name == "LIGHT ALL TORCHES"
 	|| CurrentMap.level_node.active_level.map_tag_name == "SALT MINES"
 	|| CurrentMap.level_node.active_level.map_tag_name == "DARK ROOM ?"
 	|| CurrentMap.level_node.active_level.map_tag_name == "DARK ROOM ??"

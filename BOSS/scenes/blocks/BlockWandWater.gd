@@ -8,5 +8,5 @@ func _ready():
 	
 func lift(player):
 	var tile = CurrentMap.map_manager.get_tile(player.grab_coords())
-	if tile.entities.size() == 0:
+	if tile.unlift_wand():
 		player.unlift_entity(unlift)

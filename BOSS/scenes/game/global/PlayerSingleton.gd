@@ -46,3 +46,9 @@ func increase_max_hearts():
 func recover_life():
 	current_hearts = min(max_hearts, current_hearts+1)
 	update_hearts()
+
+func set_label(text):
+	topUI.set_label(text)
+
+func default_label():
+	topUI.set_label(CurrentMap.level_node.active_level.map_tag_name)

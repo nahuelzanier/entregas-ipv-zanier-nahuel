@@ -15,6 +15,7 @@ func _ready():
 	triggers[Vector2(12,6)] = ["generate_map", $"../../SideAreas01/SideCave01", Vector2(8,12)]
 	triggers[Vector2(9,16)] = ["generate_map", $"../Island01", Vector2(5,1)]
 	triggers[Vector2(10,16)] = ["generate_map", $"../Island01", Vector2(6,1)]
+	triggers[Vector2(5,10)] = ["generate_map", $"../../Tutorial01/Tutorial05", Vector2(12,9)]
 
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)

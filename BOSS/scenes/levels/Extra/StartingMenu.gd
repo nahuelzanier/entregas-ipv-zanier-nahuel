@@ -11,17 +11,17 @@ func _ready():
 	bgm = GlobalAudio.island_bgm
 	bg = "deep_blue"
 
-	triggers[Vector2(18,1)] = ["generate_map", $"../Island01/Island03", Vector2(7,13)]
-	triggers[Vector2(19,1)] = ["generate_map", $"../Island01/Island03", Vector2(7,13)]
+	triggers[Vector2(18,1)] = ["generate_map", $"../Tutorial01/Tutorial01", Vector2(11,16)]
+	triggers[Vector2(19,1)] = ["generate_map", $"../Tutorial01/Tutorial01", Vector2(11,16)]
 
 func create_entities():
 	.create_entities()
-	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-	sign01.text = "tutorial_01"
-	CurrentMap.map_manager.place_entity(sign01, Vector2(19,21))
-	var sign02 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-	sign02.text = "tutorial_02"
-	CurrentMap.map_manager.place_entity(sign02, Vector2(18,16))
+#	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+#	sign01.text = "tutorial_01"
+#	CurrentMap.map_manager.place_entity(sign01, Vector2(19,21))
+#	var sign02 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+#	sign02.text = "tutorial_02"
+#	CurrentMap.map_manager.place_entity(sign02, Vector2(18,16))
 
 func trigger_level_locations(iso_position, tag):
 	.trigger_level_locations(iso_position, tag)

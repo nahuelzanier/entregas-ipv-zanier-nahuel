@@ -13,7 +13,7 @@ texture = ExtResource( 3 )
 [node name="Trigger" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Trigger"]
-position = Vector2( -9, 1 )
-polygon = PoolVector2Array( 0, 8, 5, 11, 9, 8, 4, 5 )
+position = Vector2( -8, 1 )
+polygon = PoolVector2Array( 0, 7, 5, 10, 11, 7, 6, 4 )
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]

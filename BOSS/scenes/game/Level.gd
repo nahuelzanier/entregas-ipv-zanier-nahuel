@@ -3,6 +3,9 @@ extends Node2D
 onready var active_level = $EmptyLevel
 
 onready var map_array = [
+	$Tutorial01/Tutorial01,
+	$Tutorial01/Tutorial02,
+	$Tutorial01/Tutorial03,
 	$EmptyLevel, 
 	$StartingMenu,
 	$Dungeon01/Room01,

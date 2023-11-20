@@ -68,6 +68,7 @@ export (PackedScene) var entity_torch
 export (PackedScene) var entity_torch_on
 export (PackedScene) var wand_mineral
 export (PackedScene) var wand_water
+export (PackedScene) var wand_void
 export (PackedScene) var heart
 export (PackedScene) var sign_board
 #BLOCKS
@@ -87,6 +88,7 @@ export (PackedScene) var block_water_wisp
 export (PackedScene) var block_stone_lid
 export (PackedScene) var block_wand_mineral
 export (PackedScene) var block_wand_water
+export (PackedScene) var block_wand_void
 export (PackedScene) var block_heart
 export (PackedScene) var block_player
 export (PackedScene) var block_sign
@@ -161,6 +163,7 @@ func _ready():
 	entities_dict[Tags.et_torch_on] = entity_torch_on
 	entities_dict[Tags.et_wand_mineral] = wand_mineral
 	entities_dict[Tags.et_wand_water] = wand_water
+	entities_dict[Tags.et_wand_void] = wand_void
 	entities_dict[Tags.et_heart] = heart
 	entities_dict[Tags.et_sign] = sign_board
 	entities_dict[Tags.ui_arrow] = ui_arrow
@@ -180,6 +183,7 @@ func _ready():
 	block_dict[Tags.bl_stone_lid] = block_stone_lid
 	block_dict[Tags.bl_wand_mineral] = block_wand_mineral
 	block_dict[Tags.bl_wand_water] = block_wand_water
+	block_dict[Tags.bl_wand_void] = block_wand_void
 	block_dict[Tags.bl_heart] = block_heart
 	block_dict[Tags.bl_player] = block_player
 	block_dict[Tags.bl_sign] = block_sign

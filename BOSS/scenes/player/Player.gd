@@ -8,6 +8,8 @@ onready var tag = Tags.et_player
 onready var lift_position = $LiftingPosition
 onready var feet_position = $FeetPosition
 onready var highlight = $Highlight
+onready var highlight_perma = $HighlightPerma
+
 onready var highlight_timer = $HighlightTimer
 
 onready var states = $States
@@ -38,6 +40,7 @@ func _physics_process(delta):
 	rotation = 0
 	state.process_state()
 	var grab = grab_coords()
+	highlight_perma.global_position = Global._iso_to_pos(grab) + Vector2(0,7)
 	highlight.global_position = Global._iso_to_pos(grab) + Vector2(0,7)
 	apply_central_impulse(direction.normalized()*speed*state.move_multiplier())
 
@@ -182,6 +185,7 @@ func _on_SinkTimer_timeout():
 
 # SURF
 func start_surfing(palmtree):
+	highlight_perma.hide()
 	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.hop)
 	is_surfing = true
 	lift_position.position = lift_position.surfing_position
@@ -193,6 +197,7 @@ func start_surfing(palmtree):
 	Global.move_to_coordinates(self, palmtree.current_tile)
 
 func stop_surfing_ingore_palmtree():
+	highlight_perma.show()
 	is_surfing = false
 	lift_position.position = lift_position.player_position
 	state.hide()
@@ -202,6 +207,7 @@ func stop_surfing_ingore_palmtree():
 	collision_mask = 1
 
 func stop_surfing(tile):
+	highlight_perma.show()
 	GlobalAudio.sfx_player.play_sound(GlobalAudio.sfx_player.hop)
 	is_surfing = false
 	lift_position.position = lift_position.player_position
@@ -221,12 +227,14 @@ func whirlpool(whirlpool):
 
 #FALL
 func player_fall():
+	highlight_perma.hide()
 	state.hide()
 	state = $States/StateFallen
 	state.show()
 	state.player_fall()
 
 func _on_fall_animation_finished():
+	highlight_perma.show()
 	state.stop_animation()
 	state.hide()
 	state = $States/StatePlayer

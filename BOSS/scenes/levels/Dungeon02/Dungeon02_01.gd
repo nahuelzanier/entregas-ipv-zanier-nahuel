@@ -17,6 +17,12 @@ func _ready():
 	triggers[Vector2(3,20)] = ["generate_map", $"../../Island01/Island02", Vector2(3,20)]
 	triggers[Vector2(4,21)] = ["generate_map", $"../Dungeon02_02", Vector2(6,9)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "WRONG WAY!"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(21,7))
+
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)
 	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:

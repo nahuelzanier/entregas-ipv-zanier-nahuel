@@ -133,6 +133,9 @@ func unlift_palmtree():
 func sinks_palmtree():
 	return false
 
+func unlift_wand():
+	return entities.size() == 0 
+
 func quake_start(): pass
 func quake(vector2): pass
 func button_active_effect(button): pass

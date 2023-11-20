@@ -38,7 +38,6 @@ frames = SubResource( 2 )
 animation = "highlight"
 
 [node name="HighlightTimer" type="Timer" parent="."]
-wait_time = 7.0
 one_shot = true
 
 [connection signal="timeout" from="HighlightTimer" to="." method="_on_HighlightTimer_timeout"]

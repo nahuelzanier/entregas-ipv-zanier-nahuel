@@ -7,7 +7,7 @@ Vector2(20,16), Vector2(23,16), Vector2(20,26), Vector2(23,26), Vector2(24,20), 
 Vector2(28,22), Vector2(28,20)]
 
 func _ready():
-	map_tag_name = "TORCH FUEL STORAGE"
+	map_tag_name = "LIGHT ALL TORCHES"
 	player_spawn = Vector2(2, 20)
 	map = map_designer.get_map()
 	entities = map_entity_designer.get_map()

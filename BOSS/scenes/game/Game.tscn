@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=2]
+[gd_scene load_steps=171 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -126,6 +126,8 @@
 [ext_resource path="res://scenes/levels/Extra/StartingMenu.tscn" type="PackedScene" id=124]
 [ext_resource path="res://assets/background/title_screen.png" type="Texture" id=125]
 [ext_resource path="res://scenes/game/BackgroundColor.gd" type="Script" id=126]
+[ext_resource path="res://scenes/levels/Tutorial01/Tutorial01.tscn" type="PackedScene" id=127]
+[ext_resource path="res://scenes/levels/Tutorial01/Tutorial02.tscn" type="PackedScene" id=128]
 [ext_resource path="res://scenes/game/PressStart.gd" type="Script" id=129]
 [ext_resource path="res://scenes/floor/FloorEmptyAccesibleWater.tscn" type="PackedScene" id=130]
 [ext_resource path="res://scenes/blocks/BlockPlayer.tscn" type="PackedScene" id=131]
@@ -157,6 +159,11 @@
 [ext_resource path="res://assets/sounds/sfx/pickup.wav" type="AudioStream" id=157]
 [ext_resource path="res://assets/sounds/music_star_tropics/1 - Title.mp3" type="AudioStream" id=158]
 [ext_resource path="res://assets/sounds/music_star_tropics/9 - Player Miss.mp3" type="AudioStream" id=159]
+[ext_resource path="res://scenes/levels/Tutorial01/Tutorial03.tscn" type="PackedScene" id=160]
+[ext_resource path="res://scenes/levels/Tutorial01/Tutorial04.tscn" type="PackedScene" id=161]
+[ext_resource path="res://scenes/blocks/BlockWandVoid.tscn" type="PackedScene" id=162]
+[ext_resource path="res://scenes/wands/VoidWand.tscn" type="PackedScene" id=163]
+[ext_resource path="res://scenes/levels/Tutorial01/Tutorial05.tscn" type="PackedScene" id=164]
 
 [sub_resource type="DynamicFont" id=4]
 size = 10
@@ -356,16 +363,20 @@ transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 [node name="ColorRect" type="ColorRect" parent="TitleScreen"]
 anchor_right = 0.25
 anchor_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="PressStart" type="Label" parent="TitleScreen/ColorRect"]
-anchor_left = 0.43
 anchor_top = 0.7
-anchor_right = 0.519
-anchor_bottom = 0.7
-margin_right = -9.40503
+anchor_right = 0.998
+anchor_bottom = 0.742
+margin_top = -0.199997
+margin_right = -0.0100098
+margin_bottom = 1.04799
 custom_fonts/font = SubResource( 3 )
 text = "PRESS START"
+align = 1
 script = ExtResource( 129 )
 
 [node name="PressStartTimer" type="Timer" parent="TitleScreen/ColorRect/PressStart"]
@@ -373,12 +384,14 @@ wait_time = 0.5
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="TitleScreen"]
-anchor_left = 0.063
-anchor_top = 0.03
-anchor_right = 0.121
-anchor_bottom = 0.03
-margin_right = -120.78
+anchor_top = 0.002
+anchor_right = 0.249
+anchor_bottom = 0.193
+margin_top = -2.048
+margin_right = 0.97998
+margin_bottom = 0.367996
 texture = ExtResource( 125 )
+stretch_mode = 4
 
 [node name="Tutorial01" type="CanvasLayer" parent="."]
 visible = false
@@ -443,6 +456,23 @@ texture = ExtResource( 139 )
 
 [node name="Level" type="Node2D" parent="."]
 script = ExtResource( 45 )
+
+[node name="Tutorial01" type="Node2D" parent="Level"]
+
+[node name="Tutorial01" parent="Level/Tutorial01" instance=ExtResource( 127 )]
+visible = false
+
+[node name="Tutorial02" parent="Level/Tutorial01" instance=ExtResource( 128 )]
+visible = false
+
+[node name="Tutorial03" parent="Level/Tutorial01" instance=ExtResource( 160 )]
+visible = false
+
+[node name="Tutorial04" parent="Level/Tutorial01" instance=ExtResource( 161 )]
+visible = false
+
+[node name="Tutorial05" parent="Level/Tutorial01" instance=ExtResource( 164 )]
+visible = false
 
 [node name="EmptyLevel" parent="Level" instance=ExtResource( 87 )]
 visible = false
@@ -635,6 +665,7 @@ entity_torch = ExtResource( 60 )
 entity_torch_on = ExtResource( 89 )
 wand_mineral = ExtResource( 103 )
 wand_water = ExtResource( 136 )
+wand_void = ExtResource( 163 )
 heart = ExtResource( 122 )
 sign_board = ExtResource( 132 )
 block_empty = ExtResource( 18 )
@@ -653,6 +684,7 @@ block_water_wisp = ExtResource( 80 )
 block_stone_lid = ExtResource( 84 )
 block_wand_mineral = ExtResource( 104 )
 block_wand_water = ExtResource( 135 )
+block_wand_void = ExtResource( 162 )
 block_heart = ExtResource( 123 )
 block_player = ExtResource( 131 )
 block_sign = ExtResource( 133 )

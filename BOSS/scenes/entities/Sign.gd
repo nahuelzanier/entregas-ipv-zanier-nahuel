@@ -10,10 +10,10 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.type_tag == Tags.g_player:
-		PlayerSingleton.game.call(text)
+		PlayerSingleton.set_label(text)
 
 func _on_Area2D_body_exited(body):
 	if body.type_tag == Tags.g_player:
-		PlayerSingleton.game.call(text)
+		PlayerSingleton.default_label()
 
 func get_lifted(player):pass
