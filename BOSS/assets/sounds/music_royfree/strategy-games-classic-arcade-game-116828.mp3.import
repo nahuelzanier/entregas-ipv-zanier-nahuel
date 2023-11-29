@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/strategy-games-classic-arcade-game-116828.mp3-f8d35b8679f7284574c7815c87d3eeb4.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music_royfree/strategy-games-classic-arcade-game-116828.mp3"
+dest_files=[ "res://.import/strategy-games-classic-arcade-game-116828.mp3-f8d35b8679f7284574c7815c87d3eeb4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

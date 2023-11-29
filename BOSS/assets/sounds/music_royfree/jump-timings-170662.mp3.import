@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jump-timings-170662.mp3-5cb252c9b7d0b2f31fd14ff99821eb16.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music_royfree/jump-timings-170662.mp3"
+dest_files=[ "res://.import/jump-timings-170662.mp3-5cb252c9b7d0b2f31fd14ff99821eb16.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

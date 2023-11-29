@@ -37,7 +37,7 @@ func damage(amount):
 		player.queue_free()
 		player_exists = false
 		game.game_over()
-		topUI.set_label("OUCH...")
+		topUI.set_label("PRESS START")
 
 func increase_max_hearts():
 	max_hearts += 1

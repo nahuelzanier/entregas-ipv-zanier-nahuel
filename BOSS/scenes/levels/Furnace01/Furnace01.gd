@@ -16,6 +16,12 @@ func _ready():
 
 	triggers[Vector2(2,19)] = ["generate_map", $"../../Island01/Island02", Vector2(28,11)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "LIGHT YOUR PATH"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(9,20))
+
 func update_maps():
 	var all_lit = true
 	for v in torches:

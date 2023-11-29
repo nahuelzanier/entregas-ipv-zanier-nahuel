@@ -26,6 +26,18 @@ func _ready():
 	triggers[Vector2(21,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(29,31)]
 	triggers[Vector2(22,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(30,31)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "BEWARE!!"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(20,29))
+	var sign02 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign02.text = "TO THE JUNGLE"
+	CurrentMap.map_manager.place_entity(sign02, Vector2(30,16))
+	var sign03 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign03.text = "MINES ENTRANCE"
+	CurrentMap.map_manager.place_entity(sign03, Vector2(11,9))
+
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)
 	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:

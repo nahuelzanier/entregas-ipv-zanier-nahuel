@@ -10,7 +10,6 @@ onready var game_over = false
 
 func _ready():
 	PlayerSingleton.game = self
-	$MainThemeTimer.start()
 
 func _process(delta):
 	if Input.is_action_just_pressed("start"):
@@ -34,7 +33,6 @@ func game_over():
 	game_over_screen.show()
 
 func _on_GameOverTimer_timeout():
-	GlobalAudio.bgm_player.play_bgm(GlobalAudio.bgm_player.title_bgm, 0.1)
 	title_screen.show()
 	game_over_screen.hide()
 	game_running = false
@@ -46,5 +44,3 @@ func tutorial_01():
 func tutorial_02():
 	$Tutorial02.visible = !$Tutorial02.visible
 
-func _on_MainThemeTimer_timeout():
-	GlobalAudio.bgm_player.play_bgm(GlobalAudio.bgm_player.title_bgm, 0.1)

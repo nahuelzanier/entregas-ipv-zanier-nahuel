@@ -17,6 +17,12 @@ func _ready():
 	triggers[Vector2(10,16)] = ["generate_map", $"../Island01", Vector2(6,1)]
 	triggers[Vector2(5,10)] = ["generate_map", $"../../Tutorial01/Tutorial05", Vector2(12,9)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "TO THE VILLAGE"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(16,7))
+
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)
 	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:

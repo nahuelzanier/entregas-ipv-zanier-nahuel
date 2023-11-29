@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/done-digging-170659.mp3-ab035a5cc427f2f54852d331ab42554c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music_royfree/done-digging-170659.mp3"
+dest_files=[ "res://.import/done-digging-170659.mp3-ab035a5cc427f2f54852d331ab42554c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

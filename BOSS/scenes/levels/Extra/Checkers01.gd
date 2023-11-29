@@ -12,6 +12,11 @@ func _ready():
 
 	triggers[Vector2(26,27)] = ["generate_map", $"../../Volcano01/Volcano01_01", Vector2(13,18)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "MUSIC FROM PIXABAY.COM"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(15,21))
 
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)

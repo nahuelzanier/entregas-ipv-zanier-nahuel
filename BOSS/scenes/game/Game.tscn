@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -142,13 +142,13 @@
 [ext_resource path="res://scenes/UI/Arrow.tscn" type="PackedScene" id=140]
 [ext_resource path="res://scenes/game/BGM.gd" type="Script" id=141]
 [ext_resource path="res://scenes/game/AmbientSounds.gd" type="Script" id=142]
-[ext_resource path="res://assets/sounds/music_star_tropics/2 - Overworld.mp3" type="AudioStream" id=143]
-[ext_resource path="res://assets/sounds/music_star_tropics/6 - Hidden Area.mp3" type="AudioStream" id=144]
-[ext_resource path="res://assets/sounds/music_star_tropics/5 - Dungeon.mp3" type="AudioStream" id=145]
+[ext_resource path="res://assets/sounds/music_royfree/jump-timings-170662.mp3" type="AudioStream" id=143]
+[ext_resource path="res://assets/sounds/music_royfree/8-bit-arcade-138828.mp3" type="AudioStream" id=144]
+[ext_resource path="res://assets/sounds/music_royfree/mossy-sewer-169049.mp3" type="AudioStream" id=145]
 [ext_resource path="res://assets/sounds/ambient/wave.wav" type="AudioStream" id=146]
-[ext_resource path="res://assets/sounds/music_star_tropics/7 - Danger Zone.mp3" type="AudioStream" id=147]
-[ext_resource path="res://assets/sounds/music_star_tropics/3 - The Southern Cross.mp3" type="AudioStream" id=148]
-[ext_resource path="res://assets/sounds/music_star_tropics/4 - Town.mp3" type="AudioStream" id=149]
+[ext_resource path="res://assets/sounds/music_royfree/beta-max-memories-classic-arcade-game-116837.mp3" type="AudioStream" id=147]
+[ext_resource path="res://assets/sounds/music_royfree/strategy-games-classic-arcade-game-116828.mp3" type="AudioStream" id=148]
+[ext_resource path="res://assets/sounds/music_royfree/done-digging-170659.mp3" type="AudioStream" id=149]
 [ext_resource path="res://scenes/game/SFX.gd" type="Script" id=150]
 [ext_resource path="res://assets/sounds/sfx/chomp.wav" type="AudioStream" id=151]
 [ext_resource path="res://assets/sounds/sfx/hurt3.wav" type="AudioStream" id=152]
@@ -157,8 +157,7 @@
 [ext_resource path="res://assets/sounds/sfx/quake.wav" type="AudioStream" id=155]
 [ext_resource path="res://assets/sounds/sfx/flame.wav" type="AudioStream" id=156]
 [ext_resource path="res://assets/sounds/sfx/pickup.wav" type="AudioStream" id=157]
-[ext_resource path="res://assets/sounds/music_star_tropics/1 - Title.mp3" type="AudioStream" id=158]
-[ext_resource path="res://assets/sounds/music_star_tropics/9 - Player Miss.mp3" type="AudioStream" id=159]
+[ext_resource path="res://assets/sounds/music_royfree/kl-peach-game-over-ii-135684.mp3" type="AudioStream" id=158]
 [ext_resource path="res://scenes/levels/Tutorial01/Tutorial03.tscn" type="PackedScene" id=160]
 [ext_resource path="res://scenes/levels/Tutorial01/Tutorial04.tscn" type="PackedScene" id=161]
 [ext_resource path="res://scenes/blocks/BlockWandVoid.tscn" type="PackedScene" id=162]
@@ -204,23 +203,18 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="MainThemeTimer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="BGM" type="AudioStreamPlayer" parent="Audio"]
 bus = "BGM"
 script = ExtResource( 141 )
-title_bgm = ExtResource( 158 )
-island_bgm = ExtResource( 143 )
+island_bgm = ExtResource( 144 )
 cave_bgm = ExtResource( 145 )
-side_area = ExtResource( 144 )
-jungle_bgm = ExtResource( 148 )
-canyon_bgm = ExtResource( 149 )
-volcano_bgm = ExtResource( 147 )
-game_over_bgm = ExtResource( 159 )
+side_area = ExtResource( 147 )
+jungle_bgm = ExtResource( 143 )
+canyon_bgm = ExtResource( 148 )
+volcano_bgm = ExtResource( 149 )
+game_over_bgm = ExtResource( 158 )
 
 [node name="BGMDelay" type="Timer" parent="Audio/BGM"]
 one_shot = true
@@ -698,7 +692,6 @@ ysort_entities = ExtResource( 57 )
 
 [node name="Entities" parent="Rendered" instance=ExtResource( 57 )]
 
-[connection signal="timeout" from="MainThemeTimer" to="." method="_on_MainThemeTimer_timeout"]
 [connection signal="timeout" from="Audio/BGM/BGMDelay" to="Audio/BGM" method="_on_BGMDelay_timeout"]
 [connection signal="timeout" from="Audio/AmbientSounds/WaveTimer" to="Audio/AmbientSounds" method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]

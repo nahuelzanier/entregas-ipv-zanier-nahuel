@@ -1,6 +1,5 @@
 extends AudioStreamPlayer
 
-export (AudioStream) var title_bgm
 export (AudioStream) var island_bgm
 export (AudioStream) var cave_bgm
 export (AudioStream) var side_area

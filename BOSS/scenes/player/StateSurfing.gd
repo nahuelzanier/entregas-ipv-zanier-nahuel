@@ -27,7 +27,7 @@ func update_sprites(x, y):
 	sprites_lift.update_sprite(x, y)
 
 func move_multiplier():
-	return 1
+	return 1.2
 
 func lifting_sprites():
 	sprites.hide()

@@ -42,3 +42,7 @@ func born_oil_tile(tile):
 func button_active_effect(button): 
 	if entities.size() > 0:
 		entities[0].button_active_effect(button)
+
+#PLAYER
+func player_is_on(player):
+	player.speed = player.default_speed/2

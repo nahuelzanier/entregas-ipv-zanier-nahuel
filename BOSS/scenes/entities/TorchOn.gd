@@ -15,7 +15,8 @@ func get_lifted(player): pass
 
 func light_on_fire(): pass
 
-func become_possessed(wisp):pass
+func become_possessed(wisp):
+	wisp.turn_into_fire_wisp()
 
 func highlight():
 	if (CurrentMap.level_node.active_level.map_tag_name == "LIGHT ALL TORCHES"

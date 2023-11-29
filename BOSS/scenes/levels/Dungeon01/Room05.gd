@@ -13,6 +13,12 @@ func _ready():
 	triggers[Vector2(10,24)] = ["generate_map", $"../Room04", Vector2(4.5,1)]
 	triggers[Vector2(11,24)] = ["generate_map", $"../Room04", Vector2(4.5,1)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "CLOG THE DRAIN"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(7,10))
+
 func update_maps():
 	if (map[Vector2(8,3)] != Tags.fl_water
 	 && map[Vector2(8,5)] != Tags.fl_water

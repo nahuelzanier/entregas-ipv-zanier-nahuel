@@ -10,5 +10,6 @@ func highlight():
 	$HighlightTimer.start()
 
 func _on_HighlightTimer_timeout():
-	if CurrentMap.level_node.active_level.map_tag_name == "STRANGE ISLAND":
+	if (CurrentMap.level_node.active_level.map_tag_name == "STRANGE ISLAND"
+	 || CurrentMap.level_node.active_level.map_tag_name == "FISHER'S VILLA"):
 		$Sprite.play("highlight")

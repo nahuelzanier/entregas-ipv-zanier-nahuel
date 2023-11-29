@@ -1,0 +1,10 @@
+https://pixabay.com/music/search/8-bit/
+
+export (AudioStream) var title_bgm 
+export (AudioStream) var island_bgm 8-bit-arcade
+export (AudioStream) var cave_bgm mossy-sewer
+export (AudioStream) var side_area beta-max-memories
+export (AudioStream) var jungle_bgm jump-timings
+export (AudioStream) var canyon_bgm strategy-games
+export (AudioStream) var volcano_bgm done-digging
+export (AudioStream) var game_over_bgm kl-peach-game-over
