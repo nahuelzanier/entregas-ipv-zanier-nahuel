@@ -6,6 +6,7 @@ func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_torch_on
 	block = Tags.bl_empty
+	highlight()
 
 func unlift_wisp(player):
 	player.pop_block()

@@ -5,7 +5,6 @@ func _ready():
 	tag = Tags.et_trap_door
 	block = Tags.bl_empty
 
-
 func get_lifted(player):
 	update_tile()
 	CurrentMap.map[current_tile].get_lifted(player)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=2]
+[gd_scene load_steps=174 format=2]
 
 [ext_resource path="res://scenes/game/MapGenerator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=2]
@@ -137,7 +137,7 @@
 [ext_resource path="res://scenes/blocks/BlockWandWater.tscn" type="PackedScene" id=135]
 [ext_resource path="res://scenes/wands/WaterWand.tscn" type="PackedScene" id=136]
 [ext_resource path="res://scenes/levels/WaterTemple01/WaterTemple01.tscn" type="PackedScene" id=137]
-[ext_resource path="res://assets/UI/tutorialUI/graphpickup.png" type="Texture" id=138]
+[ext_resource path="res://assets/UI/tutorialUI/graphpickup03.png" type="Texture" id=138]
 [ext_resource path="res://assets/UI/tutorialUI/arrow.png" type="Texture" id=139]
 [ext_resource path="res://scenes/UI/Arrow.tscn" type="PackedScene" id=140]
 [ext_resource path="res://scenes/game/BGM.gd" type="Script" id=141]
@@ -158,13 +158,21 @@
 [ext_resource path="res://assets/sounds/sfx/flame.wav" type="AudioStream" id=156]
 [ext_resource path="res://assets/sounds/sfx/pickup.wav" type="AudioStream" id=157]
 [ext_resource path="res://assets/sounds/music_royfree/kl-peach-game-over-ii-135684.mp3" type="AudioStream" id=158]
+[ext_resource path="res://assets/UI/tutorialUI/graphpickup01.png" type="Texture" id=159]
 [ext_resource path="res://scenes/levels/Tutorial01/Tutorial03.tscn" type="PackedScene" id=160]
 [ext_resource path="res://scenes/levels/Tutorial01/Tutorial04.tscn" type="PackedScene" id=161]
 [ext_resource path="res://scenes/blocks/BlockWandVoid.tscn" type="PackedScene" id=162]
 [ext_resource path="res://scenes/wands/VoidWand.tscn" type="PackedScene" id=163]
 [ext_resource path="res://scenes/levels/Tutorial01/Tutorial05.tscn" type="PackedScene" id=164]
+[ext_resource path="res://assets/UI/tutorialUI/graphpickup02.png" type="Texture" id=165]
+[ext_resource path="res://scenes/game/Tutorial01.gd" type="Script" id=166]
+[ext_resource path="res://assets/UI/tutorialUI/graphpickup04.png" type="Texture" id=167]
 
 [sub_resource type="DynamicFont" id=4]
+size = 10
+font_data = ExtResource( 119 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 10
 font_data = ExtResource( 119 )
 
@@ -177,10 +185,6 @@ size = 10
 font_data = ExtResource( 119 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 10
-font_data = ExtResource( 119 )
-
-[sub_resource type="DynamicFont" id=6]
 size = 10
 font_data = ExtResource( 119 )
 
@@ -294,13 +298,85 @@ margin_top = 0.0800018
 custom_fonts/font = SubResource( 4 )
 text = "GAME OVER"
 
+[node name="Tutorial01" type="CanvasLayer" parent="."]
+scale = Vector2( 4, 4 )
+transform = Transform2D( 4, 0, 0, 4, 0, 0 )
+script = ExtResource( 166 )
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial01"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+color = Color( 0, 0, 0, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial01"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -70.0
+texture = ExtResource( 159 )
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial01"]
+visible = false
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -70.0
+texture = ExtResource( 165 )
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Tutorial01"]
+visible = false
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -70.0
+texture = ExtResource( 138 )
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="Tutorial01"]
+visible = false
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -70.0
+texture = ExtResource( 167 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Tutorial01"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -100.0
+custom_fonts/font = SubResource( 6 )
+text = "BUTTON"
+align = 1
+valign = 2
+
+[node name="Label2" type="Label" parent="Tutorial01"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -18.0
+custom_fonts/font = SubResource( 6 )
+text = "PRESS START"
+align = 1
+valign = 2
+
+[node name="Label3" type="Label" parent="Tutorial01"]
+anchor_right = 0.25
+anchor_bottom = 0.25
+margin_bottom = -66.0
+custom_fonts/font = SubResource( 6 )
+text = "LEFT/RIGHT WHILE HOLDING TO AIM"
+align = 1
+valign = 2
+
+[node name="TutorialAnimationTimer" type="Timer" parent="Tutorial01"]
+wait_time = 1.6
+autostart = true
+
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2( 4, 4 )
 transform = Transform2D( 4, 0, 0, 4, 0, 0 )
 
 [node name="UITop" type="ColorRect" parent="UI"]
 anchor_right = 0.25
-anchor_bottom = 0.016
+anchor_bottom = 0.02
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 116 )
 full_heart = ExtResource( 118 )
@@ -386,42 +462,6 @@ margin_right = 0.97998
 margin_bottom = 0.367996
 texture = ExtResource( 125 )
 stretch_mode = 4
-
-[node name="Tutorial01" type="CanvasLayer" parent="."]
-visible = false
-scale = Vector2( 4, 4 )
-transform = Transform2D( 4, 0, 0, 4, 0, 0 )
-
-[node name="TextureRect" type="TextureRect" parent="Tutorial01"]
-anchor_left = 0.067
-anchor_top = 0.06
-anchor_right = 0.075
-anchor_bottom = 0.06
-texture = ExtResource( 138 )
-
-[node name="Label" type="Label" parent="Tutorial01"]
-anchor_left = 0.069
-anchor_top = 0.172
-anchor_right = 0.093
-anchor_bottom = 0.184
-custom_fonts/font = SubResource( 6 )
-text = "BUTTON"
-
-[node name="Label2" type="Label" parent="Tutorial01"]
-anchor_left = 0.115
-anchor_top = 0.172
-anchor_right = 0.13
-anchor_bottom = 0.184
-custom_fonts/font = SubResource( 6 )
-text = "HOLD"
-
-[node name="Label3" type="Label" parent="Tutorial01"]
-anchor_left = 0.154
-anchor_top = 0.172
-anchor_right = 0.182
-anchor_bottom = 0.184
-custom_fonts/font = SubResource( 6 )
-text = "RELEASE"
 
 [node name="Tutorial02" type="CanvasLayer" parent="."]
 visible = false
@@ -695,5 +735,6 @@ ysort_entities = ExtResource( 57 )
 [connection signal="timeout" from="Audio/BGM/BGMDelay" to="Audio/BGM" method="_on_BGMDelay_timeout"]
 [connection signal="timeout" from="Audio/AmbientSounds/WaveTimer" to="Audio/AmbientSounds" method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="GameOverTimer" to="." method="_on_GameOverTimer_timeout"]
+[connection signal="timeout" from="Tutorial01/TutorialAnimationTimer" to="Tutorial01" method="_on_TutorialAnimationTimer_timeout"]
 [connection signal="timeout" from="TimeLapse/HideTimer" to="TimeLapse" method="_on_HideTimer_timeout"]
 [connection signal="timeout" from="TitleScreen/ColorRect/PressStart/PressStartTimer" to="TitleScreen/ColorRect/PressStart" method="_on_PressStartTimer_timeout"]

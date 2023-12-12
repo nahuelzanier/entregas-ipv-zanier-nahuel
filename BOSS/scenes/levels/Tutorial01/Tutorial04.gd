@@ -16,12 +16,12 @@ func _ready():
 func create_entities():
 	.create_entities()
 	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-	sign01.text = "ELEMENTS ARE ALIVE!"
+	sign01.text = "BEWARE OF FIRE!!"
 	CurrentMap.map_manager.place_entity(sign01, Vector2(2,11))
 	var sign02 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-	sign02.text = "SOME EAT SALT!"
+	sign02.text = "WATER EATS SALT!"
 	CurrentMap.map_manager.place_entity(sign02, Vector2(17,3))
-	
+
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)
 	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:

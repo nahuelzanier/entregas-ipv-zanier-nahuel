@@ -16,7 +16,7 @@ func _ready():
 func create_entities():
 	.create_entities()
 	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-	sign01.text = "A HANDY BUTTON!"
+	sign01.text = "CAN I GRAB THE BUTTON?"
 	CurrentMap.map_manager.place_entity(sign01, Vector2(4,9))
 	
 func play_bgm():

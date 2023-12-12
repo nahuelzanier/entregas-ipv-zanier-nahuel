@@ -16,6 +16,15 @@ func _ready():
 	triggers[Vector2(33,32)] = ["generate_map", $"../SaltMinesDark02", Vector2(10,14)]
 	triggers[Vector2(3,4)] = ["generate_map", $"../SaltMines01_04", Vector2(11,17)]
 
+func create_entities():
+	.create_entities()
+	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign01.text = "TORCH AHEAD"
+	CurrentMap.map_manager.place_entity(sign01, Vector2(3,49))
+	var sign02 = CurrentMap.map_manager.new_entity(Tags.et_sign)
+	sign02.text = "LIGHTS THE WHOLE MINE"
+	CurrentMap.map_manager.place_entity(sign02, Vector2(3,2))
+
 func update_maps():
 	if (entities[Vector2(10,3)] == Tags.et_torch_on
 	 && entities[Vector2(10,2)] == Tags.et_torch_on):

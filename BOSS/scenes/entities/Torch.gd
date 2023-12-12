@@ -7,6 +7,7 @@ func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_torch
 	block = Tags.bl_empty
+	highlight()
 
 func get_lifted(player): pass
 

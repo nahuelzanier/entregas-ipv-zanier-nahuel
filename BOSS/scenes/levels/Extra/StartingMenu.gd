@@ -17,10 +17,10 @@ func _ready():
 func create_entities():
 	.create_entities()
 #	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-#	sign01.text = "tutorial_01"
+#	sign01.text = "MOVE WHILE HOLDING TO AIM"
 #	CurrentMap.map_manager.place_entity(sign01, Vector2(19,21))
 	var sign02 = CurrentMap.map_manager.new_entity(Tags.et_sign)
-	sign02.text = "HOLD BUTTON TO AIM"
+	sign02.text = "NEED A BOAT"
 	CurrentMap.map_manager.place_entity(sign02, Vector2(18,16))
 
 func trigger_level_locations(iso_position, tag):

@@ -26,6 +26,9 @@ func _ready():
 	triggers[Vector2(21,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(29,31)]
 	triggers[Vector2(22,0)] = ["generate_map", $"../../Canyon01/Canyon01_03", Vector2(30,31)]
 
+func is_checkpoint():
+	return true
+
 func create_entities():
 	.create_entities()
 	var sign01 = CurrentMap.map_manager.new_entity(Tags.et_sign)

@@ -587,6 +587,7 @@ script = ExtResource( 19 )
 [connection signal="animation_finished" from="States/StateCoconut/SpritesCoconut/East" to="." method="_coconut_animation_finished"]
 [connection signal="animation_finished" from="States/StateCoconut/SpritesCoconut/West" to="." method="_coconut_animation_finished"]
 [connection signal="timeout" from="States/StateCoconut/SpritesCoconut/SoundDelay" to="States/StateCoconut" method="_on_SoundDelay_timeout"]
+[connection signal="damage" from="States/StatePlayer" to="." method="_on_StatePlayer_damage"]
 [connection signal="lift" from="States/StatePlayer" to="." method="lift"]
 [connection signal="timeout" from="PositionTimer" to="." method="_on_PositionTimer_timeout"]
 [connection signal="timeout" from="TerrainTimer" to="." method="_on_TerrainTimer_timeout"]

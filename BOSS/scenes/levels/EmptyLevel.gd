@@ -4,7 +4,7 @@ onready var map_designer = $MapDesigner
 onready var map_entity_designer = $MapEntityDesigner
 
 func _ready():
-	map_tag_name = "OUCH..."
+	map_tag_name = "PRESS START"
 	player_spawn = Vector2(1,1)
 	map = map_designer.get_map()
 	bgm = ""

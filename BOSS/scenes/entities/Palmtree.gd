@@ -4,6 +4,7 @@ func _ready():
 	type_tag = Tags.g_entity
 	tag = Tags.et_palmtree
 	block = Tags.bl_palmtree
+	highlight()
 
 func grow_coconut():
 	CurrentMap.map_manager.replace_entity(self, Tags.et_palmtree_coconut)

@@ -7,17 +7,22 @@ var map_generator
 var level_node
 var rendered
 var backgrounds
+var checkpoint_map
+onready var first_checkpoint = false
 
 var player_spawn
 onready var map = {}
 
-#func size_x():
-#	return map[0].size()
-#
-#func size_y():
-#	return map.size()
+func checkpoint_map():
+	generate_map(checkpoint_map, checkpoint_map.player_spawn)
+
+func update_checkpoint(level):
+	if level.is_checkpoint():
+		checkpoint_map = level
+		first_checkpoint = true
 
 func generate_map(level, spawn_point):
+	update_checkpoint(level)
 	GlobalAudio.ambient_player.ambient_stop()
 	PlayerSingleton.remove_player()
 	record_entities()
@@ -50,24 +55,3 @@ func record_entities():
 		if tile.entities.size() > 0:
 			rec_ent[tile.iso_pos] = tile.entities[0].tag
 	level_node.active_level.entities = rec_ent
-
-#OPTIONAL STUFF
-#func add_map_at(ins_map, x, y):
-#	if x+ins_map[0].size() > size_x():
-#		for sub_array in map:
-#			sub_array.resize(x+ins_map[0].size())
-#	if y+ins_map.size() > size_y():
-#		for i in range(y+ins_map.size()-size_y()):
-#			var nullArr = []
-#			for j in range(max(x+ins_map[0].size(), size_x())):
-#				nullArr.append(null)
-#			map.append(nullArr) 
-#	for iy in range(ins_map.size()):
-#		for ix in range(ins_map[0].size()):
-#			map[iy+y][ix+x] = ins_map[iy][ix]
-#
-#func convert_nulls():
-#	for y in range(size_y()):
-#		for x in range(size_x()):
-#			if map[y][x] == null:
-#				map[y][x] = Tags.fl_empty_no_access

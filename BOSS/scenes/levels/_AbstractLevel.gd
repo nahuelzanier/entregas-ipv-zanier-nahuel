@@ -11,8 +11,10 @@ onready var bg
 func create_entities():
 	for k in entities.keys():
 		if entities[k] != Tags.et_sign:
-			var new_entity = CurrentMap.map_manager.create_entity(entities[k], k)
-			new_entity.highlight()
+			CurrentMap.map_manager.create_entity(entities[k], k)
+
+func is_checkpoint():
+	return false
 
 func update_maps():pass
 

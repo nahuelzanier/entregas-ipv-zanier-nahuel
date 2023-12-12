@@ -10,6 +10,7 @@ onready var direction = Vector2.ZERO
 onready var feet_position = $"../../FeetPosition"
 
 signal lift
+signal damage
 
 func process_state():
 	if Input.is_action_just_pressed("grab"):
@@ -24,7 +25,9 @@ func process_state():
 	if Input.is_action_just_pressed("move_left"):
 		current_state.grab_index_update(-1)
 	if Input.is_action_just_pressed("move_right"):
-		current_state.grab_index_update(1)	
+		current_state.grab_index_update(1)
+	if Input.is_action_just_pressed("damage_player"):
+		emit_signal("damage")
 
 func getInput(dir, tile_pos, block_tag):
 	direction = Vector2.ZERO

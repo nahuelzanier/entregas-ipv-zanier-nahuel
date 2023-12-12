@@ -17,6 +17,9 @@ func _ready():
 	triggers[Vector2(16,57)] = ["generate_map", $"../../Island01/Jungle03", volcano_return_path]
 	triggers[Vector2(13,17)] = ["generate_map", $"../../Extras/Checkers01", Vector2(26,26)]
 
+func is_checkpoint():
+	return true
+
 func volcano_return_path(vector2):
 	triggers[Vector2(14,57)] = ["generate_map", $"../../Island01/Jungle03", vector2]
 	triggers[Vector2(15,57)] = ["generate_map", $"../../Island01/Jungle03", vector2]

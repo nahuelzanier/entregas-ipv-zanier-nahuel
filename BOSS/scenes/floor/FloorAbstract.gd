@@ -100,6 +100,9 @@ func sand_wisp_is_on(wisp):
 func fire_wisp_is_on(wisp): pass
 
 #PLAYER
+func allows_lifting():
+	return true
+
 func player_is_on(player):
 	if player.is_surfing:
 		if entities.size() == 0:

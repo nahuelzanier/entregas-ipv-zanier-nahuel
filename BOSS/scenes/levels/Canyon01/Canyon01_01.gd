@@ -13,6 +13,9 @@ func _ready():
 	triggers[Vector2(4,22)] = ["generate_map", $"../../SaltMines01/SaltMines01_05", Vector2(6,1)]
 	triggers[Vector2(13,4)] = ["generate_map", $"../../Canyon01/Canyon01_02", Vector2(6,35)]
 
+func is_checkpoint():
+	return true
+
 func play_bgm():
 	GlobalAudio.update_bgm(bgm)
 	if GlobalAudio.previous_bgm != GlobalAudio.ongoing_bgm:

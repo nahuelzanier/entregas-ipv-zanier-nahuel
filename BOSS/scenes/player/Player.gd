@@ -239,3 +239,7 @@ func _on_fall_animation_finished():
 	state.hide()
 	state = $States/StatePlayer
 	state.show()
+
+
+func _on_StatePlayer_damage():
+	take_damage(Vector2(1,1))

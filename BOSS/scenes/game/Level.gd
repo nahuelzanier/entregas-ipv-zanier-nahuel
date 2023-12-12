@@ -6,6 +6,8 @@ onready var map_array = [
 	$Tutorial01/Tutorial01,
 	$Tutorial01/Tutorial02,
 	$Tutorial01/Tutorial03,
+	$Tutorial01/Tutorial04,
+	$Tutorial01/Tutorial05,
 	$EmptyLevel, 
 	$StartingMenu,
 	$Dungeon01/Room01,
