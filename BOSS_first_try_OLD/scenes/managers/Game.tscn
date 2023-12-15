@@ -1,0 +1,132 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scenes/managers/Game.gd" type="Script" id=1]
+[ext_resource path="res://scenes/floor/FloorPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/managers/HighlightTracker.gd" type="Script" id=4]
+[ext_resource path="res://scenes/enemies/EnemyPawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/managers/PlayerTracker.gd" type="Script" id=6]
+[ext_resource path="res://scenes/managers/CommentTracker.gd" type="Script" id=7]
+[ext_resource path="res://assets/yellow_mark_tile.png" type="Texture" id=8]
+[ext_resource path="res://scenes/attacks/Lightning.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/managers/AttackManager.gd" type="Script" id=10]
+[ext_resource path="res://scenes/terrain/Box.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/managers/MapGenerator.gd" type="Script" id=12]
+[ext_resource path="res://scenes/attacks/highlights/SingleTile.gd" type="Script" id=13]
+[ext_resource path="res://scenes/attacks/Quake.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/attacks/highlights/PlusShape.gd" type="Script" id=15]
+[ext_resource path="res://scenes/attacks/attack_behaviour/LightningBehaviour.gd" type="Script" id=16]
+[ext_resource path="res://scenes/attacks/highlights/ThreeByThree.gd" type="Script" id=17]
+[ext_resource path="res://scenes/attacks/attack_behaviour/QuakeBehaviour.gd" type="Script" id=18]
+[ext_resource path="res://scenes/managers/Attacks.gd" type="Script" id=19]
+[ext_resource path="res://scenes/attacks/attack_behaviour/SlashBehaviour.gd" type="Script" id=20]
+[ext_resource path="res://scenes/attacks/Slash.tscn" type="PackedScene" id=21]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+floor_panel = ExtResource( 2 )
+player = ExtResource( 3 )
+enemy_pawn = ExtResource( 5 )
+box = ExtResource( 11 )
+
+[node name="AttackManager" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="AttackBehaviours" type="Node2D" parent="AttackManager"]
+
+[node name="LightningBehaviour" type="Node2D" parent="AttackManager/AttackBehaviours"]
+script = ExtResource( 16 )
+lightning_scene = ExtResource( 9 )
+
+[node name="QuakeBehaviour" type="Node2D" parent="AttackManager/AttackBehaviours"]
+script = ExtResource( 18 )
+quake_scene = ExtResource( 14 )
+
+[node name="SlashBehaviour" type="Node2D" parent="AttackManager/AttackBehaviours"]
+script = ExtResource( 20 )
+slash_scene = ExtResource( 21 )
+
+[node name="MapGenerator" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="HighlightTracker" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="PlayerTracker" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="CommentTracker" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="Floor" type="YSort" parent="."]
+
+[node name="Elements" type="YSort" parent="."]
+
+[node name="Attacks" type="YSort" parent="Elements"]
+script = ExtResource( 19 )
+
+[node name="AttackHighlights" type="Node2D" parent="Elements/Attacks"]
+z_index = -2
+
+[node name="SingleTile" type="Sprite" parent="Elements/Attacks/AttackHighlights"]
+visible = false
+texture = ExtResource( 8 )
+script = ExtResource( 13 )
+
+[node name="PlusShape" type="Sprite" parent="Elements/Attacks/AttackHighlights"]
+visible = false
+texture = ExtResource( 8 )
+script = ExtResource( 15 )
+
+[node name="NE" type="Sprite" parent="Elements/Attacks/AttackHighlights/PlusShape"]
+position = Vector2( 128, -64 )
+texture = ExtResource( 8 )
+
+[node name="NW" type="Sprite" parent="Elements/Attacks/AttackHighlights/PlusShape"]
+position = Vector2( -128, -64 )
+texture = ExtResource( 8 )
+
+[node name="SW" type="Sprite" parent="Elements/Attacks/AttackHighlights/PlusShape"]
+position = Vector2( -128, 64 )
+texture = ExtResource( 8 )
+
+[node name="SE" type="Sprite" parent="Elements/Attacks/AttackHighlights/PlusShape"]
+position = Vector2( 128, 64 )
+texture = ExtResource( 8 )
+
+[node name="ThreeByThree" type="Sprite" parent="Elements/Attacks/AttackHighlights"]
+visible = false
+texture = ExtResource( 8 )
+script = ExtResource( 17 )
+
+[node name="NE" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( 128, -64 )
+texture = ExtResource( 8 )
+
+[node name="N" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( 0, -128 )
+texture = ExtResource( 8 )
+
+[node name="NW" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( -128, -64 )
+texture = ExtResource( 8 )
+
+[node name="W" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( -256, 0 )
+texture = ExtResource( 8 )
+
+[node name="SW" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( -128, 64 )
+texture = ExtResource( 8 )
+
+[node name="S" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( 0, 128 )
+texture = ExtResource( 8 )
+
+[node name="SE" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( 128, 64 )
+texture = ExtResource( 8 )
+
+[node name="E" type="Sprite" parent="Elements/Attacks/AttackHighlights/ThreeByThree"]
+position = Vector2( 256, 0 )
+texture = ExtResource( 8 )
